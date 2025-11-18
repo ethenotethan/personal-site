@@ -1,13 +1,13 @@
 ---
 # Display name
-title: Alex Johnson
+title: Ethen
 
 # Name pronunciation (optional)
 name_pronunciation: ''
 
 # Full name (for SEO)
-first_name: Alex
-last_name: Johnson
+first_name: Ethen
+last_name: P
 
 # Pronouns (optional)
 pronouns: he/him
@@ -23,150 +23,153 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Senior AI Research Scientist
+role: Senior Blockchain Engineer
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: Meta AI
-    url: https://ai.meta.com/
+  - name: EigenCloud
+    url: https://www.eigencloud.xyz/
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:alex.johnson@meta.com'
+    url: 'mailto:ethenpo@gmail.com'
     label: E-mail Me
   - icon: brands/x
-    url: https://twitter.com/AlexAIResearch
+    url: https://x.com/ethen_not_ethan
   - icon: brands/github
-    url: https://github.com/alexjohnsonai
+    url: https://github.com/ethenotethan
   - icon: brands/linkedin
-    url: https://www.linkedin.com/in/alexjohnsonai/
-  - icon: academicons/google-scholar
-    url: https://scholar.google.com/citations?user=alexjohnson
-  - icon: academicons/orcid
-    url: https://orcid.org/0000-0002-1825-0097
+    url: https://www.linkedin.com/in/ethen-p-5bb640148?utm_source=share&utm_campaign=share_via&utm_content=profile
 
 interests:
-  - Large Language Models
-  - Computer Vision
-  - Reinforcement Learning
-  - AI Ethics
+  - Ethereum Rollups
+  - Zero Knowledge Cryptography
+  - Distributed Systems
+  - Large Language Models and AI Agents
+  - EVM Scalability
+  - Systems Design
+  - Networking
 
 education:
-  - area: PhD Computer Science (AI Focus)
-    institution: Stanford University
-    icon: ""
-    date_start: 2015-09-01
-    date_end: 2019-06-30
-    summary: |
-      Thesis on _Scaling Laws for Neural Language Models_. Supervised by Prof. Andrew Ng. Published 5 papers in NeurIPS and ICML, with 2 best paper awards.
-    button:
-      text: 'Read Thesis'
-      url: 'https://example.com/thesis.pdf'
-  - area: MS Computer Science
-    institution: Carnegie Mellon University
-    icon: ""
-    date_start: 2013-09-01
-    date_end: 2015-05-31
-    summary: |
-      GPA: 4.0/4.0
-
-      Specialized in machine learning and robotics.
   - area: BS Computer Science
-    institution: MIT
+    institution: University of San Francisco
     icon: ""
-    date_start: 2009-09-01
-    date_end: 2013-05-31
+    date_start: 2017-09-01
+    date_end: 2021-12-01
     summary: |
-      GPA: 3.9/4.0
-
-      Minored in Mathematics. President of AI Club.
+      Minored in Mathematics. Tinkered with algorithmic trading.
 
 work:
-  - position: Senior AI Research Scientist
-    company_name: Meta AI
-    company_url: 'https://ai.meta.com/'
+  - position: Senior Blockchain Engineer
+    company_name: EigenCloud
+    company_url: 'https://www.eigencloud.xyz/'
     icon: ''
-    date_start: 2020-01-01
+    date_start: 2025-04-01
     date_end: ''
     summary: |2-
-      Leading research on multimodal AI systems. Contributed to Llama 2 and other open-source models. 50+ citations in 3 years.
-  - position: AI Research Intern
-    company_name: OpenAI
-    company_url: 'https://openai.com/'
+      Designed and built secure blockchain integrations between different rollup frameworks (i.e, Arbitrum Orbit, OP Stack)
+      and EigenDA. 
+
+  - position: Senior Protocol Security Engineer
+    company_name: Coinbase
+    company_url: ''
     icon: ''
-    date_start: 2019-06-01
-    date_end: 2019-12-31
+    date_start: 2024-05-01
+    date_end: 2024-12-15
     summary: |
-      Worked on GPT-3 scaling. Co-authored paper on prompt engineering.
+      Designed and operationalized security assessment frameworks used for calculating risk when adopting blockchains with novel smart contract execution environments. Built an in-house monitoring service for real-time threat detection on OP Stack compatible blockchains. Worked closesly with the BASE protocol team to securely boostrap the chain.
+
+  - position: Blockchain Security Engineer
+    company_name: Coinbase
+    company_url: ''
+    icon: ''
+    date_start: 2021-05-01
+    date_end: 2024-05-01
+    summary: |
+      Designed and operationalized risk analysis frameworks used to analyze onchain tokenized assets for secure listings on Coinbase exchange. Worked on static analysis tool that helps expedite risk determination for ERC20 and ERC721 token contracts.
+
+
+
+  - position: Product Engineering Intern
+    company_name: Lucid
+    company_url: ''
+    icon: ''
+    date_start: 2020-05-01
+    date_end: 2021-05-01
+    summary: |
+      Designed and operationalized risk analysis frameworks used to analyze onchain tokenized assets for secure listings on Coinbase exchange. Worked on static analysis tool that helps expedite risk determination for ERC20 and ERC721 token contracts.
+
+      
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
 skills:
   - name: Technical Skills
     items:
-      - name: Python & PyTorch
+      - name: Golang
         description: ''
         percent: 95
         icon: code-bracket
-      - name: Machine Learning
+      - name: Solidity
         description: ''
         percent: 100
-        icon: chart-bar
+        icon: code-bracket
       - name: Cloud Computing (AWS/GCP)
         description: ''
         percent: 85
         icon: cloud
-  - name: Hobbies
-    color: '#eeac02'
-    color_border: '#f0bf23'
-    items:
-      - name: Hiking in the Rockies
-        description: ''
-        percent: 80
-        icon: person-simple-walk
-      - name: Building Custom PCs
-        description: ''
-        percent: 90
-        icon: cpu-chip
-      - name: Sci-Fi Reading
-        description: ''
-        percent: 70
-        icon: book-open
+  # - name: Hobbies
+  #   color: '#eeac02'
+  #   color_border: '#f0bf23'
+  #   items:
+  #     - name: Muay Thai
+  #       description: ''
+  #       percent: 80
+  #       icon: person-simple-walk
+  #     - name: Building Custom PCs
+  #       description: ''
+  #       percent: 90
+  #       icon: cpu-chip
+  #     - name: Sci-Fi Reading
+  #       description: ''
+  #       percent: 70
+  #       icon: book-open
 
 languages:
   - name: English
     percent: 100
-  - name: Spanish
-    percent: 50
+  - name: Thai
+    percent: 10
 
 # Awards.
 #   Add/remove as many awards below as you like.
 #   Only `title`, `awarder`, and `date` are required.
 #   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards:
-  - title: Best Paper Award
-    url: https://neurips.cc/
-    date: '2022-12-01'
-    awarder: NeurIPS
+  - title: ETH New York 2023 Hackathon Winner
+    url: https://ethglobal.com/showcase/style-check-85zy7
+    date: '2023-09-01'
+    awarder: ETHGlobal
     icon: hero/trophy
     summary: |
-      Awarded for groundbreaking work on efficient training of large models.
-  - title: AI Innovation Grant
-    url: https://www.nsf.gov/
-    date: '2021-06-15'
-    awarder: National Science Foundation
-    icon: hero/currency-dollar
+      Awarded $$ for designing an automation tool for the Arbitrum Stylus smart contract platform.
+  - title: ETH Denver 2023 Binance Hackathon Winner 
+    url: https://app.buidlbox.io/projects/test-project?path=projects%2Ftest-project
+    date: '2023-02-01'
+    awarder: ETH Denver
+    icon: hero/trophy
     summary: |
-      $500,000 grant for research in ethical AI development.
-  - title: Outstanding PhD Thesis
-    url: https://www.stanford.edu/
-    date: '2019-06-30'
-    awarder: Stanford University
-    icon: hero/academic-cap
+      Developed a smart contract risk automation tool PoC that would present real-time threats via 
+      a user wallet.
+  - title: ETH Denver 2023 NEAR Hackathon Winner 
+    url: https://app.buidlbox.io/projects/project-2?path=projects%2Fproject-2
+    date: '2023-02-01'
+    awarder: ETH Denver
+    icon: hero/trophy
     summary: |
-      Recognized for contributions to scaling laws in deep learning.
+      Worked into NEAR RPC API to build support for light client proofs via yielding storage proofs by adding accessor logic to state trie traversal logic.
 ---
 
-Alex Johnson is a Senior AI Research Scientist at Meta AI, where he leads groundbreaking work on large language models and multimodal systems. His research has been published in top conferences like NeurIPS and ICML, with over 10,000 citations. Alex is passionate about pushing the boundaries of AI while ensuring ethical development. Outside of work, he enjoys hiking in the Rockies, building custom PCs, and mentoring the next generation of AI talent.
+Senior Blockchain Engineer on EigenDA at EigenCloud with 6+ years across software engineering, security analysis, and product development. I spend my weekdays removing trust assumptions in decentralized systems — and my weekends training Muay Thai, mixing music, or shooting amateur photography.
