@@ -65,7 +65,7 @@ work:
   - position: Senior Blockchain Engineer
     company_name: EigenCloud
     company_url: 'https://www.eigencloud.xyz/'
-    icon: ''
+    icon: 'custom/eigencloud-logo'
     date_start: 2024-04-01
     date_end: ''
     summary: |2-
@@ -87,7 +87,7 @@ work:
   - position: Senior Protocol Security Engineer
     company_name: Coinbase
     company_url: 'https://www.coinbase.com/'
-    icon: ''
+    # icon: 'coinbase-logo'
     date_start: 2024-05-01
     date_end: 2024-12-15
     summary: |
@@ -99,7 +99,7 @@ work:
   - position: Blockchain Security Engineer
     company_name: Coinbase
     company_url: 'https://www.coinbase.com/'
-    icon: ''
+    # icon: 'custom/coinbase-logo'
     date_start: 2021-05-01
     date_end: 2024-05-01
     summary: |
@@ -109,7 +109,7 @@ work:
   - position: Product Engineering Intern
     company_name: Lucid
     company_url: 'https://lucid.co/'
-    icon: ''
+    # icon: 'custom/lucid-logo'
     date_start: 2020-06-01
     date_end: 2021-05-01
     summary: |
@@ -130,21 +130,21 @@ work:
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
-skills:
-  - name: Technical Skills
-    items:
-      - name: Golang
-        description: ''
-        percent: 95
-        icon: code-bracket
-      - name: Solidity
-        description: ''
-        percent: 100
-        icon: code-bracket
-      - name: Cloud Computing (AWS/GCP)
-        description: ''
-        percent: 85
-        icon: cloud
+# skills:
+#   - name: Technical Skills
+#     items:
+#       - name: Golang
+#         description: ''
+#         percent: 95
+#         icon: code-bracket
+#       - name: Solidity
+#         description: ''
+#         percent: 100
+#         icon: code-bracket
+#       - name: Cloud Computing (AWS/GCP)
+#         description: ''
+#         percent: 85
+#         icon: cloud
   # - name: Hobbies
   #   color: '#eeac02'
   #   color_border: '#f0bf23'
@@ -191,20 +191,23 @@ awards:
   - title: ETH Denver 2023 NEAR Hackathon Winner 
     url: https://app.buidlbox.io/projects/project-2?path=projects%2Fproject-2
     awarder: ETH Denver
+    date: '2023-02-01'
     icon: hero/trophy
     summary: |
       Worked into NEAR RPC API to build support for light client proofs via yielding storage proofs by adding accessor logic to state trie traversal logic.
 
   - title: ETH San Francisco 2022 Hackathon Participant
     url: https://ethglobal.com/showcase/eip-1155-transient-storage-on-op-geth-wccbh
+    date: '2022-10-01'
     summary: |
       Did a novel implementation of TSTORE and TLOAD opcodes on op-geth. Wrote EVM bytecode by hand for testing opcode correctness.
 
   - title: ETH Online 2022 Hackathon Participant
     url: https://ethglobal.com/showcase/athena-062wp
+    date: '2022-12-01'
     summary: |
       Hacked the pre-bedrock OP Stack rollup framework to settle calldata batches and state commitments on the FileCoin network using their FEVM for smart contract execution.
 ---
-A personal website feels like an embodiment of narcissism but also a necessary evil to for professional shilling 🤷‍♂️
+A personal website feels like an embodiment of narcissism but also a necessary evil for professional shilling 🤷‍♂️
 
-Anyways, I'm a Senior Blockchain Engineer on EigenDA at EigenCloud with 6+ years across software engineering, security analysis/auditing, and product development. I spend my days removing trust assumptions in decentralized systems — and my free time training muay thai, mixing music, or shooting amateur photography. I like to travel the world and value being able to work from anywhere - feel free to email me for any business related inquiries :) 
+Anyways, I'm a Senior Blockchain Engineer on EigenDA at EigenCloud. I have 6+ years across software engineering, security analysis/auditing, and product development. I spend my days removing trust assumptions in decentralized systems — and my free time training muay thai, mixing music, or shooting amateur photography. I like to travel the world and value being able to work from anywhere - feel free to email me for any business related inquiries :) 
