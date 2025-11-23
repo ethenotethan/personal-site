@@ -59,49 +59,74 @@ education:
     date_start: 2017-09-01
     date_end: 2021-12-01
     summary: |
-      Minored in Mathematics. Tinkered with algorithmic trading.
+      Minored in Mathematics. Tinkered with algorithmic trading and machine learning.
 
 work:
   - position: Senior Blockchain Engineer
     company_name: EigenCloud
     company_url: 'https://www.eigencloud.xyz/'
     icon: ''
-    date_start: 2025-04-01
+    date_start: 2024-04-01
     date_end: ''
     summary: |2-
-      Designed and built secure blockchain integrations between different rollup frameworks (i.e, Arbitrum Orbit, OP Stack)
-      and EigenDA. 
+      - Managed development of Arbitrum orbit [fork](https://github.com/Layr-Labs/nitro) integrated with EigenDA with Stage 1 decentralization
+      - Worked closely with key RaaS partners and blockchain customers to triage bugs and stand up blockchain infra
+      - Ideated and help manage a unified DA server used across EigenDA rollup integrations - unblocking >1Bn [TVS](https://l2beat.com/data-availability/summary)
+
+  - position: Senior EVM Engineer
+    company_name: Shadow
+    company_url: 'https://www.shadow.xyz/'
+    icon: ''
+    date_start: 2023-12-01
+    date_end: '2024-04-01'
+    summary: |2-
+      - Architected and productionized a distributed Ethereum [RPC API](https://docs.shadow.xyz/getting-data/shadow-rpc#supported-endpoints) that handles 100+ reqs/second with minimal latency.
+      - Production hardened an internal EVM environment and identified key security vulnerabilities in execution.
+      - Established robust monitoring and resiliency routines for internally hosted node integrations
 
   - position: Senior Protocol Security Engineer
     company_name: Coinbase
-    company_url: ''
+    company_url: 'https://www.coinbase.com/'
     icon: ''
     date_start: 2024-05-01
     date_end: 2024-12-15
     summary: |
-      Designed and operationalized security assessment frameworks used for calculating risk when adopting blockchains with novel smart contract execution environments. Built an in-house monitoring service for real-time threat detection on OP Stack compatible blockchains. Worked closesly with the BASE protocol team to securely boostrap the chain.
+      - Designed and operationalized security assessment frameworks used for calculating risk when adopting blockchains with novel smart contract execution environments.
+      - Built an in-house monitoring service for real-time threat detection on OP Stack compatible blockchains. Worked closesly with the BASE protocol team to securely boostrap the chain.
+      - Designed interview pipelines, trained new hires, and lead daily meetings to upskill/unblock coworkers
+      - Catalyzed creation of internal smart contract monitoring to enable full coverage of 200+ assets across different blockchain protocols
 
   - position: Blockchain Security Engineer
     company_name: Coinbase
-    company_url: ''
+    company_url: 'https://www.coinbase.com/'
     icon: ''
     date_start: 2021-05-01
     date_end: 2024-05-01
     summary: |
-      Designed and operationalized risk analysis frameworks used to analyze onchain tokenized assets for secure listings on Coinbase exchange. Worked on static analysis tool that helps expedite risk determination for ERC20 and ERC721 token contracts.
-
-
+      - Designed and operationalized risk analysis frameworks used to analyze onchain tokenized assets for secure listings on Coinbase exchange.
+      - Designed and implemented REST API for smart contract [analysis tool](https://www.coinbase.com/blog/introducing-solidify-a-tool-to-automatically-detect-and-classify-smart) that enables quicker turnaround time on security intake requests for new asset listings.s
 
   - position: Product Engineering Intern
     company_name: Lucid
-    company_url: ''
+    company_url: 'https://lucid.co/'
     icon: ''
-    date_start: 2020-05-01
+    date_start: 2020-06-01
     date_end: 2021-05-01
     summary: |
-      Designed and operationalized risk analysis frameworks used to analyze onchain tokenized assets for secure listings on Coinbase exchange. Worked on static analysis tool that helps expedite risk determination for ERC20 and ERC721 token contracts.
+      - Successfully migrated AWS data streams from Kafka to Kinesis in a Java ETL microservice, saving company around $60,000 per year 
+      - Dockerized legacy MSSQL database, creating more efficient developer experience across the company
+      - Assembled golang data processing microservice with layered REST API that performs map-reduce for MSSQL DB, implementing an aggregation algorithm to generate minimalistic stored procedures using Redis, AWS DynamoDB, AWS S3, and AWS Kinesis
 
-      
+  - position: Wannabe Cofounder
+    company_name: Volatrade
+    icon: ''
+    date_start: 2019-11-01
+    date_end: 2021-05-01
+    summary: |
+      - Built an end-to-end fullstack crypto trade simulation [system](https://github.com/ethenotethan/Volatrader) 
+      - Built backend pipelines for parsing, persisting, and transforming crypto data from different data providers
+      - Built machine learning pipeline for training, deploying, and integrating with tensorflow models
+      - Operated simulation strategies around model outputs with 60% accuracy
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
@@ -165,11 +190,21 @@ awards:
       a user wallet.
   - title: ETH Denver 2023 NEAR Hackathon Winner 
     url: https://app.buidlbox.io/projects/project-2?path=projects%2Fproject-2
-    date: '2023-02-01'
     awarder: ETH Denver
     icon: hero/trophy
     summary: |
       Worked into NEAR RPC API to build support for light client proofs via yielding storage proofs by adding accessor logic to state trie traversal logic.
----
 
-Senior Blockchain Engineer on EigenDA at EigenCloud with 6+ years across software engineering, security analysis, and product development. I spend my weekdays removing trust assumptions in decentralized systems — and my weekends training Muay Thai, mixing music, or shooting amateur photography.
+  - title: ETH San Francisco 2022 Hackathon Participant
+    url: https://ethglobal.com/showcase/eip-1155-transient-storage-on-op-geth-wccbh
+    summary: |
+      Did a novel implementation of TSTORE and TLOAD opcodes on op-geth. Wrote EVM bytecode by hand for testing opcode correctness.
+
+  - title: ETH Online 2022 Hackathon Participant
+    url: https://ethglobal.com/showcase/athena-062wp
+    summary: |
+      Hacked the pre-bedrock OP Stack rollup framework to settle calldata batches and state commitments on the FileCoin network using their FEVM for smart contract execution.
+---
+A personal website feels like an embodiment of narcissism but also a necessary evil to for professional shilling 🤷‍♂️
+
+Anyways, I'm a Senior Blockchain Engineer on EigenDA at EigenCloud with 6+ years across software engineering, security analysis/auditing, and product development. I spend my days removing trust assumptions in decentralized systems — and my free time training muay thai, mixing music, or shooting amateur photography. I like to travel the world and value being able to work from anywhere - feel free to email me for any business related inquiries :) 

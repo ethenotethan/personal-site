@@ -55,7 +55,7 @@ sections:
   - block: collection
     content:
       title: Recent Publications
-      text: "Below is a list of blog posts and technical writeups that I've authored:"
+      text: "I'm a counterfeit researcher... below is a list of blog posts and technical writeups that I've authored:"
       filters:
         folders:
           - publications
