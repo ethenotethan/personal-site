@@ -1,20 +1,20 @@
 ---
 # Display name
-title: Ethen
+title: ethenotethan
 
 # Name pronunciation (optional)
-name_pronunciation: ''
+name_pronunciation: 'eazy-e'
 
 # Full name (for SEO)
 first_name: Ethen
-last_name: P
+last_name: Pociask
 
 # Pronouns (optional)
 pronouns: he/him
 
 # Status emoji
 status:
-  icon: 🚀
+  icon: 🌍
 
 # Is this the primary user of the site?
 superuser: true
@@ -50,7 +50,9 @@ interests:
   - Large Language Models and AI Agents
   - EVM Scalability
   - Systems Design
-  - Networking
+  - Computer Networks
+  - Self Deprecating Humor
+  - Utilitarian Use Cases of web3
 
 education:
   - area: BS Computer Science
@@ -210,4 +212,6 @@ awards:
 ---
 A personal website feels like an embodiment of narcissism but also a necessary evil for professional shilling 🤷‍♂️
 
-Anyways, I'm a Senior Blockchain Engineer on EigenDA at EigenCloud. I have 6+ years across software engineering, security analysis/auditing, and product development. I spend my days removing trust assumptions in decentralized systems — and my free time training muay thai, mixing music, or shooting amateur photography. I like to travel the world and value being able to work from anywhere - feel free to email me for any business related inquiries :) 
+Anyways, I'm a Senior Blockchain Engineer currently working on EigenDA at EigenCloud 🫡
+
+I have 6+ years across software engineering, security analysis/auditing, and product development. I spend my days removing trust assumptions in decentralized systems — and my free time training muay thai, mixing music, or shooting amateur photography. I like to travel the world and value being able to work from anywhere - feel free to email me for any business related inquiries :) 

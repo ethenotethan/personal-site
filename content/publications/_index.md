@@ -11,7 +11,5 @@ banner:
   image: ''
 ---
 
-I'm a counterfeit academic researcher... but sometimes I can formaly analyze a system and sometimes I can shill something I built.
-
-Below is a list of blog posts and technical writeups that I've authored over the past few years:
+I like to joke that I’m a counterfeit academic researcher — sometimes I’m deep in formal systems analysis, other times I’m shamelessly shilling something I hacked together, and occasionally I’m in a coffee shop doing performative cryptography, pretending I fully grasp abstract algebra. Below is a collection of blog posts and technical write-ups I’ve authored over the past few years:
 
