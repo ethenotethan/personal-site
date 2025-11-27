@@ -1,9 +1,9 @@
 ---
 # Display name
-title: ethenotethan
+title: Ethen
 
 # Name pronunciation (optional)
-name_pronunciation: 'eazy-e'
+name_pronunciation: ''
 
 # Full name (for SEO)
 first_name: Ethen
@@ -210,8 +210,8 @@ awards:
     summary: |
       Hacked the pre-bedrock OP Stack rollup framework to settle calldata batches and state commitments on the FileCoin network using their FEVM for smart contract execution.
 ---
-A personal website feels like an embodiment of narcissism but also a necessary evil for professional shilling 🤷‍♂️
+A personal website feels like an embodiment of narcissism but also a necessary evil for professional shilling.
 
 Anyways, I'm a Senior Blockchain Engineer currently working on EigenDA at EigenCloud 🫡
 
-I have 6+ years across software engineering, security analysis/auditing, and product development. I spend my days removing trust assumptions in decentralized systems — and my free time training muay thai, mixing music, or shooting amateur photography. I like to travel the world and value being able to work from anywhere - feel free to email me for any business related inquiries :) 
+I have 6+ years across software engineering, security analysis/auditing, and product development. I spend my days removing trust assumptions in decentralized systems — and my free time training muay thai, mixing music, or shooting amateur photography. I like to travel the world and value being able to work from anywhere - feel free to email me for any business related inquiries 🤝
