@@ -36,14 +36,6 @@ export default function DarkbloomCentaur() {
             with Slack integration, access policy overlays, and automated
             workflows.
           </p>
-          <a
-            href="https://github.com/Layr-Labs/darkbloom-centaur-agent"
-            className="text-xs text-brand hover:text-brand-glow transition-colors mt-2 inline-block"
-            target="_blank"
-            rel="noopener"
-          >
-            github.com/Layr-Labs/darkbloom-centaur-agent →
-          </a>
         </header>
 
         <hr className="border-zinc-800" />
