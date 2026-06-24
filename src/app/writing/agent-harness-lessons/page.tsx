@@ -140,10 +140,9 @@ export default function AgentHarnessLessons() {
 
         <p className="text-zinc-400 leading-relaxed">
           The fix: backup loops. Dump the entire knowledge base — sessions DB,
-          memory store, skills directory, config — to a persistent location on
-          a schedule. GitHub private repos work well for this. So does S3 or
-          any object store. The format doesn&rsquo;t matter — the consistency
-          does.
+          memory store, skills directory, config — to cloud object storage on a
+          schedule. GCS, S3, doesn&rsquo;t matter. The format doesn&rsquo;t
+          matter — the consistency does.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
