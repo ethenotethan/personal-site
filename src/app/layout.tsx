@@ -27,7 +27,9 @@ export default function RootLayout({
         className={`${inter.className} bg-zinc-950 text-zinc-200 antialiased`}
       >
         <BackgroundLayer />
-        {children}
+        <div className="relative z-10">
+          {children}
+        </div>
       </body>
     </html>
   );
