@@ -25,7 +25,7 @@ const interests = ["Ethereum Rollups", "Zero Knowledge Cryptography", "Distribut
 
 const beliefs = [
   { emoji: "🤖", text: "Local LLMs are the only real democratization. Everything else is renting your intelligence from someone else's server." },
-  { emoji: "⚡", text: "Most meetings could've been a Slack message. Most Slack messages could've been nothing." },
+  { emoji: "⚡", text: "AI will transform human societies in ways most of us aren't prepared for." },
   { emoji: "🔮", text: "Decentralization isn't about ideology — it's about removing single points of failure, including people." },
   { emoji: "🌊", text: "Your job won't love you back. Build skills, not loyalty." },
   { emoji: "🎯", text: "The best code is the code that solves a real problem. Everything else is cosplay." },
