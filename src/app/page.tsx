@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 const experiences = [
@@ -300,6 +301,15 @@ export default function Home() {
       {/* Writings */}
       <CollapsibleSection title="Writings" subtitle="// things I've written that people seemed to like" teaser="Coinbase Blog · Base Blog · HackMD">
         <div className="space-y-4">
+          <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4">
+            <h3 className="font-medium text-white text-sm">
+              <Link href="/writing/agent-harness-lessons" className="hover:text-brand transition-colors">
+                What I Learned Running an AI Agent Harness on Apple Silicon
+              </Link>
+            </h3>
+            <p className="text-xs text-zinc-400 mt-0.5">ethen.me · Jun 2026</p>
+            <p className="text-xs text-zinc-500 mt-1">War stories from the trenches: model selection, prompt caching, parallel agents, and why every tool call is a liability when you're running production agent infrastructure on a Mac Studio.</p>
+          </div>
           <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4">
             <h3 className="font-medium text-white text-sm">
               <a href="https://www.coinbase.com/blog/how-to-evaluate-forked-evms-for-security-risks" className="hover:text-brand transition-colors" target="_blank" rel="noopener">
