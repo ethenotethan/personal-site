@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { motion, useInView, AnimatePresence, type Variants } from "framer-motion";
 
 const experiences = [
   {
@@ -124,241 +125,365 @@ const interests = [
 const links = {
   github: "https://github.com/ethenotethan",
   twitter: "https://x.com/ethen_not_ethan",
-  linkedin:
-    "https://www.linkedin.com/in/ethen-p-5bb640148",
+  linkedin: "https://www.linkedin.com/in/ethen-p-5bb640148",
   email: "mailto:ethenpo@gmail.com",
 };
+
+const fadeIn: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
+};
+
+const stagger: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+};
+
+function SectionHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.h2
+      variants={fadeIn}
+      className="mb-8 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500"
+    >
+      {children}
+    </motion.h2>
+  );
+}
+
+function Reveal({ children, className }: { children: React.ReactNode; className?: string }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  return (
+    <motion.div
+      ref={ref}
+      variants={fadeIn}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function TimelineItem({
+  title,
+  company,
+  url,
+  start,
+  end,
+  points,
+  index,
+}: {
+  title: string;
+  company: string;
+  url?: string;
+  start: string;
+  end: string;
+  points: string[];
+  index: number;
+}) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: -20 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
+      className="relative border-l border-zinc-800 pl-6 pb-2 group"
+    >
+      <div className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-brand timeline-dot group-hover:bg-brand-glow transition-colors" />
+      <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <h3 className="font-semibold text-white text-sm md:text-base">{title}</h3>
+        <span className="text-zinc-600">·</span>
+        {url ? (
+          <a
+            href={url}
+            className="text-brand hover:text-brand-glow transition-colors text-sm"
+            target="_blank"
+            rel="noopener"
+          >
+            {company}
+          </a>
+        ) : (
+          <span className="text-zinc-400 text-sm">{company}</span>
+        )}
+      </div>
+      <p className="mb-2 text-xs text-zinc-600">{start} — {end}</p>
+      <ul className="space-y-1.5">
+        {points.map((point, j) => (
+          <li key={j} className="text-sm leading-relaxed text-zinc-400">
+            — {point}
+          </li>
+        ))}
+      </ul>
+    </motion.div>
+  );
+}
 
 export default function Home() {
   const [showAllAwards, setShowAllAwards] = useState(false);
   const visibleAwards = showAllAwards ? awards : awards.slice(0, 3);
 
+  const heroRef = useRef(null);
+  const heroInView = useInView(heroRef, { once: true });
+
   return (
-    <div className="mx-auto max-w-3xl px-6 py-20 md:py-32">
+    <div className="relative z-10 mx-auto max-w-3xl px-6 py-20 md:py-32">
       {/* Hero */}
-      <section className="mb-24">
-        <div className="mb-6 flex items-center gap-4">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-brand/20 text-2xl">
-            🌍
-          </div>
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
-              Ethen Pociask
-            </h1>
-            <p className="mt-1 text-lg text-zinc-400">
-              Senior Blockchain Engineer at{" "}
-              <a
-                href="https://www.eigencloud.xyz/"
-                className="text-brand hover:underline"
-                target="_blank"
-              >
-                EigenCloud
-              </a>
-            </p>
-          </div>
-        </div>
+      <motion.section
+        ref={heroRef}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="mb-24"
+      >
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+          className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-brand/10 ring-1 ring-brand/20 text-2xl"
+        >
+          🌍
+        </motion.div>
+        <motion.h1
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl"
+        >
+          <span className="gradient-text">Ethen Pociask</span>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.35 }}
+          className="mt-3 text-lg text-zinc-400 md:text-xl"
+        >
+          Senior Blockchain Engineer at{" "}
+          <a
+            href="https://www.eigencloud.xyz/"
+            className="text-brand hover:text-brand-glow transition-colors"
+            target="_blank"
+            rel="noopener"
+          >
+            EigenCloud
+          </a>
+        </motion.p>
 
-        <p className="max-w-2xl text-base leading-relaxed text-zinc-400">
-          I have 6+ years across software engineering, security
-          analysis/auditing, and product development. I spend my days removing
-          trust assumptions in decentralized systems — and my free time training
-          muay thai, mixing music, or shooting amateur photography. I like to
-          travel the world and value being able to work from anywhere.
-        </p>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.45 }}
+          className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400"
+        >
+          I have 6+ years across software engineering, security analysis/auditing,
+          and product development. I spend my days removing trust assumptions in
+          decentralized systems — and my free time training muay thai, mixing music,
+          or shooting amateur photography. I like to travel the world and value being
+          able to work from anywhere.
+        </motion.p>
 
-        {/* Links */}
-        <div className="mt-6 flex gap-4 text-sm">
-          <a href={links.github} className="text-zinc-400 hover:text-white transition-colors" target="_blank">
-            GitHub
-          </a>
-          <a href={links.twitter} className="text-zinc-400 hover:text-white transition-colors" target="_blank">
-            X / Twitter
-          </a>
-          <a href={links.linkedin} className="text-zinc-400 hover:text-white transition-colors" target="_blank">
-            LinkedIn
-          </a>
-          <a href={links.email} className="text-zinc-400 hover:text-white transition-colors">
-            Email
-          </a>
-        </div>
-      </section>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.55 }}
+          className="mt-6 flex gap-5 text-sm"
+        >
+          {[
+            { label: "GitHub", href: links.github },
+            { label: "X / Twitter", href: links.twitter },
+            { label: "LinkedIn", href: links.linkedin },
+            { label: "Email", href: links.email },
+          ].map((link, i) => (
+            <motion.a
+              key={link.label}
+              href={link.href}
+              target={link.label !== "Email" ? "_blank" : undefined}
+              rel={link.label !== "Email" ? "noopener" : undefined}
+              className="text-zinc-400 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-brand hover:after:w-full after:transition-all"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {link.label}
+            </motion.a>
+          ))}
+        </motion.div>
+      </motion.section>
 
       {/* Experience */}
-      <section className="mb-24">
-        <h2 className="mb-8 text-sm font-semibold uppercase tracking-widest text-zinc-500">
-          Experience
-        </h2>
-        <div className="space-y-10">
+      <motion.section
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="mb-24"
+      >
+        <SectionHeading>Experience</SectionHeading>
+        <div className="space-y-8">
           {experiences.map((exp, i) => (
-            <div key={i} className="relative border-l border-zinc-800 pl-6">
-              <div className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-brand" />
-              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                <h3 className="font-semibold text-white">{exp.title}</h3>
-                <span className="text-zinc-500">·</span>
-                {exp.url ? (
-                  <a
-                    href={exp.url}
-                    className="text-brand hover:underline text-sm"
-                    target="_blank"
-                  >
-                    {exp.company}
-                  </a>
-                ) : (
-                  <span className="text-zinc-400 text-sm">{exp.company}</span>
-                )}
-              </div>
-              <p className="mb-2 text-xs text-zinc-600">
-                {exp.start} — {exp.end}
-              </p>
-              <ul className="space-y-1.5">
-                {exp.points.map((point, j) => (
-                  <li
-                    key={j}
-                    className="text-sm leading-relaxed text-zinc-400"
-                  >
-                    — {point}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <TimelineItem key={i} {...exp} index={i} />
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* Interests */}
-      <section className="mb-24">
-        <h2 className="mb-6 text-sm font-semibold uppercase tracking-widest text-zinc-500">
-          Interests
-        </h2>
+      <motion.section
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="mb-24"
+      >
+        <SectionHeading>Interests</SectionHeading>
         <div className="flex flex-wrap gap-2">
           {interests.map((interest) => (
-            <span
+            <motion.span
               key={interest}
-              className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1.5 text-xs text-zinc-400"
+              variants={fadeIn}
+              whileHover={{ scale: 1.05, borderColor: "rgba(99, 102, 241, 0.5)", backgroundColor: "rgba(99, 102, 241, 0.1)" }}
+              className="cursor-default rounded-full border border-zinc-800 bg-zinc-900/50 px-3 py-1.5 text-xs text-zinc-400 transition-colors"
             >
               {interest}
-            </span>
+            </motion.span>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* Education */}
-      <section className="mb-24">
-        <h2 className="mb-6 text-sm font-semibold uppercase tracking-widest text-zinc-500">
-          Education
-        </h2>
+      <Reveal className="mb-24">
+        <SectionHeading>Education</SectionHeading>
         <div className="relative border-l border-zinc-800 pl-6">
-          <div className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-brand" />
-          <h3 className="font-semibold text-white">
-            BS Computer Science
-          </h3>
-          <p className="text-sm text-zinc-400">
-            University of San Francisco
-          </p>
+          <div className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-brand timeline-dot" />
+          <h3 className="font-semibold text-white">BS Computer Science</h3>
+          <p className="text-sm text-zinc-400">University of San Francisco</p>
           <p className="text-xs text-zinc-600">2017 — 2021</p>
           <p className="mt-1 text-sm text-zinc-500">
             Minored in Mathematics. Tinkered with algorithmic trading and machine learning.
           </p>
         </div>
-      </section>
+      </Reveal>
 
       {/* Awards */}
-      <section className="mb-24">
-        <h2 className="mb-6 text-sm font-semibold uppercase tracking-widest text-zinc-500">
-          Awards & Hackathons
-        </h2>
-        <div className="space-y-4">
-          {visibleAwards.map((award, i) => (
-            <div
-              key={i}
-              className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-4"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="font-medium text-white text-sm">
-                    {award.url ? (
-                      <a
-                        href={award.url}
-                        className="hover:text-brand transition-colors"
-                        target="_blank"
-                      >
-                        {award.title}
-                      </a>
-                    ) : (
-                      award.title
-                    )}
-                  </h3>
-                  <p className="text-xs text-zinc-400 mt-0.5">
-                    {award.org} · {award.date}
-                  </p>
-                  <p className="text-xs text-zinc-500 mt-1">{award.detail}</p>
+      <motion.section
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="mb-24"
+      >
+        <SectionHeading>Awards & Hackathons</SectionHeading>
+        <div className="space-y-3">
+          <AnimatePresence mode="popLayout">
+            {visibleAwards.map((award, i) => (
+              <motion.div
+                key={award.title}
+                variants={fadeIn}
+                layout
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, height: 0, marginBottom: 0 }}
+                whileHover={{ borderColor: "rgba(99, 102, 241, 0.3)", scale: 1.01 }}
+                className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4 transition-colors cursor-default"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="font-medium text-white text-sm">
+                      {award.url ? (
+                        <a
+                          href={award.url}
+                          className="hover:text-brand transition-colors"
+                          target="_blank"
+                          rel="noopener"
+                        >
+                          {award.title}
+                        </a>
+                      ) : (
+                        award.title
+                      )}
+                    </h3>
+                    <p className="text-xs text-zinc-400 mt-0.5">
+                      {award.org} · {award.date}
+                    </p>
+                    <p className="text-xs text-zinc-500 mt-1">{award.detail}</p>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
         {awards.length > 3 && (
-          <button
+          <motion.button
             onClick={() => setShowAllAwards(!showAllAwards)}
-            className="mt-4 text-xs text-brand hover:text-brand-dim transition-colors"
+            className="mt-4 text-xs text-brand hover:text-brand-glow transition-colors"
+            whileHover={{ x: 3 }}
+            whileTap={{ scale: 0.95 }}
           >
-            {showAllAwards ? "Show less" : `Show all ${awards.length} awards`}
-          </button>
+            {showAllAwards ? "Show less ↑" : `Show all ${awards.length} awards →`}
+          </motion.button>
         )}
-      </section>
+      </motion.section>
 
       {/* Hobbies */}
-      <section className="mb-24">
-        <h2 className="mb-6 text-sm font-semibold uppercase tracking-widest text-zinc-500">
-          Hobbies
-        </h2>
-        <p className="text-sm leading-relaxed text-zinc-400 mb-6">
+      <motion.section
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="mb-24"
+      >
+        <SectionHeading>Hobbies</SectionHeading>
+        <motion.p variants={fadeIn} className="text-sm leading-relaxed text-zinc-400 mb-6">
           Work-life balance is hard — creative outlets are a great means to decompress and connect with others.
-        </p>
-
+        </motion.p>
         <div className="space-y-6">
-          <div>
-            <h3 className="font-medium text-white text-sm mb-2">
-              🎵 Mixing Music
-            </h3>
+          <motion.div variants={fadeIn} className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-5">
+            <h3 className="font-medium text-white text-sm mb-2">🎵 Mixing Music</h3>
             <p className="text-sm text-zinc-500">
-              I like to mix music sometimes (preferably from a quiet bedroom).
-              Was an unknown{" "}
-              <a href="https://soundcloud.com/ethen-pociask" className="text-brand hover:underline" target="_blank">
+              I like to mix music sometimes (preferably from a quiet bedroom). Was an unknown{" "}
+              <a href="https://soundcloud.com/ethen-pociask" className="text-brand hover:text-brand-glow transition-colors" target="_blank" rel="noopener">
                 SoundCloud
               </a>{" "}
               artist for a few years. Genres include drum and bass, house, and hip-hop.
             </p>
-          </div>
-          <div>
-            <h3 className="font-medium text-white text-sm mb-2">
-              🥊 Muay Thai
-            </h3>
+          </motion.div>
+          <motion.div variants={fadeIn} className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-5">
+            <h3 className="font-medium text-white text-sm mb-2">🥊 Muay Thai</h3>
             <p className="text-sm text-zinc-500">
-              Started training in 2022 for fitness and self-defense. Trained in San Francisco, New York, and now in Chiang Mai, Thailand.
-              Mix of traditional and modern styles.
+              Started training in 2022 for fitness and self-defense. Trained in San
+              Francisco, New York, and now in Chiang Mai, Thailand. Mix of traditional
+              and modern styles.
             </p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Contact */}
-      <section>
-        <h2 className="mb-6 text-sm font-semibold uppercase tracking-widest text-zinc-500">
-          Contact
-        </h2>
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <SectionHeading>Contact</SectionHeading>
         <p className="text-sm text-zinc-400">
           Feel free to reach out for business inquiries or just to chat.{" "}
-          <a href={links.email} className="text-brand hover:underline">
+          <a href={links.email} className="text-brand hover:text-brand-glow transition-colors">
             ethenpo@gmail.com
           </a>
         </p>
-      </section>
+      </motion.section>
 
       {/* Footer */}
-      <footer className="mt-24 border-t border-zinc-800 pt-8 text-center text-xs text-zinc-600">
+      <motion.footer
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="mt-24 border-t border-zinc-800/50 pt-8 text-center text-xs text-zinc-600"
+      >
         © {new Date().getFullYear()} Ethen Pociask
-      </footer>
+      </motion.footer>
     </div>
   );
 }
