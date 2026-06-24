@@ -33,7 +33,8 @@ const beliefs = [
 ];
 
 const building = [
-  { label: "Centaur", url: "", desc: "AI agent harness — production inference on Apple Silicon clusters, agent orchestration, cron pipelines. Stable in prod 1+ month." },
+  { label: "Centaur", url: "/writing/darkbloom-centaur-agent", desc: "Multi-tenant AI agent platform on GKE (GCP). Slack-native with tiered access policies, automated cron workflows, and a real-time context graph wiki. Fork of paradigmxyz/centaur. Stable in prod 1+ month." },
+  { label: "Hermes", url: "/writing/agent-harness-lessons", desc: "Forked agent harness on home lab." },
   { label: "HermesNative", url: "https://github.com/researchoors/hermes-native", desc: "Cross-platform AI agent client in SwiftUI (macOS + iOS). WebSocket JSON-RPC gateway, wiki graph, skills browser, cron management." },
   { label: "d‑inference", url: "https://github.com/Layr-Labs/d-inference", desc: "Distributed inference engine integration — MLX backend debugging, speculative decoding benchmarks, E2E latency profiling on Apple Silicon." },
 ];
