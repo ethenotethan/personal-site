@@ -34,12 +34,9 @@ const beliefs = [
 
 const taglines = [
   "building AI infra, shipping cross-platform apps, questioning everything",
-  "waiting for npm install to finish",
-  "67% coffee by volume",
   "running inference on a Mac Studio like a responsible adult",
-  "wondering if AGI will do my taxes or just generate more YAML",
-  "trying to explain what I do at parties",
-  "one git push away from greatness or disaster",
+  "wondering if its actually AGI or we've just convinced ourselves using fancy autocomplete",
+  "trying to explain what I do at parties without sounding like a crazy person",
 ];
 
 const building = [
