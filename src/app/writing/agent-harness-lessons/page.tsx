@@ -33,45 +33,92 @@ export default function AgentHarnessLessons() {
         </p>
 
         <h2 className="text-xl font-semibold text-white mt-10 mb-4">
-          The Cluster: Heterogeneous Apple Silicon
+          Architecture: Fork, Extend, Deploy
         </h2>
 
         <div className="my-6 p-4 border border-zinc-800 rounded-lg bg-zinc-900/30 overflow-x-auto">
           <pre className="text-xs text-zinc-400 font-mono leading-relaxed whitespace-pre">
-{`┌─────────────────────────────────────────────────────────────┐
-│                     Cloudflare Tunnel                        │
-│          gateway.ethen.me → :9119   models.ethen.me → :8642   │
-└──────────────┬──────────────────────────────┬────────────────┘
-               │                              │
-     ┌─────────▼──────────┐        ┌──────────▼─────────┐
-     │   M3 Ultra 256GB   │        │  MacBook / Studio   │
-     │   (orchestrator)   │        │  (inference worker) │
-     │                    │        │                     │
-     │  ┌──────────────┐  │        │  ┌───────────────┐  │
-     │  │ Agent Loop   │  │  Nomad │  │  MLX Backend  │  │
-     │  │ (Hermes)     │◄─┼────────┼──│  (d-inference)│  │
-     │  └──────┬───────┘  │  gossip│  └───────────────┘  │
-     │         │          │  + svc │                     │
-     │  ┌──────▼───────┐  │  disc  │  ┌───────────────┐  │
-     │  │ Cron Engine  │  │        │  │  Speculative   │  │
-     │  │ + Webhooks   │  │        │  │  Decode Worker │  │
-     │  └──────────────┘  │        │  └───────────────┘  │
-     │                    │        │                     │
-     │  ┌──────────────┐  │        │  ┌───────────────┐  │
-     │  │ Git Worktrees│  │        │  │  E2E Latency   │  │
-     │  │ (per-agent)  │  │        │  │  Profiler      │  │
-     │  └──────────────┘  │        │  └───────────────┘  │
-     └────────────────────┘        └─────────────────────┘`}
+{`                              ┌──────────────────────┐
+                              │     HermesNative      │
+                              │  SwiftUI (macOS/iOS)  │
+                              │  native app client    │
+                              └──────────┬───────────┘
+                                         │ WebSocket JSON-RPC
+                              ┌──────────▼───────────┐
+                              │   Cloudflare Tunnel   │
+                              │   (mac-studio → edge) │
+                              └──────────┬───────────┘
+                                         │
+┌────────────────────────────────────────▼────────────────────────────────────┐
+│                              Hermes Agent (fork)                             │
+│                                                                             │
+│  ┌─────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────────┐ │
+│  │ Agent Loop  │  │ Cron Engine  │  │ Webhook      │  │ Wiki / Memory /  │ │
+│  │ (OpenRouter)│  │ backups      │  │ Ingest       │  │ Session Search   │ │
+│  └──────┬──────┘  │ digests      │  └──────┬───────┘  └──────────────────┘ │
+│         │         │ introspection│         │                                │
+│         │         └──────┬───────┘         │                                │
+│         │                │                 │                                │
+│         └────────────────┼─────────────────┘                                │
+│                          │                                                  │
+│               ┌──────────▼──────────┐                                       │
+│               │    Nomad Scheduler  │                                       │
+│               │  service discovery  │                                       │
+│               │  health checks      │                                       │
+│               │  alloc lifecycle    │                                       │
+│               └──────────┬──────────┘                                       │
+│                          │                                                  │
+│     ┌────────────────────┼────────────────────┐                             │
+│     │                    │                    │                             │
+│  ┌──▼──────┐      ┌──────▼─────┐      ┌──────▼──────┐                      │
+│  │  MLX    │      │ Speculative│      │  E2E Latency│                      │
+│  │ Backend │      │   Decode   │      │   Profiler  │                      │
+│  └─────────┘      └────────────┘      └─────────────┘                      │
+│                                                                             │
+│  ┌──────────────────────────────────────────────────────────────────────┐  │
+│  │                        Backup Loop (hourly)                          │  │
+│  │  state.db.gz + SOUL.md + memories/ + skills/ + config → cloud store  │  │
+│  └──────────────────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────────────┘`}
           </pre>
         </div>
 
         <p className="text-zinc-400 leading-relaxed">
-          The setup is heterogeneous by necessity. You don&rsquo;t buy a rack of
-          identical Apple Silicon boxes — you use whatever hardware is
-          available and make it work as a unified pool. The orchestrator
-          handles the agent loop, cron scheduling, webhook ingestion, and
-          state management. Inference gets dispatched to whichever node has
-          free GPU capacity.
+          The agent starts as a fork of Hermes — extended with custom RPCs for a
+          native client, wiki graph APIs, news feed pipelines, and whatever else
+          the workload demands. The fork lives under its own GitHub account,
+          separate from mine. This isn&rsquo;t vanity — it&rsquo;s blast radius.
+          If the agent self-modifies and breaks something, it breaks its own
+          fork.
+        </p>
+
+        <h2 className="text-xl font-semibold text-white mt-10 mb-4">
+          The Native Client: HermesNative
+        </h2>
+
+        <p className="text-zinc-400 leading-relaxed">
+          Native Discord and Telegram integrations are brittle at scale. They
+          give you minimal introspection into what the agent is actually doing
+          and they break whenever the platform changes its API. The fix: a
+          dedicated SwiftUI app that talks to the agent&rsquo;s WebSocket
+          gateway directly.
+        </p>
+
+        <p className="text-zinc-400 leading-relaxed">
+          HermesNative runs on macOS and iOS. It connects to the agent gateway
+          through a Cloudflare Tunnel — no open ports, automatic HTTPS, same
+          URL whether you&rsquo;re on the local network or across the world.
+          The app surfaces sessions, skills, cron jobs, wiki entries, and the
+          agent&rsquo;s learning feed. It&rsquo;s not a chat UI bolted onto a
+          bot — it&rsquo;s an operations console for a semi-autonomous system.
+        </p>
+
+        <p className="text-zinc-400 leading-relaxed">
+          Building a native client forces you to design clear API boundaries.
+          Every RPC the agent exposes — session management, cron control, wiki
+          scanning — has to be well-defined enough to survive a WebSocket
+          round-trip. This constraint makes the agent architecture better
+          because you can&rsquo;t hide sloppy state behind a REPL prompt.
         </p>
 
         <h2 className="text-xl font-semibold text-white mt-10 mb-4">
@@ -79,12 +126,10 @@ export default function AgentHarnessLessons() {
         </h2>
 
         <p className="text-zinc-400 leading-relaxed">
-          When you&rsquo;re running a dozen different services across
-          heterogeneous devices — MLX inference backends, speculative decode
-          workers, E2E latency profilers, cron engines, WebSocket gateways —
-          you need a way to know what&rsquo;s alive, what&rsquo;s dead, and
-          what&rsquo;s limping. Kubernetes is overkill for this. Nomad
-          isn&rsquo;t.
+          When you&rsquo;re running MLX inference backends, speculative decode
+          workers, E2E latency profilers, and cron engines across multiple Mac
+          Studios, you need to know what&rsquo;s alive and what&rsquo;s not.
+          Kubernetes is overkill. Nomad isn&rsquo;t.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
@@ -94,35 +139,34 @@ export default function AgentHarnessLessons() {
         <ul className="text-zinc-400 leading-relaxed space-y-2 list-disc pl-6">
           <li>
             <strong className="text-zinc-300">
-              Service discovery without the ceremony.
+              Service discovery without ceremony.
             </strong>{" "}
-            Services register themselves via gossip protocol. No etcd. No
-            control plane tax. When a new inference worker comes online, the
-            orchestrator learns about it without a config change.
+            Services register via gossip protocol. No etcd, no control plane
+            tax. When a new worker comes online, the orchestrator learns about
+            it without a config change.
           </li>
           <li>
             <strong className="text-zinc-300">
               Health checks as first-class citizens.
             </strong>{" "}
             Every service gets script-based health checks. If the MLX backend
-            hangs (which it does), Nomad restarts it. If the speculative decode
-            worker&rsquo;s memory leaks past a threshold, Nomad flags it and
-            reroutes traffic.
+            hangs (which it does), Nomad restarts it. If a worker leaks memory
+            past a threshold, Nomad flags it and reroutes traffic.
           </li>
           <li>
             <strong className="text-zinc-300">
               One binary, one view.
             </strong>{" "}
             All service logs, statuses, and allocation history in one place. No
-            stitching together journald, syslog, and whatever the model
-            server decided to print to stderr. When an agent job fails at 3am,
-            you can trace it through the entire stack in one dashboard.
+            stitching together journald, syslog, and stderr from five different
+            machines. When an agent job fails at 3am, you trace it through the
+            entire stack in one dashboard.
           </li>
         </ul>
 
         <p className="text-zinc-400 leading-relaxed">
           The alternative — SSHing into each machine and manually checking
-          processes — doesn&rsquo;t scale past two nodes. Nomad is the
+          processes — doesn&rsquo;t scale past one machine. Nomad is the
           difference between &ldquo;I think everything is running&rdquo; and
           &ldquo;I know exactly which service is degraded.&rdquo;
         </p>
