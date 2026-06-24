@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence, type Variants } from "framer-motion";
+import { ScrollShapes } from "./scroll-shapes";
 
 const experiences = [
   {
@@ -237,6 +238,7 @@ export default function Home() {
 
   return (
     <div className="relative z-10 mx-auto max-w-3xl px-6 py-20 md:py-32">
+      <ScrollShapes />
       {/* Hero */}
       <motion.section
         initial={{ opacity: 0, y: 30 }}
