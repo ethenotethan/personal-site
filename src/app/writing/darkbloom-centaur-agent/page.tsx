@@ -7,6 +7,28 @@ export const metadata: Metadata = {
     "Production GCP deployment of Centaur — a self-hosted AI agent platform running on GKE with Slack integration, access policy overlays, and automated workflows.",
 };
 
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: "Darkbloom Centaur Agent",
+  description:
+    "Production GCP deployment of Centaur — a self-hosted, multiplayer AI agent platform running on GKE with Slack integration, access policy overlays, and automated workflows.",
+  author: { "@type": "Person", name: "Ethen Pociask", url: "https://ethen.me" },
+  url: "https://ethen.me/writing/darkbloom-centaur-agent",
+  about: {
+    "@type": "SoftwareApplication",
+    name: "Centaur",
+    applicationCategory: "AI Agent Platform",
+    operatingSystem: "Kubernetes (GKE)",
+  },
+  keywords: [
+    "AI agent", "Kubernetes", "GKE", "GCP", "Slack bot",
+    "agent platform", "multiplayer AI", "access policy",
+    "automated workflows", "Cloud SQL", "Cloudflare",
+    "Centaur", "agent orchestration",
+  ],
+};
+
 export default function DarkbloomCentaur() {
   return (
     <div className="relative z-10 mx-auto max-w-3xl px-6 py-20 md:py-32">
@@ -372,6 +394,11 @@ export default function DarkbloomCentaur() {
       <footer className="mt-16 border-t border-zinc-800/50 pt-8 text-center text-xs text-zinc-600">
         <p>© {new Date().getFullYear()} Ethen Pociask</p>
       </footer>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
     </div>
   );
 }

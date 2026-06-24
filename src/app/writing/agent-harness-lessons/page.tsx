@@ -7,6 +7,21 @@ export const metadata: Metadata = {
     "War stories from running an AI agent harness on Apple Silicon: model selection, prompt caching, parallel agents, and tool execution at scale.",
 };
 
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: "What I Learned Running an AI Agent Harness on Apple Silicon for a Month",
+  description:
+    "War stories from running an AI agent harness on Apple Silicon: model selection, prompt caching, parallel agents, tool execution at scale, and operational lessons.",
+  author: { "@type": "Person", name: "Ethen Pociask", url: "https://ethen.me" },
+  url: "https://ethen.me/writing/agent-harness-lessons",
+  keywords: [
+    "AI agent", "Apple Silicon", "M3 Ultra", "MLX", "speculative decoding",
+    "prompt caching", "agent orchestration", "SwiftUI", "HermesNative",
+    "Cloudflare Tunnel", "Nomad", "backup loops", "distributed inference",
+  ],
+};
+
 export default function AgentHarnessLessons() {
   return (
     <div className="relative z-10 mx-auto max-w-3xl px-6 py-20 md:py-32">
@@ -570,6 +585,11 @@ export default function AgentHarnessLessons() {
       <footer className="mt-16 border-t border-zinc-800/50 pt-8 text-center text-xs text-zinc-600">
         <p>© {new Date().getFullYear()} Ethen Pociask</p>
       </footer>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
     </div>
   );
 }
