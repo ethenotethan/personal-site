@@ -23,7 +23,7 @@ const awards = [
 const interests = ["Ethereum Rollups", "Zero Knowledge Cryptography", "Distributed Systems", "LLMs & AI Agents", "EVM Scalability", "Systems Design", "Computer Networks", "Utilitarian Web3"];
 
 const beliefs = [
-  { emoji: "🫠", text: "The universe is indifferent. Ship good code anyway." },
+  { emoji: "🤖", text: "Local LLMs are the only real democratization. Everything else is renting your intelligence from someone else's server." },
   { emoji: "⚡", text: "Most meetings could've been a Slack message. Most Slack messages could've been nothing." },
   { emoji: "🔮", text: "Decentralization isn't about ideology — it's about removing single points of failure, including people." },
   { emoji: "🌊", text: "Your job won't love you back. Build skills, not loyalty." },
