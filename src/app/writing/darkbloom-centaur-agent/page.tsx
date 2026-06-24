@@ -195,6 +195,86 @@ export default function DarkbloomCentaur() {
         </p>
 
         <h2 className="text-xl font-semibold text-white mt-10">
+          The Context Graph: Real-Time Product Awareness
+        </h2>
+
+        <p className="text-zinc-400 leading-relaxed">
+          Most organizations run on status meetings. Someone asks what
+          happened last week, someone else tries to reconstruct it from Slack
+          scrollback and GitHub notifications, and the answer is always six
+          days stale. The context graph replaces that loop with a
+          continuously-updating knowledge base that the agent builds
+          automatically.
+        </p>
+
+        <p className="text-zinc-400 leading-relaxed">
+          Every Slack conversation the agent participates in gets ingested.
+          Every code review, every merged PR, every Linear issue state change,
+          every release — the agent captures it, extracts the salient
+          information, and writes it into a structured wiki. Pages link to each
+          other. Revisions are append-only with full diff history. The result
+          is a living map of everything happening across the product:
+          who&rsquo;s working on what, which decisions were made and why, what
+          shipped, and what&rsquo;s blocked.
+        </p>
+
+        <div className="my-6 p-4 border border-zinc-800 rounded-lg bg-zinc-900/30 overflow-x-auto">
+          <pre className="text-xs text-zinc-400 font-mono leading-relaxed whitespace-pre">
+{`┌─────────────────────────────────────────────────────────────┐
+│                      Context Graph                            │
+│                                                               │
+│  ┌──────────┐    ┌──────────┐    ┌──────────┐                │
+│  │  Slack   │    │  GitHub  │    │  Linear  │                │
+│  │ threads  │    │ PRs,     │    │ issues,  │                │
+│  │ DMs,     │    │ commits, │    │ projects,│                │
+│  │ channels │    │ releases │    │ comments │                │
+│  └────┬─────┘    └────┬─────┘    └────┬─────┘                │
+│       │               │               │                      │
+│       └───────────────┼───────────────┘                      │
+│                       │                                      │
+│               ┌───────▼───────┐                               │
+│               │  Ingestion    │                               │
+│               │  Pipeline     │  continuous, event-driven     │
+│               └───────┬───────┘                               │
+│                       │                                      │
+│               ┌───────▼───────┐                               │
+│               │  Wiki Pages   │  append-only revisions        │
+│               │  + Timeline   │  full diff history            │
+│               │  + Diffs      │  chronological view           │
+│               └───────┬───────┘                               │
+│                       │                                      │
+│         ┌─────────────┼─────────────┐                        │
+│         │             │             │                        │
+│  ┌──────▼──────┐ ┌────▼─────┐ ┌────▼──────┐                  │
+│  │  Executive  │ │  Engineer│ │  New Hire │                  │
+│  │  "what      │ │  "why did│ │  "what is │                  │
+│  │  shipped    │ │  we make │ │  going on │                  │
+│  │  this week?"│ │  that     │ │  here?"   │                  │
+│  │             │ │  choice?"│ │           │                  │
+│  └─────────────┘ └──────────┘ └───────────┘                  │
+└─────────────────────────────────────────────────────────────┘`}
+          </pre>
+        </div>
+
+        <p className="text-zinc-400 leading-relaxed">
+          An executive who wants to know what shipped this week opens the wiki
+          and sees the timeline — releases, merged PRs, decisions made, things
+          flagged — without asking anyone to write a status report. An engineer
+          who joins a project mid-stream can trace the full decision history
+          through page diffs instead of scrolling Slack for three hours. A new
+          hire can read the context graph like an onboarding document that
+          writes itself.
+        </p>
+
+        <p className="text-zinc-400 leading-relaxed">
+          This isn&rsquo;t a dashboard of metrics. It&rsquo;s the actual
+          narrative of the product — the conversations, the tradeoffs, the
+          reasoning — preserved in a queryable, linkable, versioned knowledge
+          base. The agent does the synthesis. The humans do the thinking.
+          Everyone stays aligned without a single status meeting.
+        </p>
+
+        <h2 className="text-xl font-semibold text-white mt-10">
           Custom Extensions
         </h2>
 
