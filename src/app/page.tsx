@@ -487,7 +487,7 @@ export default function Home() {
             <p className="text-sm text-zinc-500">
               Bedroom DJ since before it was cool. Drum and bass, house, hip-hop — anything
               with a beat that drowns out the intrusive thoughts. Formerly unknown{" "}
-              <a href="https://soundcloud.com/ethen-pociask" className="text-brand hover:text-brand-glow transition-colors" target="_blank" rel="noopener">
+              <a href="https://soundcloud.com/dj_filo" className="text-brand hover:text-brand-glow transition-colors" target="_blank" rel="noopener">
                 SoundCloud
               </a>{" "}
               artist (still unknown, technically).
