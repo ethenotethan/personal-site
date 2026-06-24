@@ -266,6 +266,41 @@ export default function DarkbloomCentaur() {
           writes itself.
         </p>
 
+        <h3 className="text-lg font-semibold text-white mt-6">Operational Unlocks</h3>
+
+        <ul className="text-zinc-400 leading-relaxed space-y-2 list-disc pl-6">
+          <li>
+            <strong className="text-zinc-300">No more &ldquo;what did I miss?&rdquo;</strong>{" "}
+            Skip the Slack backlog. The wiki is the canonical record of what
+            happened while you were out. Every decision, every shipped feature,
+            every escalation — organized, searchable, timestamped.
+          </li>
+          <li>
+            <strong className="text-zinc-300">Onboarding that doesn&rsquo;t need a buddy.</strong>{" "}
+            A new hire reads the context graph like a living history of the
+            product. No one has to spend two weeks walking them through Slack
+            threads and stale docs. The knowledge base is the buddy.
+          </li>
+          <li>
+            <strong className="text-zinc-300">Audit trail without the audit.</strong>{" "}
+            When something goes wrong, you can trace exactly when a decision
+            was made, who was in the conversation, and what the alternatives
+            were. No one has to remember — the agent was taking notes.
+          </li>
+          <li>
+            <strong className="text-zinc-300">Cross-functional visibility.</strong>{" "}
+            Engineering, product, and leadership all read from the same
+            source. No more &ldquo;engineering has a different version of events
+            than product.&rdquo; One narrative, one timeline, one truth.
+          </li>
+          <li>
+            <strong className="text-zinc-300">Investor-ready updates on demand.</strong>{" "}
+            Need to tell investors what the team shipped in Q2? The timeline
+            already has it. No frantic Slack searches, no begging engineers for
+            summaries. The narrative is already written.
+          </li>
+        </ul>
+
         <p className="text-zinc-400 leading-relaxed">
           This isn&rsquo;t a dashboard of metrics. It&rsquo;s the actual
           narrative of the product — the conversations, the tradeoffs, the
