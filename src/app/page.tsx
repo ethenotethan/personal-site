@@ -41,11 +41,13 @@ const links = {
 function CollapsibleSection({
   title,
   subtitle,
+  teaser,
   children,
   defaultOpen = false,
 }: {
   title: string;
   subtitle: string;
+  teaser: string;
   children: React.ReactNode;
   defaultOpen?: boolean;
 }) {
@@ -64,11 +66,15 @@ function CollapsibleSection({
         >
           ▸
         </motion.span>
-        <div>
+        <div className="min-w-0 flex-1">
           <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500 group-hover:text-zinc-400 transition-colors">
             {title}
           </h2>
-          <p className="text-[11px] text-zinc-700 font-mono mt-0.5">{subtitle}</p>
+          {open ? (
+            <p className="text-[11px] text-zinc-700 font-mono mt-0.5">{subtitle}</p>
+          ) : (
+            <p className="text-[11px] text-zinc-600 font-mono mt-0.5 truncate">{teaser}</p>
+          )}
         </div>
       </button>
 
@@ -155,7 +161,7 @@ export default function Home() {
       </motion.section>
 
       {/* What I Believe */}
-      <CollapsibleSection title="What I Believe" subtitle="// things I tell myself at 2am" defaultOpen>
+      <CollapsibleSection title="What I Believe" subtitle="// things I tell myself at 2am" teaser="6 principles — click to expand" defaultOpen>
         <div className="space-y-3">
           {beliefs.map((b, i) => (
             <div key={i} className="flex items-start gap-3 rounded-lg border border-zinc-800/50 bg-zinc-900/20 p-4">
@@ -167,7 +173,7 @@ export default function Home() {
       </CollapsibleSection>
 
       {/* Experience */}
-      <CollapsibleSection title="Experience" subtitle="// things I've done for money">
+      <CollapsibleSection title="Experience" subtitle="// things I've done for money" teaser="6 roles — EigenCloud, Coinbase, Shadow, Lucid, Volatrade">
         <div className="space-y-8">
           {experiences.map((exp, i) => (
             <motion.div
@@ -200,7 +206,7 @@ export default function Home() {
       </CollapsibleSection>
 
       {/* Interests */}
-      <CollapsibleSection title="Interests" subtitle="// rabbit holes I've fallen into">
+      <CollapsibleSection title="Interests" subtitle="// rabbit holes I've fallen into" teaser="Ethereum Rollups, ZK Crypto, Distributed Systems, LLMs & more">
         <div className="flex flex-wrap gap-2">
           {interests.map((interest) => (
             <span key={interest} className="rounded-full border border-zinc-800 bg-zinc-900/50 px-3 py-1.5 text-xs text-zinc-400">
@@ -211,7 +217,7 @@ export default function Home() {
       </CollapsibleSection>
 
       {/* Education */}
-      <CollapsibleSection title="Education" subtitle="// paid money to learn things I mostly taught myself anyway">
+      <CollapsibleSection title="Education" subtitle="// paid money to learn things I mostly taught myself anyway" teaser="BS Computer Science, University of San Francisco">
         <div className="relative border-l border-zinc-800 pl-6">
           <div className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-brand timeline-dot" />
           <h3 className="font-semibold text-white">BS Computer Science</h3>
@@ -222,7 +228,7 @@ export default function Home() {
       </CollapsibleSection>
 
       {/* Awards */}
-      <CollapsibleSection title="Awards & Hackathons" subtitle="// sleep-deprived weekends that paid off">
+      <CollapsibleSection title="Awards & Hackathons" subtitle="// sleep-deprived weekends that paid off" teaser="5 hackathons — 3 wins across ETH Global">
         <div className="space-y-3">
           <AnimatePresence mode="popLayout">
             {visibleAwards.map((award) => (
@@ -251,7 +257,7 @@ export default function Home() {
       </CollapsibleSection>
 
       {/* Writings */}
-      <CollapsibleSection title="Writings" subtitle="// things I've written that people seemed to like">
+      <CollapsibleSection title="Writings" subtitle="// things I've written that people seemed to like" teaser="Coinbase Blog · Base Blog · HackMD">
         <div className="space-y-4">
           <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4">
             <h3 className="font-medium text-white text-sm">
@@ -284,7 +290,7 @@ export default function Home() {
       </CollapsibleSection>
 
       {/* Hobbies */}
-      <CollapsibleSection title="Hobbies" subtitle="// distractions from the void">
+      <CollapsibleSection title="Hobbies" subtitle="// things that aren't computers" teaser="Mixing music · Photography · Muay Thai">
         <div className="space-y-4">
           <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-5">
             <h3 className="font-medium text-white text-sm mb-2">🎵 Mixing Music</h3>
@@ -311,7 +317,7 @@ export default function Home() {
       </CollapsibleSection>
 
       {/* Contact */}
-      <CollapsibleSection title="Contact" subtitle="// I read every email. whether I reply is a different question">
+      <CollapsibleSection title="Contact" subtitle="// I read every email. whether I reply is a different question" teaser="ethenpo@gmail.com">
         <p className="text-sm text-zinc-400">
           Business, collaboration, or existential debates:{" "}
           <a href={links.email} className="text-brand hover:text-brand-glow transition-colors">ethenpo@gmail.com</a>
