@@ -8,11 +8,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Ethen Pociask — Senior Infrastructure Engineer",
   description:
-    "Senior Blockchain Engineer at EigenCloud. Previously Coinbase, Shadow. Building decentralized systems, EVM infrastructure, and AI agents.",
+    "Senior Infrastructure Engineer at EigenCloud — AI infra, decentralized systems, protocol security. Previously Coinbase, Shadow. Building inference harnesses, cross-platform agent clients, and distributed systems.",
   openGraph: {
     title: "Ethen Pociask",
     description:
-      "Senior Blockchain Engineer. Previously Coinbase, Shadow. Distributed systems, EVM, AI.",
+      "Senior Infrastructure Engineer. AI infra, decentralized systems, distributed inference. Previously Coinbase.",
   },
 };
 

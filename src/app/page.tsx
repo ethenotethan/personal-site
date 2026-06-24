@@ -31,6 +31,12 @@ const beliefs = [
   { emoji: "🪦", text: "We're all going to die. Spread good vibes in this entropic universe. Might as well work on interesting problems." },
 ];
 
+const building = [
+  { label: "Centaur", url: "https://github.com/NousResearch/hermes-agent", desc: "AI agent harness — production inference on Apple Silicon clusters, agent orchestration, cron pipelines. Stable in prod 1+ month." },
+  { label: "HermesNative", url: "https://github.com/researchoors/hermes-native", desc: "Cross-platform AI agent client in SwiftUI (macOS + iOS). WebSocket JSON-RPC gateway, wiki graph, skills browser, cron management." },
+  { label: "d‑inference", url: "https://github.com/Layr-Labs/d-inference", desc: "Distributed inference engine integration — MLX backend debugging, speculative decoding benchmarks, E2E latency profiling on Apple Silicon." },
+];
+
 const links = {
   github: "https://github.com/ethenotethan",
   twitter: "https://x.com/ethen_not_ethan",
@@ -158,6 +164,42 @@ export default function Home() {
             </motion.a>
           ))}
         </motion.div>
+      </motion.section>
+
+      {/* Building — always visible, not collapsible */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="mb-16"
+      >
+        <div className="flex items-baseline gap-3 mb-6">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">BUILDING</h2>
+          <p className="text-[11px] text-zinc-700 font-mono">// what I'm shipping right now</p>
+        </div>
+        <div className="grid gap-2">
+          {building.map((proj, i) => (
+            <motion.a
+              key={proj.label}
+              href={proj.url}
+              target="_blank"
+              rel="noopener"
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: i * 0.08 }}
+              className="group flex items-start gap-3 rounded-lg border border-zinc-800/40 bg-zinc-900/15 px-4 py-3 hover:border-brand/30 hover:bg-zinc-900/40 transition-all"
+            >
+              <span className="text-xs font-semibold text-brand mt-0.5 shrink-0 group-hover:text-brand-glow transition-colors">
+                {proj.label}
+              </span>
+              <span className="text-xs text-zinc-500 leading-relaxed group-hover:text-zinc-400 transition-colors">
+                {proj.desc}
+              </span>
+            </motion.a>
+          ))}
+        </div>
       </motion.section>
 
       {/* What I Believe */}
