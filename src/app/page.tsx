@@ -303,6 +303,15 @@ export default function Home() {
         <div className="space-y-4">
           <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4">
             <h3 className="font-medium text-white text-sm">
+              <Link href="/writing/darkbloom-centaur-agent" className="hover:text-brand transition-colors">
+                Darkbloom Centaur Agent — Production GCP Deployment
+              </Link>
+            </h3>
+            <p className="text-xs text-zinc-400 mt-0.5">ethen.me · Jun 2026</p>
+            <p className="text-xs text-zinc-500 mt-1">Architecture deep-dive on deploying a self-hosted AI agent platform on GKE: Slack integration, access policy overlays, signed commits, and automated workflows running in us-central1.</p>
+          </div>
+          <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4">
+            <h3 className="font-medium text-white text-sm">
               <Link href="/writing/agent-harness-lessons" className="hover:text-brand transition-colors">
                 What I Learned Running an AI Agent Harness on Apple Silicon
               </Link>
