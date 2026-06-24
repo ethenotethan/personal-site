@@ -6,8 +6,8 @@
 # Hugo Build Artifacts
 # ============================================================================
 
-# Generated site output
-public/
+# Generated site output (Hugo — but we need Next.js public/ dir)
+# public/ is tracked for static assets (robots.txt, llms.txt, etc.)
 
 # Hugo resources (processed assets)
 resources/

@@ -1,0 +1,20 @@
+# Ethen Pociask — Senior Infrastructure Engineer
+
+> Building AI infrastructure, distributed agent platforms, and cross-platform native clients.
+> Previously Coinbase, Shadow. AI infra, decentralized systems, protocol security.
+
+## Pages
+
+- [Home](https://ethen.me): Portfolio, experience, projects, and beliefs. Senior Infrastructure Engineer at EigenCloud.
+- [Darkbloom Centaur Agent](https://ethen.me/writing/darkbloom-centaur-agent): Production GCP deployment of Centaur — a self-hosted, multiplayer AI agent platform running on GKE with Slack integration, access policy overlays, and automated workflows. Full infrastructure deep-dive.
+- [Agent Harness Lessons](https://ethen.me/writing/agent-harness-lessons): War stories from running an AI agent harness on Apple Silicon for a month — model selection, prompt caching, parallel agents, tool execution at scale, and operational lessons.
+
+## About
+
+Ethen Pociask is a Senior Infrastructure Engineer at EigenCloud. 6+ years across protocol security (Coinbase), EVM engineering (Shadow), and distributed systems. Currently building AI agent platforms (Centaur on GKE, Hermes on Apple Silicon), cross-platform native clients (HermesNative in SwiftUI), and distributed inference engines (d‑inference).
+
+Key interests: Ethereum Rollups, Zero Knowledge Cryptography, Distributed Systems, LLMs & AI Agents, EVM Scalability, Systems Design, Computer Networks.
+
+GitHub: https://github.com/ethenotethan
+Twitter: https://x.com/ethen_not_ethan
+LinkedIn: https://www.linkedin.com/in/ethen-p-5bb640148

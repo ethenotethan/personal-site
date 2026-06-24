@@ -1,0 +1,69 @@
+# Ethen Pociask — Senior Infrastructure Engineer
+
+**Currently:** Senior Infrastructure Engineer at EigenCloud (Apr 2024 — Present)
+**Previously:** Coinbase (Protocol Security), Shadow (EVM Engineering), Lucid, Volatrade
+**Education:** BS Computer Science, University of San Francisco (2017–2021)
+**Location:** Bangkok / Remote
+
+## What I Build
+
+- **Centaur** — Multi-tenant AI agent platform on GKE (GCP). Slack-native with tiered access policies, automated cron workflows, and a real-time context graph wiki. Fork of paradigmxyz/centaur. Stable in prod 1+ month.
+- **Hermes** — Forked agent harness on home lab (Apple Silicon M3 Ultra, 256GB).
+- **HermesNative** — Cross-platform AI agent client in SwiftUI (macOS + iOS). WebSocket JSON-RPC gateway, wiki graph, skills browser, cron management.
+- **d‑inference** — Distributed inference engine integration — MLX backend debugging, speculative decoding benchmarks, E2E latency profiling on Apple Silicon.
+- **github-flashlight** — LLM-powered codebase knowledge graph generator. Produces structured, cited documentation with verified file:line provenance.
+
+## Experience
+
+1. **Senior Infrastructure Engineer, EigenCloud** (Apr 2024 — Present)
+   - Productionized a distributed AI agent platform (Centaur) on GKE — Slack integration, automated workflows, access policy overlays
+   - Built Hermes: personal AI agent harness on Apple Silicon — fork, Nomad orchestration, Cloudflare Tunnel, native client
+   - Managed Arbitrum orbit fork with EigenDA, Stage 1 decentralization
+   - Built HermesNative: cross-platform SwiftUI agent client (macOS + iOS)
+   - Ideated unified DA server across EigenDA rollup integrations — unblocking >$1Bn TVS
+
+2. **Senior Protocol Security Engineer, Coinbase** (May 2024 — Dec 2024)
+   - Security assessment frameworks for novel smart contract execution environments
+   - In-house monitoring for real-time threat detection on OP Stack blockchains
+   - Designed interview pipelines, trained new hires, lead daily meetings
+   - Internal smart contract monitoring — 200+ assets across blockchain protocols
+
+3. **Senior EVM Engineer, Shadow** (Dec 2023 — Apr 2024)
+   - Distributed Ethereum RPC API handling 100+ reqs/second
+   - Production hardened internal EVM environment
+   - Monitoring and resiliency for internally hosted node integrations
+
+4. **Blockchain Security Engineer, Coinbase** (May 2021 — May 2024)
+   - Risk analysis frameworks for onchain tokenized assets
+   - REST API for smart contract analysis tool
+
+5. **Product Engineering Intern, Lucid** (Jun 2020 — May 2021)
+   - Migrated Kafka→Kinesis saving ~$60K/year
+   - Dockerized legacy MSSQL, Go microservice with Redis/DynamoDB/S3/Kinesis
+
+6. **Cofounder, Volatrade** (Nov 2019 — May 2021)
+   - End-to-end crypto trade simulation, ML pipeline with TensorFlow, 60% model accuracy
+
+## Awards & Hackathons
+- ETH New York 2023 Hackathon Winner (Arbitrum Stylus automation)
+- ETH Denver 2023 Binance Hackathon Winner (smart contract risk PoC)
+- ETH Denver 2023 NEAR Hackathon Winner (light client storage proofs)
+- ETH San Francisco 2022 Participant (TSTORE/TLOAD opcodes on op-geth)
+- ETH Online 2022 Participant (OP Stack calldata settlement on FileCoin)
+
+## What I Believe
+- Local LLMs are the only real democratization. Everything else is renting your intelligence from someone else's server.
+- AI will transform human societies in ways most of us aren't prepared for.
+- Decentralization isn't about ideology — it's about removing single points of failure, including people.
+- Your job won't love you back. Build skills, not loyalty.
+- The best code is the code that solves a real problem. Everything else is cosplay.
+- We're all going to die. Spread good vibes. Might as well work on interesting problems.
+
+## Interests
+Ethereum Rollups · Zero Knowledge Cryptography · Distributed Systems · LLMs & AI Agents · EVM Scalability · Systems Design · Computer Networks · Utilitarian Web3
+
+## Contact
+- Email: ethenpo@gmail.com
+- GitHub: https://github.com/ethenotethan
+- Twitter: https://x.com/ethen_not_ethan
+- LinkedIn: https://www.linkedin.com/in/ethen-p-5bb640148
