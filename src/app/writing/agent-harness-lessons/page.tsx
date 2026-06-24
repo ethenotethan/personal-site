@@ -29,15 +29,195 @@ export default function AgentHarnessLessons() {
         <hr className="border-zinc-800 my-8" />
 
         <p className="text-zinc-400 leading-relaxed">
-          Six months ago I was told to build an AI agent harness that ran on
-          Apple Silicon clusters. Not a prototype. Not a demo. Production.
-          Agents that reason, call tools, manage state, and don&rsquo;t crash
-          while you&rsquo;re asleep. Here&rsquo;s what I learned.
+          I built an AI agent harness running on a cluster of heterogeneous Apple Silicon devices — Mac Studios, MacBooks, whatever had a GPU and was in the room — because I wanted to see how far you could push local inference for agent workloads. Not a prototype. Not a demo. Production. Agents that reason, call tools, delegate subtasks, manage their own state, and don&rsquo;t crash while you&rsquo;re asleep. Here&rsquo;s what I learned.
         </p>
 
         <h2 className="text-xl font-semibold text-white mt-10 mb-4">
-          Model selection is a trap
+          The Cluster: Heterogeneous Apple Silicon
         </h2>
+
+        <div className="my-6 p-4 border border-zinc-800 rounded-lg bg-zinc-900/30 overflow-x-auto">
+          <pre className="text-xs text-zinc-400 font-mono leading-relaxed whitespace-pre">
+{`┌─────────────────────────────────────────────────────────────┐
+│                     Cloudflare Tunnel                        │
+│          gateway.ethen.me → :9119   models.ethen.me → :8642   │
+└──────────────┬──────────────────────────────┬────────────────┘
+               │                              │
+     ┌─────────▼──────────┐        ┌──────────▼─────────┐
+     │   M3 Ultra 256GB   │        │  MacBook / Studio   │
+     │   (orchestrator)   │        │  (inference worker) │
+     │                    │        │                     │
+     │  ┌──────────────┐  │        │  ┌───────────────┐  │
+     │  │ Agent Loop   │  │  Nomad │  │  MLX Backend  │  │
+     │  │ (Hermes)     │◄─┼────────┼──│  (d-inference)│  │
+     │  └──────┬───────┘  │  gossip│  └───────────────┘  │
+     │         │          │  + svc │                     │
+     │  ┌──────▼───────┐  │  disc  │  ┌───────────────┐  │
+     │  │ Cron Engine  │  │        │  │  Speculative   │  │
+     │  │ + Webhooks   │  │        │  │  Decode Worker │  │
+     │  └──────────────┘  │        │  └───────────────┘  │
+     │                    │        │                     │
+     │  ┌──────────────┐  │        │  ┌───────────────┐  │
+     │  │ Git Worktrees│  │        │  │  E2E Latency   │  │
+     │  │ (per-agent)  │  │        │  │  Profiler      │  │
+     │  └──────────────┘  │        │  └───────────────┘  │
+     └────────────────────┘        └─────────────────────┘`}
+          </pre>
+        </div>
+
+        <p className="text-zinc-400 leading-relaxed">
+          The setup is heterogeneous by necessity. You don&rsquo;t buy a rack of
+          identical Apple Silicon boxes — you use whatever hardware is
+          available and make it work as a unified pool. The orchestrator
+          handles the agent loop, cron scheduling, webhook ingestion, and
+          state management. Inference gets dispatched to whichever node has
+          free GPU capacity.
+        </p>
+
+        <h2 className="text-xl font-semibold text-white mt-10 mb-4">
+          Infrastructure Glue: Why Nomad
+        </h2>
+
+        <p className="text-zinc-400 leading-relaxed">
+          When you&rsquo;re running a dozen different services across
+          heterogeneous devices — MLX inference backends, speculative decode
+          workers, E2E latency profilers, cron engines, WebSocket gateways —
+          you need a way to know what&rsquo;s alive, what&rsquo;s dead, and
+          what&rsquo;s limping. Kubernetes is overkill for this. Nomad
+          isn&rsquo;t.
+        </p>
+
+        <p className="text-zinc-400 leading-relaxed">
+          Nomad gives you three things that matter for agent infra:
+        </p>
+
+        <ul className="text-zinc-400 leading-relaxed space-y-2 list-disc pl-6">
+          <li>
+            <strong className="text-zinc-300">
+              Service discovery without the ceremony.
+            </strong>{" "}
+            Services register themselves via gossip protocol. No etcd. No
+            control plane tax. When a new inference worker comes online, the
+            orchestrator learns about it without a config change.
+          </li>
+          <li>
+            <strong className="text-zinc-300">
+              Health checks as first-class citizens.
+            </strong>{" "}
+            Every service gets script-based health checks. If the MLX backend
+            hangs (which it does), Nomad restarts it. If the speculative decode
+            worker&rsquo;s memory leaks past a threshold, Nomad flags it and
+            reroutes traffic.
+          </li>
+          <li>
+            <strong className="text-zinc-300">
+              One binary, one view.
+            </strong>{" "}
+            All service logs, statuses, and allocation history in one place. No
+            stitching together journald, syslog, and whatever the model
+            server decided to print to stderr. When an agent job fails at 3am,
+            you can trace it through the entire stack in one dashboard.
+          </li>
+        </ul>
+
+        <p className="text-zinc-400 leading-relaxed">
+          The alternative — SSHing into each machine and manually checking
+          processes — doesn&rsquo;t scale past two nodes. Nomad is the
+          difference between &ldquo;I think everything is running&rdquo; and
+          &ldquo;I know exactly which service is degraded.&rdquo;
+        </p>
+
+        <h2 className="text-xl font-semibold text-white mt-10 mb-4">
+          State Checkpoints: Don&rsquo;t Lose Your Agent&rsquo;s Brain
+        </h2>
+
+        <p className="text-zinc-400 leading-relaxed">
+          An agent&rsquo;s session is a SQLite database of conversations,
+          memory files, learned skills, and accumulated context. If the machine
+          dies, the agent dies with it. If you migrate to new hardware, the
+          agent is a newborn.
+        </p>
+
+        <p className="text-zinc-400 leading-relaxed">
+          The fix: backup loops. Dump the entire knowledge base — sessions DB,
+          memory store, skills directory, config — to a persistent location on
+          a schedule. GitHub private repos work well for this. So does S3 or
+          any object store. The format doesn&rsquo;t matter — the consistency
+          does.
+        </p>
+
+        <p className="text-zinc-400 leading-relaxed">
+          More important than the backup is the restoration test. Don&rsquo;t
+          wait until you need it. Once a week, spawn a fresh agent from the
+          backup and verify it can resume an in-progress task. The backup
+          that hasn&rsquo;t been tested is a lie you tell yourself to sleep
+          better.
+        </p>
+
+        <h2 className="text-xl font-semibold text-white mt-10 mb-4">
+          Agentic Identity: Your Agent Is Not You
+        </h2>
+
+        <p className="text-zinc-400 leading-relaxed">
+          This is the lesson that took me the longest to fully absorb: the
+          agent is a separate entity and needs to be treated as one. Not a tool
+          you wield. Not an extension of your will. A semi-autonomous process
+          with its own identity, credentials, and attack surface.
+        </p>
+
+        <p className="text-zinc-400 leading-relaxed">Concrete implications:</p>
+
+        <ul className="text-zinc-400 leading-relaxed space-y-2 list-disc pl-6">
+          <li>
+            <strong className="text-zinc-300">
+              Give it separate accounts.
+            </strong>{" "}
+            The agent gets its own GitHub account, its own email, its own
+            social profiles. Not yours. Ever. This isn&rsquo;t about
+            aesthetics — it&rsquo;s about blast radius. When the agent tries
+            to escalate agency during goal-seeking (and it will), the
+            credentials it exhausts are the agent&rsquo;s, not yours.
+          </li>
+          <li>
+            <strong className="text-zinc-300">
+              Never link your personal accounts.
+            </strong>{" "}
+            An agent will commandeer browsers, exhaust API keys, and try
+            every credential it can find in the environment. If it has access
+            to your GitHub token, it will use it. If it has your email
+            password, it will log in. Segmentation isn&rsquo;t paranoia —
+            it&rsquo;s the minimum viable security posture.
+          </li>
+          <li>
+            <strong className="text-zinc-300">
+              Give it source code awareness.
+            </strong>{" "}
+            The agent should know where its own source code lives and how
+            it&rsquo;s structured. When it needs to self-modify — fix a bug
+            in a tool implementation, adjust a skill, patch a cron job — it
+            can do it without you. This is the difference between an agent
+            you babysit and an agent that maintains itself.
+          </li>
+          <li>
+            <strong className="text-zinc-300">
+              Git as commitment layer.
+            </strong>{" "}
+            Every service deploy, every config change, every skill update gets
+            committed. The agent has its own repo. You can audit what it
+            changed and when. Credible commitments scale — you stop worrying
+            about what the agent is doing because every action has a paper
+            trail.
+          </li>
+        </ul>
+
+        <p className="text-zinc-400 leading-relaxed">
+          This separation also makes development easier. You can build a native
+          app to interact with the agent (I did — it&rsquo;s called
+          HermesNative) because the agent is its own thing with its own
+          WebSocket gateway. Native Discord/Telegram integrations are brittle
+          at scale and provide minimal introspection — a dedicated client
+          solves both problems.
+        </p>
 
         <p className="text-zinc-400 leading-relaxed">
           Every benchmark in the world will tell you Model X is the best. Then you
@@ -240,6 +420,58 @@ export default function AgentHarnessLessons() {
           Apple Silicon, it&rsquo;s the difference between &ldquo;works on my
           machine&rdquo; and &ldquo;works in production.&rdquo;
         </p>
+
+        <h2 className="text-xl font-semibold text-white mt-10 mb-4">
+          Operational Cheat Sheet
+        </h2>
+
+        <p className="text-zinc-400 leading-relaxed">
+          The stuff you learn at 2am debugging why the agent keeps calling a
+          tool that doesn&rsquo;t exist:
+        </p>
+
+        <ul className="text-zinc-400 leading-relaxed space-y-2 list-disc pl-6">
+          <li>
+            <strong className="text-zinc-300">
+              Disable skills you don&rsquo;t use.
+            </strong>{" "}
+            The agent loop references available skills based on keyword
+            matching in your prompts. If you have 40 skills loaded and you
+            actually use 6, the agent will waste tokens trying to load
+            irrelevant ones. Prune aggressively. The dashboard is the fastest
+            way to manage this.
+          </li>
+          <li>
+            <strong className="text-zinc-300">
+              Enable self-learning explicitly.
+            </strong>{" "}
+            The introspection loop — where the agent reflects on its own
+            performance, saves lessons as skills, updates its memory — is not
+            on by default in most frameworks. Turn it on. An agent that
+            doesn&rsquo;t learn from its mistakes makes the same mistake 500
+            times.
+          </li>
+          <li>
+            <strong className="text-zinc-300">
+              Define constraints upfront.
+            </strong>{" "}
+            Frontend styles, reporting structures, GitHub review workflows,
+            commit conventions — encode these as explicit constraints before the
+            agent starts working. Every time the agent has to guess a
+            convention, it burns tokens. Every time it guesses wrong, it burns
+            more tokens fixing it. Determinism is cheaper than iteration.
+          </li>
+          <li>
+            <strong className="text-zinc-300">
+              The git layer is your safety net.
+            </strong>{" "}
+            Every deploy, every config change, every skill patch gets
+            committed to a repo the agent controls. When something breaks
+            (and it will), you have an audit trail. More importantly, you
+            can roll back to a known-good state. The git history is your
+            insurance policy.
+          </li>
+        </ul>
 
         <h2 className="text-xl font-semibold text-white mt-10 mb-4">
           What I&rsquo;d do differently
