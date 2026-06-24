@@ -6,7 +6,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ethen Pociask — Senior Blockchain Engineer",
+  title: "Ethen Pociask — Senior Infrastructure Engineer",
   description:
     "Senior Blockchain Engineer at EigenCloud. Previously Coinbase, Shadow. Building decentralized systems, EVM infrastructure, and AI agents.",
   openGraph: {

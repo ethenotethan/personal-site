@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const experiences = [
-  { title: "Senior Blockchain Engineer", company: "EigenCloud", url: "https://www.eigencloud.xyz/", start: "Apr 2024", end: "Present", points: ["Managed development of Arbitrum orbit fork integrated with EigenDA with Stage 1 decentralization", "Worked closely with key RaaS partners and blockchain customers to triage bugs and stand up blockchain infra", "Ideated and help manage a unified DA server used across EigenDA rollup integrations — unblocking >$1Bn TVS"] },
+  { title: "Senior Infrastructure Engineer", company: "EigenCloud", url: "https://www.eigencloud.xyz/", start: "Apr 2024", end: "Present", points: ["Embedded with teams to productionize a distributed inference harness (Centaur) running on Apple Silicon clusters — deployed and stable in production 1+ month", "Managed development of Arbitrum orbit fork integrated with EigenDA with Stage 1 decentralization", "Built cross-platform native AI agent client (HermesNative) in SwiftUI — macOS + iOS, WebSocket JSON-RPC gateway, wiki graph, cron pipelines", "Worked closely with key RaaS partners and blockchain customers to triage bugs and stand up blockchain infra", "Ideated and help manage a unified DA server used across EigenDA rollup integrations — unblocking >$1Bn TVS"] },
   { title: "Senior Protocol Security Engineer", company: "Coinbase", url: "https://www.coinbase.com/", start: "May 2024", end: "Dec 2024", points: ["Designed and operationalized security assessment frameworks for novel smart contract execution environments", "Built in-house monitoring service for real-time threat detection on OP Stack blockchains; worked closely with BASE protocol team", "Designed interview pipelines, trained new hires, and lead daily meetings to upskill/unblock coworkers", "Catalyzed creation of internal smart contract monitoring — full coverage of 200+ assets across blockchain protocols"] },
   { title: "Senior EVM Engineer", company: "Shadow", url: "https://www.shadow.xyz/", start: "Dec 2023", end: "Apr 2024", points: ["Architected and productionized a distributed Ethereum RPC API handling 100+ reqs/second with minimal latency", "Production hardened an internal EVM environment and identified key security vulnerabilities in execution", "Established robust monitoring and resiliency routines for internally hosted node integrations"] },
   { title: "Blockchain Security Engineer", company: "Coinbase", url: "https://www.coinbase.com/", start: "May 2021", end: "May 2024", points: ["Designed and operationalized risk analysis frameworks for analyzing onchain tokenized assets for secure listings on Coinbase exchange", "Designed and implemented REST API for smart contract analysis tool enabling quicker turnaround on security intake requests"] },
@@ -116,7 +116,7 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-2 text-lg text-zinc-400 md:text-xl"
         >
-          Senior Blockchain Engineer at{" "}
+          Senior Infrastructure Engineer at{" "}
           <a href="https://www.eigencloud.xyz/" className="text-brand hover:text-brand-glow transition-colors" target="_blank" rel="noopener">EigenCloud</a>
         </motion.p>
         <motion.p
@@ -125,7 +125,7 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-1 text-sm text-zinc-600 font-mono"
         >
-          // currently: writing code, questioning everything
+          // currently: building AI infra, shipping cross-platform apps, questioning everything
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -133,7 +133,7 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400"
         >
-          I build decentralized systems and break things for a living — then fix them better than they were. 6+ years across software engineering, protocol security, and infrastructure. The universe is indifferent to our existence, so I write code that actually matters. Between commits I train muay thai, mix music, and oscillate between existential dread and genuine optimism.
+          I build infrastructure for AI and decentralized systems — embedding with teams to diagnose problems, ship solutions, and move on. 6+ years across protocol security, distributed systems, and ML infrastructure. I've productionized inference harnesses, built cross-platform native apps, and designed monitoring systems that protected billions in onchain assets. The universe is indifferent, so I write code that actually matters. Between commits I train muay thai, mix music, and oscillate between existential dread and genuine optimism.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -248,6 +248,39 @@ export default function Home() {
             {showAllAwards ? "ok that's enough ↑" : `Show all ${awards.length} →`}
           </button>
         )}
+      </CollapsibleSection>
+
+      {/* Writings */}
+      <CollapsibleSection title="Writings" subtitle="// things I've written that people seemed to like">
+        <div className="space-y-4">
+          <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4">
+            <h3 className="font-medium text-white text-sm">
+              <a href="https://www.coinbase.com/blog/how-to-evaluate-forked-evms-for-security-risks" className="hover:text-brand transition-colors" target="_blank" rel="noopener">
+                How to Evaluate Forked EVMs for Security Risks
+              </a>
+            </h3>
+            <p className="text-xs text-zinc-400 mt-0.5">Coinbase Blog · May 2023</p>
+            <p className="text-xs text-zinc-500 mt-1">Theoretical analysis of security implications when analyzing Ethereum Virtual Machine forks — motivated by Coinbase's need to securely support onchain tokenized assets across EVM-compatible chains.</p>
+          </div>
+          <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4">
+            <h3 className="font-medium text-white text-sm">
+              <a href="https://blog.base.org/embracing-optimism-with-pessimism" className="hover:text-brand transition-colors" target="_blank" rel="noopener">
+                Open Source Monitoring for OP Stack Blockchains
+              </a>
+            </h3>
+            <p className="text-xs text-zinc-400 mt-0.5">Base Blog · Jul 2024</p>
+            <p className="text-xs text-zinc-500 mt-1">Built an open-source service for real-time protocol threat monitoring on OP Stack blockchains — ran in production to secure the BASE chain.</p>
+          </div>
+          <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4">
+            <h3 className="font-medium text-white text-sm">
+              <a href="https://hackmd.io/@epociask" className="hover:text-brand transition-colors" target="_blank" rel="noopener">
+                Technical Writeups
+              </a>
+            </h3>
+            <p className="text-xs text-zinc-400 mt-0.5">HackMD</p>
+            <p className="text-xs text-zinc-500 mt-1">Personal collection of technical notes and analysis around software systems that pique my interest.</p>
+          </div>
+        </div>
       </CollapsibleSection>
 
       {/* Hobbies */}
