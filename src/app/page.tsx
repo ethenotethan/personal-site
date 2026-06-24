@@ -32,7 +32,7 @@ const beliefs = [
 ];
 
 const building = [
-  { label: "Centaur", url: "https://github.com/NousResearch/hermes-agent", desc: "AI agent harness — production inference on Apple Silicon clusters, agent orchestration, cron pipelines. Stable in prod 1+ month." },
+  { label: "Centaur", url: "", desc: "AI agent harness — production inference on Apple Silicon clusters, agent orchestration, cron pipelines. Stable in prod 1+ month." },
   { label: "HermesNative", url: "https://github.com/researchoors/hermes-native", desc: "Cross-platform AI agent client in SwiftUI (macOS + iOS). WebSocket JSON-RPC gateway, wiki graph, skills browser, cron management." },
   { label: "d‑inference", url: "https://github.com/Layr-Labs/d-inference", desc: "Distributed inference engine integration — MLX backend debugging, speculative decoding benchmarks, E2E latency profiling on Apple Silicon." },
 ];
@@ -180,24 +180,23 @@ export default function Home() {
         </div>
         <div className="grid gap-2">
           {building.map((proj, i) => (
-            <motion.a
+            <motion.div
               key={proj.label}
-              href={proj.url}
-              target="_blank"
-              rel="noopener"
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: i * 0.08 }}
-              className="group flex items-start gap-3 rounded-lg border border-zinc-800/40 bg-zinc-900/15 px-4 py-3 hover:border-brand/30 hover:bg-zinc-900/40 transition-all"
+              className="group flex items-start gap-3 rounded-lg border border-zinc-800/40 bg-zinc-900/15 px-4 py-3"
             >
-              <span className="text-xs font-semibold text-brand mt-0.5 shrink-0 group-hover:text-brand-glow transition-colors">
-                {proj.label}
+              <span className="text-xs font-semibold text-brand mt-0.5 shrink-0">
+                {proj.url ? (
+                  <a href={proj.url} target="_blank" rel="noopener" className="hover:text-brand-glow transition-colors">{proj.label}</a>
+                ) : proj.label}
               </span>
-              <span className="text-xs text-zinc-500 leading-relaxed group-hover:text-zinc-400 transition-colors">
+              <span className="text-xs text-zinc-500 leading-relaxed">
                 {proj.desc}
               </span>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </motion.section>
