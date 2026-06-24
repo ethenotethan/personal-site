@@ -28,7 +28,7 @@ const beliefs = [
   { emoji: "🔮", text: "Decentralization isn't about ideology — it's about removing single points of failure, including people." },
   { emoji: "🌊", text: "Your job won't love you back. Build skills, not loyalty." },
   { emoji: "🎯", text: "The best code is the code that solves a real problem. Everything else is cosplay." },
-  { emoji: "🪦", text: "We're all going to die. Might as well work on interesting problems." },
+  { emoji: "🪦", text: "We're all going to die. Spread good vibes in this entropic universe. Might as well work on interesting problems." },
 ];
 
 const links = {
