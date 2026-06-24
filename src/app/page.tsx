@@ -2,7 +2,6 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence, type Variants } from "framer-motion";
-import { ScrollShapes } from "./scroll-shapes";
 
 const experiences = [
   {
@@ -238,7 +237,6 @@ export default function Home() {
 
   return (
     <div className="relative z-10 mx-auto max-w-3xl px-6 py-20 md:py-32">
-      <ScrollShapes />
       {/* Hero */}
       <motion.section
         initial={{ opacity: 0, y: 30 }}
@@ -246,14 +244,6 @@ export default function Home() {
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="mb-24"
       >
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-          className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-brand/10 ring-1 ring-brand/20 text-2xl"
-        >
-          🌍
-        </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}

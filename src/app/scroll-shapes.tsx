@@ -17,26 +17,26 @@ interface ShapeDef {
 
 const shapes: ShapeDef[] = [
   // Top section shapes
-  { type: "circle", x: 5, y: 15, size: 80, opacity: [0.15, 0.06, 0], parallaxSpeed: 0.3, color: "#6366f1" },
-  { type: "ring", x: 92, y: 10, size: 120, opacity: [0.12, 0.04, 0], parallaxSpeed: 0.5, color: "#818cf8", borderWidth: 1.5 },
-  { type: "square", x: 15, y: 25, size: 40, rotation: 15, opacity: [0.1, 0.03, 0], parallaxSpeed: 0.7, color: "#a78bfa" },
-  { type: "triangle", x: 88, y: 30, size: 50, rotation: -20, opacity: [0.12, 0.04, 0], parallaxSpeed: 0.4, color: "#6366f1" },
-  { type: "line", x: 50, y: 8, size: 120, rotation: 45, opacity: [0.08, 0.02, 0], parallaxSpeed: 0.6, color: "#6366f1" },
+  { type: "circle", x: 5, y: 15, size: 80, opacity: [0.25, 0.1, 0], parallaxSpeed: 0.3, color: "#6366f1" },
+  { type: "ring", x: 92, y: 10, size: 120, opacity: [0.2, 0.08, 0], parallaxSpeed: 0.5, color: "#818cf8", borderWidth: 1.5 },
+  { type: "square", x: 15, y: 25, size: 40, rotation: 15, opacity: [0.18, 0.06, 0], parallaxSpeed: 0.7, color: "#a78bfa" },
+  { type: "triangle", x: 88, y: 30, size: 50, rotation: -20, opacity: [0.2, 0.08, 0], parallaxSpeed: 0.4, color: "#6366f1" },
+  { type: "line", x: 50, y: 8, size: 120, rotation: 45, opacity: [0.15, 0.05, 0], parallaxSpeed: 0.6, color: "#6366f1" },
 
   // Mid section — manifesto/experience area
-  { type: "hexagon", x: 8, y: 48, size: 70, rotation: 30, opacity: [0, 0.08, 0.04], parallaxSpeed: 0.8, color: "#818cf8" },
-  { type: "circle", x: 85, y: 55, size: 100, opacity: [0, 0.1, 0.03], parallaxSpeed: 0.5, color: "#6366f1" },
-  { type: "square", x: 48, y: 52, size: 30, rotation: -10, opacity: [0, 0.06, 0.02], parallaxSpeed: 1.2, color: "#a78bfa" },
-  { type: "ring", x: 94, y: 42, size: 60, opacity: [0, 0.09, 0.03], parallaxSpeed: 0.6, color: "#6366f1", borderWidth: 1 },
-  { type: "line", x: 20, y: 60, size: 80, rotation: -30, opacity: [0, 0.05, 0.02], parallaxSpeed: 0.9, color: "#818cf8" },
+  { type: "hexagon", x: 8, y: 48, size: 70, rotation: 30, opacity: [0, 0.14, 0.06], parallaxSpeed: 0.8, color: "#818cf8" },
+  { type: "circle", x: 85, y: 55, size: 100, opacity: [0, 0.16, 0.05], parallaxSpeed: 0.5, color: "#6366f1" },
+  { type: "square", x: 48, y: 52, size: 30, rotation: -10, opacity: [0, 0.12, 0.04], parallaxSpeed: 1.2, color: "#a78bfa" },
+  { type: "ring", x: 94, y: 42, size: 60, opacity: [0, 0.15, 0.05], parallaxSpeed: 0.6, color: "#6366f1", borderWidth: 1 },
+  { type: "line", x: 20, y: 60, size: 80, rotation: -30, opacity: [0, 0.1, 0.04], parallaxSpeed: 0.9, color: "#818cf8" },
 
   // Lower section — awards/hobbies
-  { type: "triangle", x: 10, y: 78, size: 45, rotation: 60, opacity: [0, 0.02, 0.1], parallaxSpeed: 0.7, color: "#6366f1" },
-  { type: "circle", x: 90, y: 85, size: 55, opacity: [0, 0.03, 0.12], parallaxSpeed: 0.4, color: "#818cf8" },
-  { type: "hexagon", x: 45, y: 88, size: 90, rotation: -15, opacity: [0, 0.04, 0.1], parallaxSpeed: 0.5, color: "#6366f1" },
-  { type: "ring", x: 75, y: 75, size: 80, opacity: [0, 0.03, 0.08], parallaxSpeed: 0.8, color: "#a78bfa", borderWidth: 1.5 },
-  { type: "square", x: 25, y: 92, size: 35, rotation: 25, opacity: [0, 0.02, 0.06], parallaxSpeed: 1.1, color: "#6366f1" },
-  { type: "line", x: 60, y: 95, size: 100, rotation: 20, opacity: [0, 0.03, 0.07], parallaxSpeed: 0.6, color: "#818cf8" },
+  { type: "triangle", x: 10, y: 78, size: 45, rotation: 60, opacity: [0, 0.04, 0.18], parallaxSpeed: 0.7, color: "#6366f1" },
+  { type: "circle", x: 90, y: 85, size: 55, opacity: [0, 0.06, 0.2], parallaxSpeed: 0.4, color: "#818cf8" },
+  { type: "hexagon", x: 45, y: 88, size: 90, rotation: -15, opacity: [0, 0.07, 0.16], parallaxSpeed: 0.5, color: "#6366f1" },
+  { type: "ring", x: 75, y: 75, size: 80, opacity: [0, 0.05, 0.14], parallaxSpeed: 0.8, color: "#a78bfa", borderWidth: 1.5 },
+  { type: "square", x: 25, y: 92, size: 35, rotation: 25, opacity: [0, 0.05, 0.12], parallaxSpeed: 1.1, color: "#6366f1" },
+  { type: "line", x: 60, y: 95, size: 100, rotation: 20, opacity: [0, 0.05, 0.12], parallaxSpeed: 0.6, color: "#818cf8" },
 ];
 
 function TriangleShape({ size, color }: { size: number; color: string }) {

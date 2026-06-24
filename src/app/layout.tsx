@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { BackgroundLayer } from "./background";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} bg-zinc-950 text-zinc-200 antialiased`}
       >
+        <BackgroundLayer />
         {children}
       </body>
     </html>
