@@ -122,6 +122,15 @@ const interests = [
   "Utilitarian Web3",
 ];
 
+const beliefs = [
+  { emoji: "🫠", text: "The universe is indifferent. Ship good code anyway." },
+  { emoji: "⚡", text: "Most meetings could've been a Slack message. Most Slack messages could've been nothing." },
+  { emoji: "🔮", text: "Decentralization isn't about ideology — it's about removing single points of failure, including people." },
+  { emoji: "🌊", text: "Your job won't love you back. Build skills, not loyalty." },
+  { emoji: "🎯", text: "The best code is the code that solves a real problem. Everything else is cosplay." },
+  { emoji: "🪦", text: "We're all going to die. Might as well work on interesting problems." },
+];
+
 const links = {
   github: "https://github.com/ethenotethan",
   twitter: "https://x.com/ethen_not_ethan",
@@ -226,14 +235,10 @@ export default function Home() {
   const [showAllAwards, setShowAllAwards] = useState(false);
   const visibleAwards = showAllAwards ? awards : awards.slice(0, 3);
 
-  const heroRef = useRef(null);
-  const heroInView = useInView(heroRef, { once: true });
-
   return (
     <div className="relative z-10 mx-auto max-w-3xl px-6 py-20 md:py-32">
       {/* Hero */}
       <motion.section
-        ref={heroRef}
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
@@ -258,8 +263,8 @@ export default function Home() {
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.35 }}
-          className="mt-3 text-lg text-zinc-400 md:text-xl"
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-2 text-lg text-zinc-400 md:text-xl"
         >
           Senior Blockchain Engineer at{" "}
           <a
@@ -275,20 +280,29 @@ export default function Home() {
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.45 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-1 text-sm text-zinc-600 font-mono"
+        >
+          // currently: writing code, questioning everything
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
           className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400"
         >
-          I have 6+ years across software engineering, security analysis/auditing,
-          and product development. I spend my days removing trust assumptions in
-          decentralized systems — and my free time training muay thai, mixing music,
-          or shooting amateur photography. I like to travel the world and value being
-          able to work from anywhere.
+          I build decentralized systems and break things for a living — then fix them
+          better than they were. 6+ years across software engineering, protocol
+          security, and infrastructure. The universe is indifferent to our existence,
+          so I write code that actually matters. Between commits I train muay thai,
+          mix music, and oscillate between existential dread and genuine optimism.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.55 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
           className="mt-6 flex gap-5 text-sm"
         >
           {[
@@ -296,7 +310,7 @@ export default function Home() {
             { label: "X / Twitter", href: links.twitter },
             { label: "LinkedIn", href: links.linkedin },
             { label: "Email", href: links.email },
-          ].map((link, i) => (
+          ].map((link) => (
             <motion.a
               key={link.label}
               href={link.href}
@@ -312,6 +326,32 @@ export default function Home() {
         </motion.div>
       </motion.section>
 
+      {/* Manifesto */}
+      <motion.section
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="mb-24"
+      >
+        <SectionHeading>What I Believe</SectionHeading>
+        <motion.p variants={fadeIn} className="text-xs text-zinc-600 mb-6 font-mono">
+          // or: things I tell myself at 2am
+        </motion.p>
+        <div className="space-y-3">
+          {beliefs.map((belief, i) => (
+            <motion.div
+              key={i}
+              variants={fadeIn}
+              className="flex items-start gap-3 rounded-lg border border-zinc-800/50 bg-zinc-900/20 p-4"
+            >
+              <span className="text-lg mt-0.5 shrink-0">{belief.emoji}</span>
+              <p className="text-sm text-zinc-400 leading-relaxed">{belief.text}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+
       {/* Experience */}
       <motion.section
         variants={stagger}
@@ -321,6 +361,9 @@ export default function Home() {
         className="mb-24"
       >
         <SectionHeading>Experience</SectionHeading>
+        <motion.p variants={fadeIn} className="text-xs text-zinc-600 mb-6 font-mono">
+          // things I&apos;ve done for money
+        </motion.p>
         <div className="space-y-8">
           {experiences.map((exp, i) => (
             <TimelineItem key={i} {...exp} index={i} />
@@ -337,6 +380,9 @@ export default function Home() {
         className="mb-24"
       >
         <SectionHeading>Interests</SectionHeading>
+        <motion.p variants={fadeIn} className="text-xs text-zinc-600 mb-6 font-mono">
+          // rabbit holes I&apos;ve fallen into
+        </motion.p>
         <div className="flex flex-wrap gap-2">
           {interests.map((interest) => (
             <motion.span
@@ -354,6 +400,9 @@ export default function Home() {
       {/* Education */}
       <Reveal className="mb-24">
         <SectionHeading>Education</SectionHeading>
+        <motion.p variants={fadeIn} className="text-xs text-zinc-600 mb-6 font-mono">
+          // paid money to learn things I mostly taught myself anyway
+        </motion.p>
         <div className="relative border-l border-zinc-800 pl-6">
           <div className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-brand timeline-dot" />
           <h3 className="font-semibold text-white">BS Computer Science</h3>
@@ -374,9 +423,12 @@ export default function Home() {
         className="mb-24"
       >
         <SectionHeading>Awards & Hackathons</SectionHeading>
+        <motion.p variants={fadeIn} className="text-xs text-zinc-600 mb-6 font-mono">
+          // sleep-deprived weekends that paid off
+        </motion.p>
         <div className="space-y-3">
           <AnimatePresence mode="popLayout">
-            {visibleAwards.map((award, i) => (
+            {visibleAwards.map((award) => (
               <motion.div
                 key={award.title}
                 variants={fadeIn}
@@ -420,7 +472,7 @@ export default function Home() {
             whileHover={{ x: 3 }}
             whileTap={{ scale: 0.95 }}
           >
-            {showAllAwards ? "Show less ↑" : `Show all ${awards.length} awards →`}
+            {showAllAwards ? "ok that's enough ↑" : `Show all ${awards.length} →`}
           </motion.button>
         )}
       </motion.section>
@@ -434,26 +486,27 @@ export default function Home() {
         className="mb-24"
       >
         <SectionHeading>Hobbies</SectionHeading>
-        <motion.p variants={fadeIn} className="text-sm leading-relaxed text-zinc-400 mb-6">
-          Work-life balance is hard — creative outlets are a great means to decompress and connect with others.
+        <motion.p variants={fadeIn} className="text-xs text-zinc-600 mb-6 font-mono">
+          // distractions from the void
         </motion.p>
-        <div className="space-y-6">
+        <div className="space-y-4">
           <motion.div variants={fadeIn} className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-5">
             <h3 className="font-medium text-white text-sm mb-2">🎵 Mixing Music</h3>
             <p className="text-sm text-zinc-500">
-              I like to mix music sometimes (preferably from a quiet bedroom). Was an unknown{" "}
+              Bedroom DJ since before it was cool. Drum and bass, house, hip-hop — anything
+              with a beat that drowns out the intrusive thoughts. Formerly unknown{" "}
               <a href="https://soundcloud.com/ethen-pociask" className="text-brand hover:text-brand-glow transition-colors" target="_blank" rel="noopener">
                 SoundCloud
               </a>{" "}
-              artist for a few years. Genres include drum and bass, house, and hip-hop.
+              artist (still unknown, technically).
             </p>
           </motion.div>
           <motion.div variants={fadeIn} className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-5">
             <h3 className="font-medium text-white text-sm mb-2">🥊 Muay Thai</h3>
             <p className="text-sm text-zinc-500">
-              Started training in 2022 for fitness and self-defense. Trained in San
-              Francisco, New York, and now in Chiang Mai, Thailand. Mix of traditional
-              and modern styles.
+              Started in 2022 to feel something other than VS Code frustration. Trained in San
+              Francisco, New York, and Chiang Mai. The bruises remind me I&apos;m still alive. Also,
+              nothing teaches you about iteration speed like getting kicked in the ribs.
             </p>
           </motion.div>
         </div>
@@ -467,8 +520,11 @@ export default function Home() {
         transition={{ duration: 0.5 }}
       >
         <SectionHeading>Contact</SectionHeading>
+        <motion.p variants={fadeIn} className="text-xs text-zinc-600 mb-6 font-mono">
+          // I read every email. whether I reply is a different question
+        </motion.p>
         <p className="text-sm text-zinc-400">
-          Feel free to reach out for business inquiries or just to chat.{" "}
+          Business, collaboration, or existential debates:{" "}
           <a href={links.email} className="text-brand hover:text-brand-glow transition-colors">
             ethenpo@gmail.com
           </a>
@@ -482,7 +538,11 @@ export default function Home() {
         viewport={{ once: true }}
         className="mt-24 border-t border-zinc-800/50 pt-8 text-center text-xs text-zinc-600"
       >
-        © {new Date().getFullYear()} Ethen Pociask
+        <p>© {new Date().getFullYear()} Ethen Pociask</p>
+        <p className="mt-1 text-zinc-700">
+          Built with caffeine, nihilism, and Next.js. Nothing on this page matters, but I
+          enjoyed making it.
+        </p>
       </motion.footer>
     </div>
   );
