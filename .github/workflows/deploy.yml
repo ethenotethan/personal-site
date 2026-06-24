@@ -1,11 +1,20 @@
-name: Deploy to Netlify
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, nextjs-port]
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,11 +31,18 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
 
-      - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v3
+      - uses: actions/configure-pages@v4
+
+      - uses: actions/upload-pages-artifact@v3
         with:
-          publish-dir: out
-          production-branch: main
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
