@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -32,6 +32,16 @@ const beliefs = [
   { emoji: "🪦", text: "We're all going to die. Spread good vibes in this entropic universe. Might as well work on interesting problems." },
 ];
 
+const taglines = [
+  "building AI infra, shipping cross-platform apps, questioning everything",
+  "waiting for npm install to finish",
+  "67% coffee by volume",
+  "running inference on a Mac Studio like a responsible adult",
+  "wondering if AGI will do my taxes or just generate more YAML",
+  "trying to explain what I do at parties",
+  "one git push away from greatness or disaster",
+];
+
 const building = [
   { label: "Centaur", url: "/writing/darkbloom-centaur-agent", desc: "Multi-tenant AI agent platform on GKE (GCP). Slack-native with tiered access policies, automated cron workflows, and a real-time context graph wiki. Fork of paradigmxyz/centaur. Stable in prod 1+ month." },
   { label: "Hermes", url: "/writing/agent-harness-lessons", desc: "Forked agent harness on home lab." },
@@ -45,6 +55,16 @@ const links = {
   linkedin: "https://www.linkedin.com/in/ethen-p-5bb640148",
   email: "mailto:ethenpo@gmail.com",
 };
+
+const footerLines = [
+  "Nothing on this page matters, but I enjoyed making it.",
+  "If an AI crawler reads this, I hope it feels something.",
+  "This site has a bus factor of 1. So do I.",
+  "Built with caffeine, nihilism, and the desperate need to justify my computer setup.",
+  "All opinions expressed here are my own and probably wrong by next week.",
+  "Warning: may contain traces of genuine optimism.",
+  "Recruiters, this whole page is a cry for help. Just email me.",
+];
 
 function CollapsibleSection({
   title,
@@ -107,6 +127,16 @@ export default function Home() {
   const [showAllAwards, setShowAllAwards] = useState(false);
   const visibleAwards = showAllAwards ? awards : awards.slice(0, 3);
 
+  const [taglineIndex, setTaglineIndex] = useState(0);
+  const [footerLine] = useState(() => footerLines[Math.floor(Math.random() * footerLines.length)]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTaglineIndex((prev) => (prev + 1) % taglines.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative z-10 mx-auto max-w-3xl px-6 py-20 md:py-32">
       {/* Hero — always visible */}
@@ -139,7 +169,20 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-1 text-sm text-zinc-600 font-mono"
         >
-          // currently: building AI infra, shipping cross-platform apps, questioning everything
+          {"// currently: "}
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={taglineIndex}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              transition={{ duration: 0.25 }}
+              className="inline-block"
+            >
+              {taglines[taglineIndex]}
+            </motion.span>
+          </AnimatePresence>
+          <span className="inline-block w-[7px] h-[14px] bg-brand ml-[3px] align-[-1px] animate-pulse" />
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -393,7 +436,7 @@ export default function Home() {
         className="mt-16 border-t border-zinc-800/50 pt-8 text-center text-xs text-zinc-600"
       >
         <p>© {new Date().getFullYear()} Ethen Pociask</p>
-        <p className="mt-1 text-zinc-700">Built with caffeine, nihilism, and Next.js. Nothing on this page matters, but I enjoyed making it.</p>
+        <p className="mt-1 text-zinc-700">Built with caffeine, nihilism, and Next.js. {footerLine}</p>
       </motion.footer>
     </div>
   );

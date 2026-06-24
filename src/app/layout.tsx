@@ -7,14 +7,17 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ethen.me"),
-  title: "Ethen Pociask — Senior Infrastructure Engineer",
+  title: "Ethen Pociask",
   description:
     "Senior Infrastructure Engineer at EigenCloud — AI infra, decentralized systems, protocol security. Previously Coinbase, Shadow. Building inference harnesses, cross-platform agent clients, and distributed systems.",
+  icons: {
+    icon: "/favicon.svg",
+  },
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Ethen Pociask — Senior Infrastructure Engineer",
+    title: "Ethen Pociask",
     description:
       "AI infra, decentralized systems, distributed inference. Previously Coinbase. Building Centaur, Hermes, d‑inference, and HermesNative.",
     url: "https://ethen.me",
