@@ -37,7 +37,7 @@ export default function AIPsychosis() {
           Surviving AI Psychosis
         </h1>
         <p className="text-zinc-500 text-sm mt-2">
-          I spent January convinced humans had two years to escape an AI permanent underclass. I wasn't sleeping. I was having full mental breaks. This is the story of how I lost my mind to machine intelligence — and how I'm finding my way back.
+          I spent January convinced humans had two years to escape an AI permanent underclass. I wasn't sleeping. I was having full mental breaks. This is the story of how I lost my mind to machine intelligence — and how I'm finding my way back 6 months later.
         </p>
 
         <hr className="border-zinc-800 my-8" />
@@ -59,7 +59,7 @@ export default function AIPsychosis() {
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
-          This pulled me into interpretable structures for AI agents. Then into computational geometry. Diffusion geometry structures. Understanding how salient representations of data sit on a manifold. I was prompting the AI about this stuff and getting answers back that were genuinely beyond me — hyper-sophisticated explanations of how these structures provide interoperability between agents in ways humans can't follow.
+          This pulled me into interpretable structures for AI agents. Then into computational geometry. Diffusion geometry structures (<a href="https://arxiv.org/abs/2405.10858">Iolo Jones, 2024</a>). Understanding how salient representations of data sit on a manifold. I was prompting the AI about this stuff and getting answers back that were genuinely beyond me — hyper-sophisticated explanations of how these structures provide interoperability between agents in ways humans can't follow.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
