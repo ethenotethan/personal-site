@@ -345,6 +345,15 @@ export default function Home() {
         <div className="space-y-4">
           <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4">
             <h3 className="font-medium text-white text-sm">
+              <Link href="/writing/ai-psychosis" className="hover:text-brand transition-colors">
+                Surviving AI Psychosis
+              </Link>
+            </h3>
+            <p className="text-xs text-zinc-400 mt-0.5">ethen.me · Jun 2026</p>
+            <p className="text-xs text-zinc-500 mt-1">I had a psychotic break from AI in January. I stopped sleeping, believed humans had two years to escape a permanent underclass, and watched my mind unravel. Here's what happened and how I'm coming back.</p>
+          </div>
+          <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4">
+            <h3 className="font-medium text-white text-sm">
               <Link href="/writing/darkbloom-centaur-agent" className="hover:text-brand transition-colors">
                 Darkbloom Centaur Agent — Production GCP Deployment
               </Link>
