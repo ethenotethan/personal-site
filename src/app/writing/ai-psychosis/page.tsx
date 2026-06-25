@@ -91,7 +91,7 @@ export default function AIPsychosis() {
         </h2>
 
         <p className="text-zinc-400 leading-relaxed">
-          When you're in it, you don't feel crazy. You feel like you're finally seeing clearly. Everyone else is sleepwalking. Everyone else is in denial. You are the one who understands. The certainty is absolute.
+          Here's the thing nobody tells you: when you're in it, you don't feel crazy. You feel like you're finally seeing clearly for the first time. Everyone else is sleepwalking. Everyone else is in denial. You are the one who understands. The certainty is absolute.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
@@ -111,15 +111,15 @@ export default function AIPsychosis() {
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
-          Burnout from AI isn't like regular burnout. Regular burnout is about working too hard. This is about knowing too much. I can't unknow what I learned about the capabilities of these systems. I can't unsee the acceleration. What I'm working on now isn't forgetting — it's figuring out how to hold the knowledge without letting it hold me.
+          Burnout from AI isn't like regular burnout. Regular burnout is about working too hard. This is about knowing too much. I can't unknow what I learned about the capabilities of these systems. I can't unsee the acceleration. What I'm working on now isn't forgetting — it's integration. Learning to hold the knowledge without letting it hold me.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
-          I'm tired. The kind of tired sleep doesn't fix. When you genuinely believe, even temporarily, that the thing you're building is helping create a world where human labor has no value, you have to rebuild your relationship with your work from scratch.
+          I'm tired. Genuinely, physically tired. The kind of tired that sleep doesn't fix because it's not a sleep deficit — it's a meaning deficit. When you genuinely believe (even temporarily, even in a delusional state) that the thing you're building might be helping create a world where human labor has no value, you have to rebuild your entire relationship with your work from scratch.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
-          I'm readjusting to being human again. That sounds dramatic. I mean it literally. When you've spent months viewing the world through capability curves and acceleration rates, you forget that humans do things that have no economic utility. We make music. We train muay thai. We take bad photos of animals. We sit on the floor with friends and talk about nothing. These things are worthless in a world of machine superintelligence. They are also the only things that make being alive matter.
+          I'm readjusting to being human again. That sounds dramatic, but I mean it literally. When you've spent months viewing the world through the lens of capability curves and acceleration rates, you forget that humans do things that aren't instrumentally useful. We make music. We train muay thai. We take bad photos of animals. We sit on the floor with friends and talk about nothing. These things have zero economic utility in a world of machine superintelligence. They are also the only things that make being alive worth the trouble.
         </p>
 
         <h2 className="text-xl font-semibold text-white mt-10 mb-4">
@@ -139,7 +139,7 @@ export default function AIPsychosis() {
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
-          Talk to humans who don't work in tech. Not to debate them. Not to convince them. Just to hear a perspective that doesn't operate on capability curves and acceleration rates. They will seem naive. That's the point. Some of that naivety is just baseline psychological health you've burned through without noticing.
+          Talk to humans who don't work in tech. Not to debate them. Not to convince them. Just to hear a perspective that doesn't operate on capability curves and acceleration rates. They will seem naive. That's the point. Some of that "naivety" is just baseline psychological health you've burned through without noticing.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
@@ -189,4 +189,4 @@ export default function AIPsychosis() {
       />
     </div>
   );
-}
+};
