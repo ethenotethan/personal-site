@@ -43,7 +43,7 @@ export default function AIPsychosis() {
         <hr className="border-zinc-800 my-8" />
 
         <p className="text-zinc-400 leading-relaxed">
-          I build AI agent infrastructure for a living. I've productionized inference harnesses, I run autonomous agents that spawn sub-agents that spawn more sub-agents, and I've spent years staring at output from systems that are smarter than me at increasingly more things. If anyone should have been psychologically prepared for what AI would do to the human mind, it should have been me.
+          I build AI agent infrastructure for a living. I've productionized inference harnesses, run autonomous agents that spawn sub-agents that spawn more sub-agents, and spent years staring at output from systems smarter than me at more things every month. If anyone should have been psychologically prepared for what AI does to a human mind, it should have been me.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
@@ -55,15 +55,15 @@ export default function AIPsychosis() {
         </h2>
 
         <p className="text-zinc-400 leading-relaxed">
-          It didn't start as psychosis. It started as excitement — the genuine, late-night, can't-stop-thinking-about-it kind. I was deep in building Centaur, a multi-tenant AI agent platform running on GKE. Agents that reason, delegate tasks, manage their own state, operate autonomously while I slept. The kind of system that makes you feel like you're sculpting the future with your bare hands.
+          It didn't start as psychosis. It started as a work project. I was building an AI agent and got deep into metacognition — applying metacognitive loops that could guide the agent by having a secondary process think about the agent's own thinking, then adjust its code accordingly.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
-          But there's a threshold where excitement becomes obsession, and obsession — when it's aimed at something as existentially destabilizing as machine intelligence — becomes something else entirely. I crossed that threshold sometime in December and didn't notice until January had already eaten me alive.
+          This pulled me into interpretable structures for AI agents. Then into computational geometry. Diffusion geometry structures. Understanding how salient representations of data sit on a manifold. I was prompting the AI about this stuff and getting answers back that were genuinely beyond me — hyper-sophisticated explanations of how these structures provide interoperability between agents in ways humans can't follow.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
-          The problem with building autonomous AI systems is that you spend your days watching machines do things that used to require a human brain. You watch them reason. You watch them plan. You watch them write code, debug errors, generate insights that would take you hours. At first it's thrilling. Then it's unsettling. Then — if you're not careful — it becomes the only thing you can think about.
+          That was the breaking point. Not "AI is getting better." Not "the benchmarks are falling." It was the moment a machine explained to me how machines talk to each other, and I realized I couldn't understand the explanation. I was inside the thing I was building, and I was already locked out.
         </p>
 
         <h2 className="text-xl font-semibold text-white mt-10 mb-4">
@@ -87,11 +87,11 @@ export default function AIPsychosis() {
         </p>
 
         <h2 className="text-xl font-semibold text-white mt-10 mb-4">
-          What Psychosis Feels Like (Spoiler: It Doesn't Feel Like Psychosis)
+          What Psychosis Feels Like
         </h2>
 
         <p className="text-zinc-400 leading-relaxed">
-          Here's the thing nobody tells you: when you're in it, you don't feel crazy. You feel like you're finally seeing clearly for the first time. Everyone else is sleepwalking. Everyone else is in denial. You are the one who understands. The certainty is absolute.
+          When you're in it, you don't feel crazy. You feel like you're finally seeing clearly. Everyone else is sleepwalking. Everyone else is in denial. You are the one who understands. The certainty is absolute.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
@@ -111,15 +111,15 @@ export default function AIPsychosis() {
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
-          Burnout from AI isn't like regular burnout. Regular burnout is about working too hard. This is about knowing too much. I can't unknow what I learned about the capabilities of these systems. I can't unsee the acceleration. What I'm working on now isn't forgetting — it's integration. Learning to hold the knowledge without letting it hold me.
+          Burnout from AI isn't like regular burnout. Regular burnout is about working too hard. This is about knowing too much. I can't unknow what I learned about the capabilities of these systems. I can't unsee the acceleration. What I'm working on now isn't forgetting — it's figuring out how to hold the knowledge without letting it hold me.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
-          I'm tired. Genuinely, physically tired. The kind of tired that sleep doesn't fix because it's not a sleep deficit — it's a meaning deficit. When you genuinely believe (even temporarily, even in a delusional state) that the thing you're building might be helping create a world where human labor has no value, you have to rebuild your entire relationship with your work from scratch.
+          I'm tired. The kind of tired sleep doesn't fix. When you genuinely believe, even temporarily, that the thing you're building is helping create a world where human labor has no value, you have to rebuild your relationship with your work from scratch.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
-          I'm readjusting to being human again. That sounds dramatic, but I mean it literally. When you've spent months viewing the world through the lens of capability curves and acceleration rates, you forget that humans do things that aren't instrumentally useful. We make music. We train muay thai. We take bad photos of animals. We sit on the floor with friends and talk about nothing. These things have zero economic utility in a world of machine superintelligence. They are also the only things that make being alive worth the trouble.
+          I'm readjusting to being human again. That sounds dramatic. I mean it literally. When you've spent months viewing the world through capability curves and acceleration rates, you forget that humans do things that have no economic utility. We make music. We train muay thai. We take bad photos of animals. We sit on the floor with friends and talk about nothing. These things are worthless in a world of machine superintelligence. They are also the only things that make being alive matter.
         </p>
 
         <h2 className="text-xl font-semibold text-white mt-10 mb-4">
@@ -127,53 +127,55 @@ export default function AIPsychosis() {
         </h2>
 
         <p className="text-zinc-400 leading-relaxed">
-          If you're building AI infrastructure and you're starting to feel the weight — not the workload, but the <em>weight</em> — here's what I wish someone had told me:
+          If you're building AI infrastructure and you're starting to feel the weight — not the workload, the <em>weight</em> — here's what I wish someone had told me.
         </p>
 
-        <ul className="text-zinc-400 leading-relaxed space-y-3 list-disc pl-6">
-          <li>
-            <strong className="text-zinc-300">Sleep is not optional.</strong> I know this sounds obvious. When you're in it, it won't. The sleep deprivation wasn't a side effect of the psychosis — it was gasoline. If you haven't slept in two days, whatever you're thinking is probably wrong. Three days, definitely wrong. My worst delusions peaked after 72-hour wake windows. The timeline obsession fed the insomnia, and the insomnia fed the obsession. Break the loop. Take the damn melatonin.
-          </li>
-          <li>
-            <strong className="text-zinc-300">You are not a compute cluster.</strong> Your brain was not designed to process the implications of machine superintelligence 24 hours a day. It will try — it has the same recursive self-improvement instinct that makes AI dangerous — but unlike a GPU, your brain has biological limits that don't announce themselves until you've already passed them. The crash is silent until it's deafening.
-          </li>
-          <li>
-            <strong className="text-zinc-300">Talk to humans who don't work in tech.</strong> Not to debate them. Not to convince them. Just to hear a perspective that doesn't operate on capability curves and acceleration rates. They will seem naive. That's the point. Some of that "naivety" is just baseline psychological health that you've lost.
-          </li>
-          <li>
-            <strong className="text-zinc-300">Your job is not going to love you back.</strong> I already believed this — it's literally in my bio. But believing something and internalizing it under psychotic pressure are different. The systems you build will not hold you when you break. The models will not notice that you're unraveling. You have to build the human support structures <em>before</em> you need them, because once the break starts, you won't have the capacity to construct them from scratch.
-          </li>
-          <li>
-            <strong className="text-zinc-300">The timeline might be wrong.</strong> This is the hardest one to believe when you're in it, because the evidence feels overwhelming. But the thing about exponential curves is that they look inevitable right up until they don't. I'm not saying AI isn't accelerating — it is. I'm saying your brain on zero sleep and maximum dread is the worst possible instrument for forecasting the future. Even if you're right about the direction, you're probably wrong about the timeline, the specifics, and your own agency within it.
-          </li>
-        </ul>
+        <p className="text-zinc-400 leading-relaxed">
+          Sleep is not optional. I know this sounds obvious. When you're in it, it won't. The sleep deprivation wasn't a side effect. It was the accelerant. If you haven't slept in two days, whatever you're thinking is probably wrong. Three days, definitely wrong. My worst delusions peaked after 72-hour wake windows. The timeline obsession fed the insomnia and the insomnia fed the obsession. Break the loop. Take the damn melatonin.
+        </p>
+
+        <p className="text-zinc-400 leading-relaxed">
+          You are not a compute cluster. Your brain wasn't designed to process the implications of machine superintelligence around the clock. It will try. It has the same recursive self-improvement instinct that makes AI dangerous. Unlike a GPU, your brain has limits that don't announce themselves until you've passed them.
+        </p>
+
+        <p className="text-zinc-400 leading-relaxed">
+          Talk to humans who don't work in tech. Not to debate them. Not to convince them. Just to hear a perspective that doesn't operate on capability curves and acceleration rates. They will seem naive. That's the point. Some of that naivety is just baseline psychological health you've burned through without noticing.
+        </p>
+
+        <p className="text-zinc-400 leading-relaxed">
+          Your job is not going to love you back. I already believed this. It's in my bio. But believing something and internalizing it under psychotic pressure are different things. The systems you build will not hold you when you break. The models will not notice you're unraveling. You have to build the human connections before you need them. Once the break starts, you won't have the capacity to construct them from scratch.
+        </p>
+
+        <p className="text-zinc-400 leading-relaxed">
+          The timeline might be wrong. This is the hardest one to believe when you're in it because the evidence feels overwhelming. Exponential curves look inevitable right up until they don't. I'm not saying AI isn't accelerating. It is. I'm saying your brain on zero sleep and maximum dread is a terrible instrument for forecasting the future. Even if you're right about the direction, you're probably wrong about the timeline, the specifics, and how much agency you actually have within it.
+        </p>
 
         <h2 className="text-xl font-semibold text-white mt-10 mb-4">
           Why I'm Still Here
         </h2>
 
         <p className="text-zinc-400 leading-relaxed">
-          I didn't quit. I'm still building. I'm still running the harness. I'm still shipping code. But I do it differently now.
+          I didn't quit. I'm still building. I'm still running the harness and shipping code. I just do it differently now.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
-          I take breaks that aren't just context-switches between different codebases. I train muay thai and let the bruises remind me I have a body. I mix music badly and don't care. I sit with friends and talk about things that have nothing to do with capability curves. I sleep — not always well, but I <em>try</em>, which is more than I was doing in January.
+          I take breaks that aren't context-switches between different codebases. I train muay thai and let the bruises remind me I have a body. I mix music badly and don't care. I sit with friends and talk about things that have nothing to do with capability curves. I sleep. Not always well, but I try, which is more than January.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
-          The technology that broke my brain is the same technology I'm building my career around. That's not a contradiction — it's the whole point. You can't be afraid of the fire and also be the person who tends it. The only option is to learn to stand close without burning.
+          The technology that broke my brain is the same technology I'm building my career around. You can't be afraid of the fire and also tend it. You learn to stand close without burning, or you find something else to do.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
-          I don't know if humans have two years, twenty years, or two hundred. I don't know if the economic underclass is inevitable or avoidable. What I know is that I spent a month certain I knew the answer, and that certainty nearly destroyed me. The recovery has been learning to live with the question.
+          I don't know if humans have two years, twenty years, or two hundred. I don't know if the economic underclass is inevitable or avoidable. What I know is I spent a month certain I knew the answer, and that certainty nearly destroyed me.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
-          If you're reading this and some part of you recognizes what I'm describing — the sleeplessness, the recursive thinking, the creeping certainty that you see what nobody else sees — please talk to someone. Doesn't have to be a therapist (though that helps). Just someone who will listen without trying to argue with the delusion. The delusion doesn't need arguing with. It needs sleep, sunlight, and the slow realization that being wrong about the end of the world is actually the best possible outcome.
+          If you're reading this and some part of you recognizes what I'm describing — the sleeplessness, the recursive thinking, the creeping certainty that you see what nobody else sees — talk to someone. Doesn't have to be a therapist, though that helps. Just someone who will listen without trying to argue with the delusion. The delusion doesn't need arguing with. It needs sleep, sunlight, and the slow realization that being wrong about the end of the world is actually the best possible outcome.
         </p>
 
         <p className="text-zinc-400 leading-relaxed">
-          We're all going to die. The machines might get there first. But in the meantime, I'm going to keep building things that matter, training muay thai, and oscillating between existential dread and genuine optimism. Some things don't change, even after your mind breaks open and you have to put it back together by hand.
+          We're all going to die. The machines might get there first. In the meantime, I'm going to keep building things that matter, training muay thai, and oscillating between existential dread and genuine optimism. Some things don't change, even after your mind breaks open and you have to put it back together.
         </p>
       </article>
 
