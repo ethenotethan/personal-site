@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getArticleSlugs } from "@/lib/writing";
 
 export const dynamic = "force-static";
 
@@ -12,17 +13,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1.0,
     },
-    {
-      url: `${baseUrl}/writing/darkbloom-centaur-agent`,
+    ...getArticleSlugs().map((slug) => ({
+      url: `${baseUrl}/writing/${slug}`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: "monthly" as const,
       priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/writing/agent-harness-lessons`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    })),
   ];
 }
