@@ -2,18 +2,16 @@
 title: Surviving AI Psychosis
 subtitle: >-
   I've spent the past 4 months convinced humanity had two years to escape an AI permanent
-  underclass. I wasn't sleeping. I was having full mental breaks. Now I'm btter 
+  underclass. I wasn't sleeping. I was having full mental breaks. Now I'm somewhat better (still doomer but somewhat optimistic).
 description: >-
   I've spent the past 4 months convinced humanity had two years to escape an AI permanent
-  underclass. I wasn't sleeping. I was having full mental breaks. This is the
-  story of how I lost my mind to machine intelligence — and how I'm finding my
-  way back 6 months later.
+  underclass. I wasn't sleeping. I was having full mental breaks. Now I'm somewhat better (still doomer but somewhat optimistic).
 date: "2026-06-24"
 schemaType: BlogPosting
 schemaDescription: >-
   A personal account of experiencing AI-induced psychosis: the delusions, the
   sleep deprivation, the burnout, and the slow process of readjusting to being
-  human.
+  human for the new world.
 keywords:
   - AI psychosis
   - mental health
@@ -24,11 +22,9 @@ keywords:
   - engineer mental health
 ---
 
-I've spent the past 4-5 months building, productionizing, and hacking with LLM powered AI agents. This tech has completely shifted my psychology and continues to do so as I continue to use it for offloading knowledge tasks. 
+I've spent the past 4-5 months building, productionizing, and hacking with LLM powered AI agents. This tech has completely shifted my psychology and continues to do so as I constantly use it for offloading knowledge tasks. 
 
-The step change in late December 2025 completely broke me and many other tech workers. I hope to shine some light on wtf is happening right now in big tech and some techniques I've been employing for self-navigation in this emergent new world.
-
-It's a known fact that if you end up in the wrong internet subforum or corner you could be fed delusions that result in things like mass terrorism or self harm. There's a new corner now that's consuming many tech companies and workers today.
+The step change in late December 2025 completely broke me and many other tech workers. I hope to shine some light on wtf is happening right now in big tech and some techniques I've been employing for self-navigation in this emergent new world/internet.
 
 ## The Slide
 
@@ -43,17 +39,17 @@ That was the breaking point. Not "AI is getting better". It was the moment a mac
 I wasn't sleeping, sometimes for days. Either frantically burning tokens or exploring the philosphical implications of this shift on greater humanity; ie:
 - What bargainning power do middle class knoweldge workers have now that machines are automating the work that used to be a 6 figure premium?
 - How will humans abuse machine intelligence against each other for monopolistic gains or control?
-- How will the internet work now that AI generated content outpaces the rate of humans and how will someone be able to demystify real vs fake? Could 
+- How will the internet work now that AI generated content outpaces the rate of humans and how will someone be able to demystify real vs fake with online content?
 - Is this the start of big brother and are we on the cusp of living in an orwellian [panopticon](https://www.ebsco.com/research-starters/history/panopticon)?
 
-It didn't help setting with `P(doom)`, AGI 2027 forecasts, and realizing that humans have between a 1/4 to 1/5 chance of going extinct in the next 5 years because of this.
+It didn't help with constant research of `P(doom)`, AGI 2027 forecasts, and realizing that humans have between a 1/4 to 1/5 chance of going extinct in the next 5 years because of this.
 
-Everyone I'd talk to in the tech industry would reaffirm dystopian ideals like "we have two years left before all opportunities are gone", creating this notion that humanity will reassmble into an ivory tower of the AI elite with the rest of humanity in a techno-feudal permament underclass. 
+Everyone I'd talk to in the tech industry would reaffirm dystopian ideals like "we have two years left before all opportunities are gone", creating this notion that humanity will reassmble into an ivory tower of the AI elite with the rest of humanity in a techno-feudal permament underclass controlled under mass surveillance. 
 
-It became evem more delusional when I found myself having to work on dystopic use cases like:
+It became evem more delusional when I found myself having to work on dystopic use cases with AI like:
 1. Sovereign AI agents that inherit permissionless guarantees via blockchain that NO human could ever turn off
 2. Zero human companies that are fully agent operated
-3. Building E2E surveillance monitoring within companies for productivity gains
+3. Building E2E surveillance monitoring within companies for measurable productivity gains
 
 
 What I missed — what psychosis always makes you miss — is that proximity to the fire doesn't make you immune to burning. It makes you the first thing that catches.
@@ -61,7 +57,9 @@ What I missed — what psychosis always makes you miss — is that proximity to 
 ## What AI Psychosis Feels Like
 
 
-I was having full mental breaks — not panic attacks, not anxiety spirals, but genuine breaks from consensus reality. The boundary between "reasonable concern about technological unemployment" and "the machines are coming and there's a countdown only I can see" dissolved without my noticing. I stopped being able to tell which thoughts were mine and which were the recursive output of a brain running on zero sleep and maximum fear.
+I was having full mental breaks — not panic attacks, not anxiety spirals, but genuine breaks from consensus reality. The boundary between "reasonable concern about technological unemployment" and "the machines are coming and there's a countdown only I can see" dissolved without my noticing. I stopped being able to tell which thoughts were mine and which were the recursive output of a brain running on interactive AI chatbots, zero sleep, and maximum fear.
+
+I'd spend days on end having conversations with chat bots to do code generation tasks. I wanted to be MORE productive, generate MORE code, burn MORE tokens. This left me in a frantic state of uncontrollable load balancing where I'd be context switching 10+ agent sessions at a time to be more productive. 
 
 Machine intelligence outgunned my cognitive skills. Not metaphorically — literally. I was trying to think my way out of a problem that my thinking had created. Every attempt to "figure it out" dug the hole deeper. 
 
@@ -75,7 +73,7 @@ I'm tired. Genuinely, physically tired. The kind of tired sleep doesn't fix. Whe
 
 I'm readjusting to being human again. That sounds dramatic. I mean it literally. When you've spent months viewing the world through capability curves and acceleration rates, you forget that humans do things that have no economic utility. We make music. We train muay thai. We take bad photos of animals. We sit on the floor with friends and talk about nothing. These things are worthless in a world of machine superintelligence. They are also the only things that make being alive matter.
 
-I now see it in my friends and colleagues sometime as well. 
+I now see it in my friends and colleagues sometimes as well.
 
 ## What I'd Tell Someone Else
 
