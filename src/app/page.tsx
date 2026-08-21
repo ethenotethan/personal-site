@@ -33,17 +33,11 @@ const beliefs = [
 ];
 
 const taglines = [
+  "independent — available for security, infra & advisory work",
   "building AI infra, shipping cross-platform apps, questioning everything",
   "running inference on a Mac Studio like a responsible adult",
   "wondering if its actually AGI or we've just convinced ourselves using fancy autocomplete",
   "trying to explain what I do at parties without sounding like a crazy person",
-];
-
-const building = [
-  { label: "Centaur", url: "/writing/darkbloom-centaur-agent", desc: "Multi-tenant AI agent platform on GKE (GCP). Slack-native with tiered access policies, automated cron workflows, and a real-time context graph wiki. Fork of paradigmxyz/centaur. Stable in prod 1+ month." },
-  { label: "Hermes", url: "/writing/agent-harness-lessons", desc: "Forked agent harness on home lab." },
-  { label: "HermesNative", url: "https://github.com/researchoors/hermes-native", desc: "Cross-platform AI agent client in SwiftUI (macOS + iOS). WebSocket JSON-RPC gateway, wiki graph, skills browser, cron management." },
-  { label: "d‑inference", url: "https://github.com/Layr-Labs/d-inference", desc: "Distributed inference engine integration — MLX backend debugging, speculative decoding benchmarks, E2E latency profiling on Apple Silicon." },
 ];
 
 const links = {
@@ -157,8 +151,8 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-2 text-lg text-zinc-400 md:text-xl"
         >
-          Senior Infrastructure Engineer at{" "}
-          <a href="https://www.eigencloud.xyz/" className="text-brand hover:text-brand-glow transition-colors" target="_blank" rel="noopener">EigenCloud</a>
+          <span className="text-zinc-300">Independent.</span>{" "}
+          Security, distributed systems & AI infrastructure — available for select engagements.
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -187,7 +181,7 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400"
         >
-          I build infrastructure for AI and decentralized systems — embedding with teams to diagnose problems, ship solutions, and move on. 6+ years across protocol security, distributed systems, and ML infrastructure. I've productionized inference harnesses, built cross-platform native apps, and designed monitoring systems that protected billions in onchain assets. The universe is indifferent, so I write code that actually matters. Between commits I train muay thai, mix music, and oscillate between existential dread and genuine optimism.
+          I build infrastructure for AI and decentralized systems — security, distributed systems, and ML infrastructure. 6+ years across Coinbase, EigenCloud, and founding roles, protecting billions in onchain assets and productionizing inference harnesses at scale. Going independent September 2026 to help teams ship infrastructure that matters. Based in Bangkok, working globally. Between commits I train muay thai, mix music, and oscillate between existential dread and genuine optimism.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -208,7 +202,7 @@ export default function Home() {
         </motion.div>
       </motion.section>
 
-      {/* Building — always visible, not collapsible */}
+      {/* Work With Me — always visible */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -217,13 +211,17 @@ export default function Home() {
         className="mb-16"
       >
         <div className="flex items-baseline gap-3 mb-6">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">BUILDING</h2>
-          <p className="text-[11px] text-zinc-700 font-mono">// what I'm shipping right now</p>
+          <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">WORK WITH ME</h2>
+          <p className="text-[11px] text-zinc-700 font-mono">// available sept 2026 — let's talk</p>
         </div>
         <div className="grid gap-2">
-          {building.map((proj, i) => (
+          {[
+            { label: "Security Audits", desc: "Smart contract, protocol & infrastructure security review. 6+ years at Coinbase securing billions in onchain TVS. Deep EVM expertise, forked-EVM analysis, real-time threat monitoring." },
+            { label: "AI Infrastructure & Agents", desc: "Production inference deployment, agent harnesses, RAG pipelines, eval systems. Built multi-tenant AI platforms on GKE, local inference on Apple Silicon (MLX), speculative decoding benchmarks, distributed inference engine integration." },
+            { label: "Distributed Systems Engineering", desc: "Architecture, implementation & productionization for teams scaling blockchain or AI infrastructure. Kubernetes, RPC layers handling 100+ reqs/sec, multi-region deployments, observability." },
+          ].map((svc, i) => (
             <motion.div
-              key={proj.label}
+              key={svc.label}
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -231,16 +229,26 @@ export default function Home() {
               className="group flex items-start gap-3 rounded-lg border border-zinc-800/40 bg-zinc-900/15 px-4 py-3"
             >
               <span className="text-xs font-semibold text-brand mt-0.5 shrink-0">
-                {proj.url ? (
-                  <a href={proj.url} target="_blank" rel="noopener" className="hover:text-brand-glow transition-colors">{proj.label}</a>
-                ) : proj.label}
+                {svc.label}
               </span>
               <span className="text-xs text-zinc-500 leading-relaxed">
-                {proj.desc}
+                {svc.desc}
               </span>
             </motion.div>
           ))}
         </div>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.3, delay: 0.3 }}
+          className="mt-4"
+        >
+          <a href={links.email} className="inline-flex items-center gap-2 text-xs font-mono text-brand hover:text-brand-glow transition-colors">
+            ethenpo@gmail.com
+            <span className="text-zinc-700">→</span>
+          </a>
+        </motion.div>
       </motion.section>
 
       {/* What I Believe */}
