@@ -1,6 +1,6 @@
 # Ethen Pociask — Senior Infrastructure Engineer
 
-**Currently:** Senior Infrastructure Engineer at EigenCloud (Apr 2024 — Present)
+**Currently:** Senior Infrastructure Engineer at Eigen Labs (Apr 2024 — Present)
 **Previously:** Coinbase (Protocol Security), Shadow (EVM Engineering), Lucid, Volatrade
 **Education:** BS Computer Science, University of San Francisco (2017–2021)
 **Location:** Bangkok / Remote
@@ -15,7 +15,7 @@
 
 ## Experience
 
-1. **Senior Infrastructure Engineer, EigenCloud** (Apr 2024 — Present)
+1. **Senior Infrastructure Engineer, Eigen Labs** (Apr 2024 — Present)
    - Productionized a distributed AI agent platform (Centaur) on GKE — Slack integration, automated workflows, access policy overlays
    - Built Hermes: personal AI agent harness on Apple Silicon — fork, Nomad orchestration, Cloudflare Tunnel, native client
    - Managed Arbitrum orbit fork with EigenDA, Stage 1 decentralization

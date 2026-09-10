@@ -75,29 +75,14 @@ I'm readjusting to being human again. That sounds dramatic. I mean it literally.
 
 I now see it in my friends and colleagues sometimes as well.
 
-## What I'd Tell Someone Else
+## What I'm Actually Afraid Of
 
-Sleep is not optional. I know this sounds obvious. When you're in it, it won't. The sleep deprivation wasn't a side effect. It was the accelerant. If you haven't slept in two days, whatever you're thinking is probably wrong. Three days, definitely wrong. My worst delusions peaked after 72-hour wake windows. The timeline obsession fed the insomnia and the insomnia fed the obsession. Break the loop. Take the damn melatonin.
+I need to say this plainly: I am deeply afraid that the systems I have spent years building will make the world worse. Not just take jobs or move money upward. I am afraid they will make it easier to surveil people, control them, replace their judgment, and concentrate power in the hands of whoever owns the machines.
 
-You are not a compute cluster. Your brain wasn't designed to process the implications of machine superintelligence around the clock. It will try. It has the same recursive self-improvement instinct that makes AI dangerous. Unlike a GPU cluster, your brain has limits that don't announce themselves until you've passed them.
+I have worked on autonomous agents, zero-human companies, productivity surveillance, and infrastructure designed to make machine intelligence more capable and harder to stop. I can tell myself I was exploring what was possible, or trying to understand it before someone worse built it. That does not erase my part in it.
 
-Talk to humans who don't work in tech. Not to debate them. Not to convince them. Just to hear a perspective that doesn't operate on capability curves and acceleration rates. They will seem naive. That's the point. Some of that "naivety" is just baseline psychological health you've burned through without noticing.
+There is a reality where this technology harms enough people that they come looking for the people who built it. I can see my own head put on a spike. I don't mean that as theater. I mean I understand why people may hate us if we knowingly build systems that strip them of work, privacy, dignity, or control over their lives.
 
-Your job is not going to love you back. I already believed this. It's in my bio. But believing something and internalizing it under psychotic pressure are different things. The systems you build will not hold you when you break. The models will not notice you're unraveling. You have to build the human connections before you need them. Once the break starts, you won't have the capacity to construct them from scratch.
+Maybe that fear is still tangled up with what happened to me. Probably some of it is. But I don't want recovery to become a story I use to dismiss every warning my mind was trying to send. Psychosis made my certainty unreliable. It did not make every underlying concern false.
 
-The timeline might be wrong. This is the hardest one to believe when you're in it because the evidence feels overwhelming. Exponential curves look inevitable right up until they don't. I'm not saying AI isn't accelerating. It is. I'm saying your brain on zero sleep and maximum dread is a terrible instrument for forecasting the future. Even if you're right about the direction, you're probably wrong about the timeline, the specifics, and how much agency you actually have within it.
-
-## Why I'm Still Here
-
-I didn't quit. I'm still building. I'm still running the harness and shipping code. I just do it differently now.
-
-I take breaks that aren't context-switches between different codebases. I train muay thai and let the bruises remind me I have a body. I mix music badly and don't care. I sit with non AI friends and talk about things that have nothing to do with capability curves. I sleep. Not always well, but I try.
-
-The technology that broke my brain is the same technology I'm building my career around. You can't be afraid of the fire and also tend it. You learn to stand close without burning, or you find something else to do.
-
-I don't know if humans have two years, twenty years, or two hundred. I don't know if the economic underclass is inevitable or avoidable. I don't know if we'll go extinct in the next five years or if I'll live to see 30. I don't know how this will afffect humans, how we'll reorganize, compete, and ultimately control each other with it. 
-
-
-If you're reading this and some part of you recognizes what I'm describing — the sleeplessness, the recursive thinking, the creeping certainty that you see what nobody else sees — talk to someone. Doesn't have to be a therapist, though that helps. Just someone who will listen without trying to argue with the delusion. The delusion doesn't need arguing with. It needs sleep, sunlight, and the slow realization that being wrong about the end of the world is actually the best possible outcome.
-
-We're all going to die. The machines might get there first. In the meantime, I'm going to keep building things that matter, training muay thai, and oscillating between existential dread and genuine optimism. Some things don't change, even after your mind breaks open and you have to put it back together.
+I am still deciding what responsibility looks like from here. I don't have a reassuring ending. I'm afraid of what happens if I keep building. I'm also afraid of what happens if the people who care stop.
