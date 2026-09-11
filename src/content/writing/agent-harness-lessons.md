@@ -192,4 +192,4 @@ The stuff you learn at 2am debugging why the agent keeps calling a tool that doe
 
 This is a snapshot of lessons from running Centaur — an AI agent harness I built at EigenCloud — in production on Apple Silicon for over a month. The models and tools will change, but the patterns won't.
 
-If you're building agent infrastructure and this resonates, I'm available for consulting: [ethenpo@gmail.com](mailto:ethenpo@gmail.com)
+If you're building agent infrastructure and this resonates, I'm always interested in comparing notes: [ethenpo@gmail.com](mailto:ethenpo@gmail.com)

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 const experiences = [
-  { title: "Senior Infrastructure Engineer", company: "EigenCloud", url: "https://www.eigencloud.xyz/", start: "Apr 2024", end: "Present", points: ["Embedded with teams to productionize a distributed AI agent platform (Centaur) running on GKE — deployed on Kubernetes with Slack integration, automated workflows, and access policy overlays", "Built and operated a separate personal AI agent harness on Apple Silicon — Hermes fork, Nomad orchestration, Cloudflare Tunnel, cross-platform native client", "Managed development of Arbitrum orbit fork integrated with EigenDA with Stage 1 decentralization", "Built cross-platform native AI agent client (HermesNative) in SwiftUI — macOS + iOS, WebSocket JSON-RPC gateway, wiki graph, cron pipelines", "Worked closely with key RaaS partners and blockchain customers to triage bugs and stand up blockchain infra", "Ideated and help manage a unified DA server used across EigenDA rollup integrations — unblocking >$1Bn TVS"] },
+  { title: "Senior Infrastructure Engineer", company: "Eigen Labs", url: "https://www.eigencloud.xyz/", start: "Apr 2024", end: "Present", points: ["Embedded with teams to productionize a distributed AI agent platform (Centaur) running on GKE — deployed on Kubernetes with Slack integration, automated workflows, and access policy overlays", "Built and operated a separate personal AI agent harness on Apple Silicon — Hermes fork, Nomad orchestration, Cloudflare Tunnel, cross-platform native client", "Managed development of Arbitrum orbit fork integrated with EigenDA with Stage 1 decentralization", "Built cross-platform native AI agent client (HermesNative) in SwiftUI — macOS + iOS, WebSocket JSON-RPC gateway, wiki graph, cron pipelines", "Worked closely with key RaaS partners and blockchain customers to triage bugs and stand up blockchain infra", "Ideated and help manage a unified DA server used across EigenDA rollup integrations — unblocking >$1Bn TVS"] },
   { title: "Senior Protocol Security Engineer", company: "Coinbase", url: "https://www.coinbase.com/", start: "May 2024", end: "Dec 2024", points: ["Designed and operationalized security assessment frameworks for novel smart contract execution environments", "Built in-house monitoring service for real-time threat detection on OP Stack blockchains; worked closely with BASE protocol team", "Designed interview pipelines, trained new hires, and lead daily meetings to upskill/unblock coworkers", "Catalyzed creation of internal smart contract monitoring — full coverage of 200+ assets across blockchain protocols"] },
   { title: "Senior EVM Engineer", company: "Shadow", url: "https://www.shadow.xyz/", start: "Dec 2023", end: "Apr 2024", points: ["Architected and productionized a distributed Ethereum RPC API handling 100+ reqs/second with minimal latency", "Production hardened an internal EVM environment and identified key security vulnerabilities in execution", "Established robust monitoring and resiliency routines for internally hosted node integrations"] },
   { title: "Blockchain Security Engineer", company: "Coinbase", url: "https://www.coinbase.com/", start: "May 2021", end: "May 2024", points: ["Designed and operationalized risk analysis frameworks for analyzing onchain tokenized assets for secure listings on Coinbase exchange", "Designed and implemented REST API for smart contract analysis tool enabling quicker turnaround on security intake requests"] },
@@ -33,7 +33,7 @@ const beliefs = [
 ];
 
 const taglines = [
-  "independent — available for security, infra & advisory work",
+  "at Eigen Labs — building AI infrastructure and agent systems",
   "building AI infra, shipping cross-platform apps, questioning everything",
   "running inference on a Mac Studio like a responsible adult",
   "wondering if its actually AGI or we've just convinced ourselves using fancy autocomplete",
@@ -151,8 +151,8 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-2 text-lg text-zinc-400 md:text-xl"
         >
-          <span className="text-zinc-300">Independent.</span>{" "}
-          Security, distributed systems & AI infrastructure — available for select engagements.
+          <span className="text-zinc-300">Senior Infrastructure Engineer at Eigen Labs.</span>{" "}
+          Security, distributed systems & AI infrastructure.
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -181,7 +181,7 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400"
         >
-          I build infrastructure for AI and decentralized systems — security, distributed systems, and ML infrastructure. 6+ years across Coinbase, EigenCloud, and founding roles, protecting billions in onchain assets and productionizing inference harnesses at scale. Going independent September 2026 to help teams ship infrastructure that matters. Based in Bangkok, working globally. Between commits I train muay thai, mix music, and oscillate between existential dread and genuine optimism.
+          I build infrastructure for AI and decentralized systems at Eigen Labs. I have 6+ years across Eigen Labs, Coinbase, and founding roles, protecting billions in onchain assets and productionizing inference harnesses at scale. Based in Bangkok, working globally. Between commits I train muay thai, mix music, and oscillate between existential dread and genuine optimism.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -202,7 +202,7 @@ export default function Home() {
         </motion.div>
       </motion.section>
 
-      {/* Work With Me — always visible */}
+      {/* Current Focus — always visible */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -211,12 +211,12 @@ export default function Home() {
         className="mb-16"
       >
         <div className="flex items-baseline gap-3 mb-6">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">WORK WITH ME</h2>
-          <p className="text-[11px] text-zinc-700 font-mono">// available sept 2026 — let's talk</p>
+          <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">CURRENT FOCUS</h2>
+          <p className="text-[11px] text-zinc-700 font-mono">// what I build and think about</p>
         </div>
         <div className="grid gap-2">
           {[
-            { label: "Security Audits", desc: "Smart contract, protocol & infrastructure security review. 6+ years at Coinbase securing billions in onchain TVS. Deep EVM expertise, forked-EVM analysis, real-time threat monitoring." },
+            { label: "Protocol & Infrastructure Security", desc: "6+ years securing billions in onchain TVS. Deep EVM expertise, forked-EVM analysis, real-time threat monitoring, and infrastructure security." },
             { label: "AI Infrastructure & Agents", desc: "Production inference deployment, agent harnesses, RAG pipelines, eval systems. Built multi-tenant AI platforms on GKE, local inference on Apple Silicon (MLX), speculative decoding benchmarks, distributed inference engine integration." },
             { label: "Distributed Systems Engineering", desc: "Architecture, implementation & productionization for teams scaling blockchain or AI infrastructure. Kubernetes, RPC layers handling 100+ reqs/sec, multi-region deployments, observability." },
           ].map((svc, i) => (
@@ -237,18 +237,7 @@ export default function Home() {
             </motion.div>
           ))}
         </div>
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.3, delay: 0.3 }}
-          className="mt-4"
-        >
-          <a href={links.email} className="inline-flex items-center gap-2 text-xs font-mono text-brand hover:text-brand-glow transition-colors">
-            ethenpo@gmail.com
-            <span className="text-zinc-700">→</span>
-          </a>
-        </motion.div>
+
       </motion.section>
 
       {/* What I Believe */}
@@ -264,7 +253,7 @@ export default function Home() {
       </CollapsibleSection>
 
       {/* Experience */}
-      <CollapsibleSection title="Experience" subtitle="// things I've done for money" teaser="6 roles — EigenCloud, Coinbase, Shadow, Lucid, Volatrade">
+      <CollapsibleSection title="Experience" subtitle="// things I've done for money" teaser="6 roles — Eigen Labs, Coinbase, Shadow, Lucid, Volatrade">
         <div className="space-y-8">
           {experiences.map((exp, i) => (
             <motion.div

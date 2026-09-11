@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://ethen.me"),
   title: "Ethen Pociask",
   description:
-    "Senior Infrastructure Engineer at EigenCloud — AI infra, decentralized systems, protocol security. Previously Coinbase, Shadow. Building inference harnesses, cross-platform agent clients, and distributed systems.",
+    "Senior Infrastructure Engineer at Eigen Labs — AI infra, decentralized systems, protocol security. Previously Coinbase, Shadow. Building inference harnesses, cross-platform agent clients, and distributed systems.",
   icons: {
     icon: "/favicon.svg",
   },
@@ -54,7 +54,7 @@ const jsonLd = {
       jobTitle: "Senior Infrastructure Engineer",
       worksFor: {
         "@type": "Organization",
-        name: "EigenCloud",
+        name: "Eigen Labs",
         url: "https://www.eigencloud.xyz/",
       },
       alumniOf: {
