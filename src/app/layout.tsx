@@ -7,29 +7,38 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ethen.me"),
-  title: "Ethen Pociask",
+  title: "Ethen Pociask — Protocol Security & AI Infrastructure",
   description:
-    "Senior Infrastructure Engineer at Eigen Labs — AI infra, decentralized systems, protocol security. Previously Coinbase, Shadow. Building inference harnesses, cross-platform agent clients, and distributed systems.",
+    "Protocol security and infrastructure engineer building decentralized and AI systems. Previously Coinbase and Shadow; currently at Eigen Labs.",
   icons: {
-    icon: "/favicon.svg",
+    icon: "/favicon.ico",
   },
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Ethen Pociask",
+    title: "Ethen Pociask — Protocol Security & AI Infrastructure",
     description:
-      "AI infra, decentralized systems, distributed inference. Previously Coinbase. Building Centaur, Hermes, d‑inference, and HermesNative.",
+      "Protocol security and infrastructure engineer building decentralized and AI systems. Previously Coinbase and Shadow; currently at Eigen Labs.",
     url: "https://ethen.me",
     siteName: "Ethen Pociask",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Ethen Pociask — Protocol Security & AI Infrastructure",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ethen Pociask",
+    title: "Ethen Pociask — Protocol Security & AI Infrastructure",
     description:
-      "Senior Infrastructure Engineer. AI infra, decentralized systems, distributed inference. Previously Coinbase.",
+      "Protocol security and infrastructure engineer building decentralized and AI systems.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -77,7 +86,7 @@ const jsonLd = {
         "Systems Design",
       ],
       description:
-        "Senior Infrastructure Engineer building AI agent platforms, distributed inference engines, and cross-platform native clients. Previously Coinbase (protocol security), Shadow (EVM engineering). BS Computer Science, University of San Francisco.",
+        "Protocol security and infrastructure engineer building decentralized and AI systems. Experience includes Coinbase protocol security, Shadow EVM engineering, EigenDA rollup infrastructure, production AI platforms, and distributed inference.",
     },
     {
       "@type": "WebSite",
@@ -103,9 +112,9 @@ export default function RootLayout({
         className={`${inter.className} bg-zinc-950 text-zinc-200 antialiased`}
       >
         <BackgroundLayer />
-        <div className="relative z-10">
+        <main className="relative z-10">
           {children}
-        </div>
+        </main>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

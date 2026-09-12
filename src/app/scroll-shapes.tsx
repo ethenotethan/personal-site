@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 
 const shapes = [
   { type: "circle", x: 3, y: 12, size: 60, speed: 0.3, color: "rgba(99,102,241,0.18)" },
@@ -43,94 +43,104 @@ function Hexagon({ size, color }: { size: number; color: string }) {
   );
 }
 
+type Shape = (typeof shapes)[number];
+
+function AnimatedShape({
+  shape,
+  scrollYProgress,
+}: {
+  shape: Shape;
+  scrollYProgress: MotionValue<number>;
+}) {
+  const yRange: [number, number] = [0, shape.speed * -120];
+  const y = useTransform(scrollYProgress, [0, 1], yRange);
+  const rotate = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    [shape.rotation || 0, (shape.rotation || 0) + 20, (shape.rotation || 0) + 45]
+  );
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [1, 0.6, 0.6, 0.2]);
+
+  const element = (() => {
+    switch (shape.type) {
+      case "circle":
+        return (
+          <div
+            style={{
+              width: shape.size,
+              height: shape.size,
+              borderRadius: "50%",
+              background: `radial-gradient(circle at 35% 35%, ${shape.color}, transparent)`,
+            }}
+          />
+        );
+      case "ring":
+        return (
+          <div
+            style={{
+              width: shape.size,
+              height: shape.size,
+              borderRadius: "50%",
+              border: `1.5px solid ${shape.color}`,
+              background: "transparent",
+            }}
+          />
+        );
+      case "square":
+        return (
+          <div
+            style={{
+              width: shape.size,
+              height: shape.size,
+              borderRadius: shape.size * 0.15,
+              background: shape.color,
+              border: `1px solid ${shape.color}`,
+            }}
+          />
+        );
+      case "triangle":
+        return <Triangle size={shape.size} color={shape.color} />;
+      case "hexagon":
+        return <Hexagon size={shape.size} color={shape.color} />;
+      case "line":
+        return (
+          <div
+            style={{
+              width: shape.size,
+              height: 1,
+              background: `linear-gradient(90deg, transparent, ${shape.color}, transparent)`,
+            }}
+          />
+        );
+      default:
+        return null;
+    }
+  })();
+
+  return (
+    <motion.div
+      style={{
+        position: "absolute",
+        left: `${shape.x}%`,
+        top: `${shape.y}%`,
+        y,
+        rotate,
+        opacity,
+      }}
+    >
+      {element}
+    </motion.div>
+  );
+}
+
 export function ScrollShapes() {
   const { scrollYProgress } = useScroll();
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-      {shapes.map((shape, i) => {
-        const yRange: [number, number] = [0, shape.speed * -120];
-        const y = useTransform(scrollYProgress, [0, 1], yRange);
-        const rotate = useTransform(
-          scrollYProgress,
-          [0, 0.5, 1],
-          [shape.rotation || 0, (shape.rotation || 0) + 20, (shape.rotation || 0) + 45]
-        );
-        const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [1, 0.6, 0.6, 0.2]);
-
-        const el = (() => {
-          const s = shape;
-          switch (s.type) {
-            case "circle":
-              return (
-                <div
-                  style={{
-                    width: s.size,
-                    height: s.size,
-                    borderRadius: "50%",
-                    background: `radial-gradient(circle at 35% 35%, ${s.color}, transparent)`,
-                  }}
-                />
-              );
-            case "ring":
-              return (
-                <div
-                  style={{
-                    width: s.size,
-                    height: s.size,
-                    borderRadius: "50%",
-                    border: `1.5px solid ${s.color}`,
-                    background: "transparent",
-                  }}
-                />
-              );
-            case "square":
-              return (
-                <div
-                  style={{
-                    width: s.size,
-                    height: s.size,
-                    borderRadius: s.size * 0.15,
-                    background: s.color,
-                    border: `1px solid ${s.color}`,
-                  }}
-                />
-              );
-            case "triangle":
-              return <Triangle size={s.size} color={s.color} />;
-            case "hexagon":
-              return <Hexagon size={s.size} color={s.color} />;
-            case "line":
-              return (
-                <div
-                  style={{
-                    width: s.size,
-                    height: 1,
-                    background: `linear-gradient(90deg, transparent, ${s.color}, transparent)`,
-                  }}
-                />
-              );
-            default:
-              return null;
-          }
-        })();
-
-        return (
-          <motion.div
-            key={i}
-            style={{
-              position: "absolute",
-              left: `${shape.x}%`,
-              top: `${shape.y}%`,
-              y,
-              rotate,
-              opacity,
-            }}
-          >
-            {el}
-          </motion.div>
-        );
-      })}
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-40 sm:opacity-100" aria-hidden="true">
+      {shapes.map((shape, index) => (
+        <AnimatedShape key={index} shape={shape} scrollYProgress={scrollYProgress} />
+      ))}
     </div>
   );
 }
