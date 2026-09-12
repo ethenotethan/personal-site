@@ -34,7 +34,7 @@ const beliefs = [
 
 const taglines = [
   "at Eigen Labs — building AI infrastructure and agent systems",
-  "6+ years deep in protocol security and EVM infrastructure",
+  "protocol security, EVM infrastructure, and production AI systems",
   "building systems that survive contact with production",
   "running inference on a Mac Studio like a responsible adult",
 ];
@@ -47,9 +47,9 @@ const links = {
 };
 
 const proofPoints = [
-  { value: "6+ years", label: "protocol & infrastructure" },
+  { value: "6+ years", label: "engineering production systems" },
   { value: "200+", label: "onchain assets monitored" },
-  { value: "$1B+", label: "rollup TVS unblocked" },
+  { value: "$1B+", label: "rollup integrations supported" },
   { value: "3×", label: "ETH hackathon winner" },
 ];
 
@@ -120,7 +120,7 @@ function CollapsibleSection({
       <button
         onClick={() => setOpen(!open)}
         aria-expanded={open}
-        aria-controls={contentId}
+        aria-controls={open ? contentId : undefined}
         className="group flex w-full items-center gap-3 rounded-md text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
       >
         <motion.span
@@ -229,7 +229,7 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400"
         >
-          I build and secure infrastructure for decentralized and AI systems. For 6+ years at Eigen Labs, Coinbase, and Shadow, I&apos;ve worked on forked EVM analysis, real-time protocol monitoring, rollup infrastructure, and production AI platforms. Based in Bangkok, working globally.
+          I build and secure infrastructure for decentralized and AI systems. Across 6+ years in software—including roles at Eigen Labs, Coinbase, and Shadow—I&apos;ve worked on forked EVM analysis, real-time protocol monitoring, rollup infrastructure, and production AI platforms. Based in Bangkok, working globally.
         </motion.p>
         <motion.div
           initial={false}
@@ -307,9 +307,9 @@ export default function Home() {
               <h3 className="mt-1 text-base font-semibold text-white">{work.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-zinc-400">{work.desc}</p>
               {work.href.startsWith("/") ? (
-                <Link href={work.href} className="mt-3 inline-block text-xs text-zinc-500 transition-colors group-hover:text-brand">Read the case study →</Link>
+                <Link href={work.href} aria-label={`Read the ${work.title} case study`} className="mt-3 inline-block text-xs text-zinc-500 transition-colors group-hover:text-brand">Read the case study →</Link>
               ) : (
-                <a href={work.href} target="_blank" rel="noopener" className="mt-3 inline-block text-xs text-zinc-500 transition-colors group-hover:text-brand">View the work →</a>
+                <a href={work.href} target="_blank" rel="noopener" aria-label={`View ${work.title}`} className="mt-3 inline-block text-xs text-zinc-500 transition-colors group-hover:text-brand">View the work →</a>
               )}
             </motion.div>
           ))}

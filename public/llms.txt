@@ -11,7 +11,7 @@
 
 ## About
 
-Ethen Pociask is a Senior Infrastructure Engineer at Eigen Labs with 6+ years across protocol security, EVM engineering, and distributed systems. His work includes production threat monitoring for OP Stack blockchains, an Arbitrum Orbit fork integrated with EigenDA, AI agent platforms on GKE, cross-platform native clients, and distributed inference engines.
+Ethen Pociask is a Senior Infrastructure Engineer at Eigen Labs with 6+ years in software engineering and deep experience across protocol security, EVM engineering, and distributed systems. His work includes production threat monitoring for OP Stack blockchains, an Arbitrum Orbit fork integrated with EigenDA, AI agent platforms on GKE, cross-platform native clients, and distributed inference engines.
 
 Key interests: Ethereum Rollups, Zero Knowledge Cryptography, Distributed Systems, LLMs & AI Agents, EVM Scalability, Systems Design, Computer Networks.
 
