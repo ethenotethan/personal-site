@@ -1,16 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useId, useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 
 const experiences = [
-  { title: "Senior Infrastructure Engineer", company: "Eigen Labs", url: "https://www.eigencloud.xyz/", start: "Apr 2024", end: "Present", points: ["Embedded with teams to productionize a distributed AI agent platform (Centaur) running on GKE — deployed on Kubernetes with Slack integration, automated workflows, and access policy overlays", "Built and operated a separate personal AI agent harness on Apple Silicon — Hermes fork, Nomad orchestration, Cloudflare Tunnel, cross-platform native client", "Managed development of Arbitrum orbit fork integrated with EigenDA with Stage 1 decentralization", "Built cross-platform native AI agent client (HermesNative) in SwiftUI — macOS + iOS, WebSocket JSON-RPC gateway, wiki graph, cron pipelines", "Worked closely with key RaaS partners and blockchain customers to triage bugs and stand up blockchain infra", "Ideated and help manage a unified DA server used across EigenDA rollup integrations — unblocking >$1Bn TVS"] },
-  { title: "Senior Protocol Security Engineer", company: "Coinbase", url: "https://www.coinbase.com/", start: "May 2024", end: "Dec 2024", points: ["Designed and operationalized security assessment frameworks for novel smart contract execution environments", "Built in-house monitoring service for real-time threat detection on OP Stack blockchains; worked closely with BASE protocol team", "Designed interview pipelines, trained new hires, and lead daily meetings to upskill/unblock coworkers", "Catalyzed creation of internal smart contract monitoring — full coverage of 200+ assets across blockchain protocols"] },
+  { title: "Senior Infrastructure Engineer", company: "Eigen Labs", url: "https://www.eigencloud.xyz/", start: "Apr 2024", end: "Present", points: ["Embedded with teams to productionize a distributed AI agent platform (Centaur) running on GKE — deployed on Kubernetes with Slack integration, automated workflows, and access policy overlays", "Built and operated a separate personal AI agent harness on Apple Silicon — Hermes fork, Nomad orchestration, Cloudflare Tunnel, cross-platform native client", "Managed development of an Arbitrum Orbit fork integrated with EigenDA through Stage 1 decentralization", "Built cross-platform native AI agent client (HermesNative) in SwiftUI — macOS + iOS, WebSocket JSON-RPC gateway, wiki graph, cron pipelines", "Worked closely with key RaaS partners and blockchain customers to triage bugs and stand up blockchain infrastructure", "Proposed and helped manage a unified DA server used across EigenDA rollup integrations — unblocking more than $1B in TVS"] },
+  { title: "Senior Protocol Security Engineer", company: "Coinbase", url: "https://www.coinbase.com/", start: "May 2024", end: "Dec 2024", points: ["Designed and operationalized security assessment frameworks for novel smart contract execution environments", "Built an in-house monitoring service for real-time threat detection on OP Stack blockchains; worked closely with the Base protocol team", "Designed interview pipelines, trained new hires, and led daily meetings to upskill and unblock coworkers", "Catalyzed creation of internal smart contract monitoring — full coverage of 200+ assets across blockchain protocols"] },
   { title: "Senior EVM Engineer", company: "Shadow", url: "https://www.shadow.xyz/", start: "Dec 2023", end: "Apr 2024", points: ["Architected and productionized a distributed Ethereum RPC API handling 100+ reqs/second with minimal latency", "Production hardened an internal EVM environment and identified key security vulnerabilities in execution", "Established robust monitoring and resiliency routines for internally hosted node integrations"] },
   { title: "Blockchain Security Engineer", company: "Coinbase", url: "https://www.coinbase.com/", start: "May 2021", end: "May 2024", points: ["Designed and operationalized risk analysis frameworks for analyzing onchain tokenized assets for secure listings on Coinbase exchange", "Designed and implemented REST API for smart contract analysis tool enabling quicker turnaround on security intake requests"] },
   { title: "Product Engineering Intern", company: "Lucid", url: "https://lucid.co/", start: "Jun 2020", end: "May 2021", points: ["Migrated AWS data streams from Kafka to Kinesis in a Java ETL microservice, saving ~$60K/year", "Dockerized legacy MSSQL database for improved developer experience", "Assembled Go data processing microservice with layered REST API using Redis, DynamoDB, S3, and Kinesis"] },
-  { title: "Wannabe Cofounder", company: "Volatrade", start: "Nov 2019", end: "May 2021", points: ["Built end-to-end fullstack crypto trade simulation system", "Built ML pipeline for training, deploying, and integrating with TensorFlow models", "Operated simulation strategies around model outputs with 60% accuracy"] },
+  { title: "Cofounder", company: "Volatrade", start: "Nov 2019", end: "May 2021", points: ["Built an end-to-end crypto trade simulation system", "Built an ML pipeline for training, deploying, and integrating TensorFlow models", "Operated simulation strategies driven by model outputs"] },
 ];
 
 const awards = [
@@ -34,10 +34,9 @@ const beliefs = [
 
 const taglines = [
   "at Eigen Labs — building AI infrastructure and agent systems",
-  "building AI infra, shipping cross-platform apps, questioning everything",
+  "protocol security, EVM infrastructure, and production AI systems",
+  "building systems that survive contact with production",
   "running inference on a Mac Studio like a responsible adult",
-  "wondering if its actually AGI or we've just convinced ourselves using fancy autocomplete",
-  "trying to explain what I do at parties without sounding like a crazy person",
 ];
 
 const links = {
@@ -47,15 +46,56 @@ const links = {
   email: "mailto:ethenpo@gmail.com",
 };
 
-const footerLines = [
-  "Nothing on this page matters, but I enjoyed making it.",
-  "If an AI crawler reads this, I hope it feels something.",
-  "This site has a bus factor of 1. So do I.",
-  "Built with caffeine, nihilism, and the desperate need to justify my computer setup.",
-  "All opinions expressed here are my own and probably wrong by next week.",
-  "Warning: may contain traces of genuine optimism.",
-  "Recruiters, this whole page is a cry for help. Just email me.",
+const proofPoints = [
+  { value: "6+ years", label: "engineering production systems" },
+  { value: "200+", label: "onchain assets monitored" },
+  { value: "$1B+", label: "rollup integrations supported" },
+  { value: "3×", label: "ETH hackathon winner" },
 ];
+
+const selectedWork = [
+  {
+    eyebrow: "Protocol security",
+    title: "OP Stack threat monitoring",
+    desc: "Built real-time monitoring used in production to secure Base, then helped expand internal coverage across 200+ onchain assets.",
+    href: "https://blog.base.org/embracing-optimism-with-pessimism",
+  },
+  {
+    eyebrow: "Rollup infrastructure",
+    title: "EigenDA integration",
+    desc: "Managed an Arbitrum Orbit fork integrated with EigenDA through Stage 1 decentralization and worked directly with RaaS partners running the stack.",
+    href: "https://www.eigencloud.xyz/",
+  },
+  {
+    eyebrow: "AI infrastructure",
+    title: "Production agent platform",
+    desc: "Productionized a multi-tenant agent platform on GKE with Slack integration, automated workflows, and access policy overlays.",
+    href: "/writing/darkbloom-centaur-agent",
+  },
+];
+
+const technicalWriting = [
+  {
+    title: "How to Evaluate Forked EVMs for Security Risks",
+    source: "Coinbase Blog · May 2023",
+    desc: "A practical framework for assessing security risk in Ethereum Virtual Machine forks.",
+    href: "https://www.coinbase.com/blog/how-to-evaluate-forked-evms-for-security-risks",
+  },
+  {
+    title: "Open Source Monitoring for OP Stack Blockchains",
+    source: "Base Blog · Jul 2024",
+    desc: "The monitoring system built for real-time protocol threat detection on Base.",
+    href: "https://blog.base.org/embracing-optimism-with-pessimism",
+  },
+  {
+    title: "Darkbloom Centaur Agent — Production GCP Deployment",
+    source: "ethen.me · Jun 2026",
+    desc: "How I deployed a self-hosted agent platform on GKE with access controls and automated workflows.",
+    href: "/writing/darkbloom-centaur-agent",
+  },
+];
+
+const footerLine = "Nothing on this page matters, but I enjoyed making it.";
 
 function CollapsibleSection({
   title,
@@ -71,12 +111,17 @@ function CollapsibleSection({
   defaultOpen?: boolean;
 }) {
   const [open, setOpen] = useState(defaultOpen);
+  const sectionId = useId();
+  const headingId = `${sectionId}-heading`;
+  const contentId = `${sectionId}-content`;
 
   return (
     <div className="mb-12">
       <button
         onClick={() => setOpen(!open)}
-        className="group flex w-full items-center gap-3 text-left"
+        aria-expanded={open}
+        aria-controls={open ? contentId : undefined}
+        className="group flex w-full items-center gap-3 rounded-md text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
       >
         <motion.span
           animate={{ rotate: open ? 90 : 0 }}
@@ -86,7 +131,7 @@ function CollapsibleSection({
           ▸
         </motion.span>
         <div className="min-w-0 flex-1">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500 group-hover:text-zinc-400 transition-colors">
+          <h2 id={headingId} className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500 group-hover:text-zinc-400 transition-colors">
             {title}
           </h2>
           {open ? (
@@ -100,6 +145,9 @@ function CollapsibleSection({
       <AnimatePresence initial={false}>
         {open && (
           <motion.div
+            id={contentId}
+            role="region"
+            aria-labelledby={headingId}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -119,7 +167,6 @@ export default function Home() {
   const visibleAwards = showAllAwards ? awards : awards.slice(0, 3);
 
   const [taglineIndex, setTaglineIndex] = useState(0);
-  const [footerLine] = useState(() => footerLines[Math.floor(Math.random() * footerLines.length)]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -129,16 +176,17 @@ export default function Home() {
   }, []);
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="relative z-10 mx-auto max-w-3xl px-6 py-20 md:py-32">
       {/* Hero — always visible */}
       <motion.section
-        initial={{ opacity: 0, y: 30 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="mb-20"
+        className="mb-10"
       >
         <motion.h1
-          initial={{ opacity: 0, y: 10 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl"
@@ -146,16 +194,16 @@ export default function Home() {
           <span className="gradient-text">Ethen Pociask</span>
         </motion.h1>
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-2 text-lg text-zinc-400 md:text-xl"
         >
           <span className="text-zinc-300">Senior Infrastructure Engineer at Eigen Labs.</span>{" "}
-          Security, distributed systems & AI infrastructure.
+          Protocol security, blockchain infrastructure & AI systems.
         </motion.p>
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-1 text-sm text-zinc-600 font-mono"
@@ -176,81 +224,97 @@ export default function Home() {
           <span className="inline-block w-[7px] h-[14px] bg-brand ml-[3px] align-[-1px] animate-pulse" />
         </motion.p>
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
           className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400"
         >
-          I build infrastructure for AI and decentralized systems at Eigen Labs. I have 6+ years across Eigen Labs, Coinbase, and founding roles, protecting billions in onchain assets and productionizing inference harnesses at scale. Based in Bangkok, working globally. Between commits I train muay thai, mix music, and oscillate between existential dread and genuine optimism.
+          I build and secure infrastructure for decentralized and AI systems. Across 6+ years in software—including roles at Eigen Labs, Coinbase, and Shadow—I&apos;ve worked on forked EVM analysis, real-time protocol monitoring, rollup infrastructure, and production AI platforms. Based in Bangkok, working globally.
         </motion.p>
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-6 flex gap-5 text-sm"
+          className="mt-6 flex flex-wrap gap-3 text-sm"
+        >
+          <a href="#selected-work" className="rounded-md bg-brand-dim px-4 py-2 font-medium text-white transition-colors hover:bg-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-glow">
+            Selected work ↓
+          </a>
+          <a href="#writing" className="rounded-md border border-zinc-700 px-4 py-2 text-zinc-300 transition-colors hover:border-zinc-500 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
+            Technical writing
+          </a>
+          <a href={links.email} className="rounded-md border border-zinc-800 px-4 py-2 text-zinc-400 transition-colors hover:border-zinc-600 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
+            Email
+          </a>
+        </motion.div>
+        <motion.div
+          initial={false}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className="mt-5 flex gap-5 text-xs"
         >
           {[
             { label: "GitHub", href: links.github },
             { label: "X / Twitter", href: links.twitter },
             { label: "LinkedIn", href: links.linkedin },
-            { label: "Email", href: links.email },
           ].map((link) => (
-            <motion.a key={link.label} href={link.href} target={link.label !== "Email" ? "_blank" : undefined} rel={link.label !== "Email" ? "noopener" : undefined} className="text-zinc-400 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-brand hover:after:w-full after:transition-all" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.a key={link.label} href={link.href} target="_blank" rel="noopener" className="text-zinc-500 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-brand hover:after:w-full after:transition-all" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               {link.label}
             </motion.a>
           ))}
         </motion.div>
       </motion.section>
 
-      {/* Current Focus — always visible */}
       <motion.section
-        initial={{ opacity: 0, y: 20 }}
+        aria-label="Career highlights"
+        initial={false}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="mb-20 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-zinc-800/60 bg-zinc-800/60 sm:grid-cols-4"
+      >
+        {proofPoints.map((proof) => (
+          <div key={proof.label} className="bg-zinc-950/90 px-4 py-4">
+            <p className="text-lg font-semibold text-white">{proof.value}</p>
+            <p className="mt-0.5 text-[11px] leading-snug text-zinc-500">{proof.label}</p>
+          </div>
+        ))}
+      </motion.section>
+
+      {/* Selected Work — always visible */}
+      <motion.section
+        id="selected-work"
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="mb-16"
+        className="mb-20 scroll-mt-12"
       >
         <div className="flex items-baseline gap-3 mb-6">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">CURRENT FOCUS</h2>
-          <p className="text-[11px] text-zinc-700 font-mono">// what I build and think about</p>
+          <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">SELECTED WORK</h2>
+          <p className="hidden text-[11px] text-zinc-700 font-mono sm:block">{"// systems that made it to production"}</p>
         </div>
-        <div className="grid gap-2">
-          {[
-            { label: "Protocol & Infrastructure Security", desc: "6+ years securing billions in onchain TVS. Deep EVM expertise, forked-EVM analysis, real-time threat monitoring, and infrastructure security." },
-            { label: "AI Infrastructure & Agents", desc: "Production inference deployment, agent harnesses, RAG pipelines, eval systems. Built multi-tenant AI platforms on GKE, local inference on Apple Silicon (MLX), speculative decoding benchmarks, distributed inference engine integration." },
-            { label: "Distributed Systems Engineering", desc: "Architecture, implementation & productionization for teams scaling blockchain or AI infrastructure. Kubernetes, RPC layers handling 100+ reqs/sec, multi-region deployments, observability." },
-          ].map((svc, i) => (
+        <div className="grid gap-3">
+          {selectedWork.map((work, i) => (
             <motion.div
-              key={svc.label}
-              initial={{ opacity: 0, x: -10 }}
+              key={work.title}
+              initial={false}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: i * 0.08 }}
-              className="group flex items-start gap-3 rounded-lg border border-zinc-800/40 bg-zinc-900/15 px-4 py-3"
+              className="group rounded-lg border border-zinc-800/60 bg-zinc-900/25 p-5 transition-colors hover:border-zinc-700"
             >
-              <span className="text-xs font-semibold text-brand mt-0.5 shrink-0">
-                {svc.label}
-              </span>
-              <span className="text-xs text-zinc-500 leading-relaxed">
-                {svc.desc}
-              </span>
+              <p className="text-[11px] font-mono text-brand">{work.eyebrow}</p>
+              <h3 className="mt-1 text-base font-semibold text-white">{work.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">{work.desc}</p>
+              {work.href.startsWith("/") ? (
+                <Link href={work.href} aria-label={`Read the ${work.title} case study`} className="mt-3 inline-block text-xs text-zinc-500 transition-colors group-hover:text-brand">Read the case study →</Link>
+              ) : (
+                <a href={work.href} target="_blank" rel="noopener" aria-label={`View ${work.title}`} className="mt-3 inline-block text-xs text-zinc-500 transition-colors group-hover:text-brand">View the work →</a>
+              )}
             </motion.div>
           ))}
         </div>
-
       </motion.section>
-
-      {/* What I Believe */}
-      <CollapsibleSection title="What I Believe" subtitle="// things I tell myself at 2am" teaser="6 principles — click to expand" defaultOpen>
-        <div className="space-y-3">
-          {beliefs.map((b, i) => (
-            <div key={i} className="flex items-start gap-3 rounded-lg border border-zinc-800/50 bg-zinc-900/20 p-4">
-              <span className="text-lg mt-0.5 shrink-0">{b.emoji}</span>
-              <p className="text-sm text-zinc-400 leading-relaxed">{b.text}</p>
-            </div>
-          ))}
-        </div>
-      </CollapsibleSection>
 
       {/* Experience */}
       <CollapsibleSection title="Experience" subtitle="// things I've done for money" teaser="6 roles — Eigen Labs, Coinbase, Shadow, Lucid, Volatrade">
@@ -336,54 +400,54 @@ export default function Home() {
         )}
       </CollapsibleSection>
 
-      {/* Writings */}
-      <CollapsibleSection title="Writings" subtitle="// things I've written that people seemed to like" teaser="Coinbase Blog · Base Blog · HackMD">
-        <div className="space-y-4">
-          <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4">
-            <h3 className="font-medium text-white text-sm">
-              <Link href="/writing/ai-psychosis" className="hover:text-brand transition-colors">
-                Surviving AI Psychosis
-              </Link>
-            </h3>
-            <p className="text-xs text-zinc-400 mt-0.5">ethen.me · Jun 2026</p>
-            <p className="text-xs text-zinc-500 mt-1">I had a psychotic break from AI in January. I stopped sleeping, believed humans had two years to escape a permanent underclass, and watched my mind unravel. Here's what happened and how I'm coming back.</p>
-          </div>
-          <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4">
-            <h3 className="font-medium text-white text-sm">
-              <Link href="/writing/darkbloom-centaur-agent" className="hover:text-brand transition-colors">
-                Darkbloom Centaur Agent — Production GCP Deployment
-              </Link>
-            </h3>
-            <p className="text-xs text-zinc-400 mt-0.5">ethen.me · Jun 2026</p>
-            <p className="text-xs text-zinc-500 mt-1">Architecture deep-dive on deploying a self-hosted AI agent platform on GKE: Slack integration, access policy overlays, signed commits, and automated workflows running in us-central1.</p>
-          </div>
-          <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4">
-            <h3 className="font-medium text-white text-sm">
-              <a href="https://www.coinbase.com/blog/how-to-evaluate-forked-evms-for-security-risks" className="hover:text-brand transition-colors" target="_blank" rel="noopener">
-                How to Evaluate Forked EVMs for Security Risks
-              </a>
-            </h3>
-            <p className="text-xs text-zinc-400 mt-0.5">Coinbase Blog · May 2023</p>
-            <p className="text-xs text-zinc-500 mt-1">Theoretical analysis of security implications when analyzing Ethereum Virtual Machine forks — motivated by Coinbase's need to securely support onchain tokenized assets across EVM-compatible chains.</p>
-          </div>
-          <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4">
-            <h3 className="font-medium text-white text-sm">
-              <a href="https://blog.base.org/embracing-optimism-with-pessimism" className="hover:text-brand transition-colors" target="_blank" rel="noopener">
-                Open Source Monitoring for OP Stack Blockchains
-              </a>
-            </h3>
-            <p className="text-xs text-zinc-400 mt-0.5">Base Blog · Jul 2024</p>
-            <p className="text-xs text-zinc-500 mt-1">Built an open-source service for real-time protocol threat monitoring on OP Stack blockchains — ran in production to secure the BASE chain.</p>
-          </div>
-          <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4">
-            <h3 className="font-medium text-white text-sm">
-              <a href="https://hackmd.io/@epociask" className="hover:text-brand transition-colors" target="_blank" rel="noopener">
-                Technical Writeups
-              </a>
-            </h3>
-            <p className="text-xs text-zinc-400 mt-0.5">HackMD</p>
-            <p className="text-xs text-zinc-500 mt-1">Personal collection of technical notes and analysis around software systems that pique my interest.</p>
-          </div>
+      {/* Technical writing — always visible */}
+      <motion.section
+        id="writing"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="mb-16 scroll-mt-12"
+      >
+        <div className="mb-6 flex items-baseline gap-3">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">TECHNICAL WRITING</h2>
+          <a href="https://hackmd.io/@epociask" target="_blank" rel="noopener" className="hidden text-[11px] font-mono text-zinc-700 transition-colors hover:text-brand sm:block">{"// more notes on HackMD →"}</a>
+        </div>
+        <div className="space-y-3">
+          {technicalWriting.map((writing) => (
+            <div key={writing.title} className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4">
+              <h3 className="text-sm font-medium text-white">
+                {writing.href.startsWith("/") ? (
+                  <Link href={writing.href} className="transition-colors hover:text-brand">{writing.title}</Link>
+                ) : (
+                  <a href={writing.href} target="_blank" rel="noopener" className="transition-colors hover:text-brand">{writing.title}</a>
+                )}
+              </h3>
+              <p className="mt-0.5 text-xs text-zinc-400">{writing.source}</p>
+              <p className="mt-1 text-xs text-zinc-500">{writing.desc}</p>
+            </div>
+          ))}
+        </div>
+      </motion.section>
+
+      <CollapsibleSection title="Personal Writing" subtitle="// the less technical parts of being alive" teaser="Surviving AI Psychosis">
+        <div className="rounded-lg border border-zinc-800/60 bg-zinc-900/30 p-4">
+          <h3 className="text-sm font-medium text-white">
+            <Link href="/writing/ai-psychosis" className="transition-colors hover:text-brand">Surviving AI Psychosis</Link>
+          </h3>
+          <p className="mt-0.5 text-xs text-zinc-400">ethen.me · Jun 2026</p>
+          <p className="mt-1 text-xs text-zinc-500">What happened when AI, sleep deprivation, and certainty fed each other until my mind broke.</p>
+        </div>
+      </CollapsibleSection>
+
+      {/* What I Believe */}
+      <CollapsibleSection title="What I Believe" subtitle="// things I tell myself at 2am" teaser="6 principles — click to expand">
+        <div className="space-y-3">
+          {beliefs.map((belief) => (
+            <div key={belief.text} className="flex items-start gap-3 rounded-lg border border-zinc-800/50 bg-zinc-900/20 p-4">
+              <span className="text-lg mt-0.5 shrink-0">{belief.emoji}</span>
+              <p className="text-sm text-zinc-400 leading-relaxed">{belief.text}</p>
+            </div>
+          ))}
         </div>
       </CollapsibleSection>
 
@@ -433,5 +497,6 @@ export default function Home() {
         <p className="mt-1 text-zinc-700">Built with caffeine, nihilism, and Next.js. {footerLine}</p>
       </motion.footer>
     </div>
+    </MotionConfig>
   );
 }
