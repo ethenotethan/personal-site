@@ -82,7 +82,3 @@ I need to say this plainly: I am deeply afraid that the systems I have spent yea
 I have worked on autonomous agents, zero-human companies, productivity surveillance, and infrastructure designed to make machine intelligence more capable and harder to stop. I can tell myself I was exploring what was possible, or trying to understand it before someone worse built it. That does not erase my part in it.
 
 There is a reality where this technology harms enough people that they come looking for the people who built it. I can see my own head put on a spike. I don't mean that as theater. I mean I understand why people may hate us if we knowingly build systems that strip them of work, privacy, dignity, or control over their lives.
-
-Maybe that fear is still tangled up with what happened to me. Probably some of it is. But I don't want recovery to become a story I use to dismiss every warning my mind was trying to send. Psychosis made my certainty unreliable. It did not make every underlying concern false.
-
-I am still deciding what responsibility looks like from here. I don't have a reassuring ending. I'm afraid of what happens if I keep building. I'm also afraid of what happens if the people who care stop.
