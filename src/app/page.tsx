@@ -5,7 +5,7 @@ import Link from "next/link";
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 
 const experiences = [
-  { title: "Senior Infrastructure Engineer", company: "Eigen Labs", url: "https://www.eigencloud.xyz/", start: "Apr 2024", end: "Present", points: ["Embedded with teams to productionize a distributed AI agent platform (Centaur) running on GKE — deployed on Kubernetes with Slack integration, automated workflows, and access policy overlays", "Built and operated a separate personal AI agent harness on Apple Silicon — Hermes fork, Nomad orchestration, Cloudflare Tunnel, cross-platform native client", "Managed development of an Arbitrum Orbit fork integrated with EigenDA through Stage 1 decentralization", "Built cross-platform native AI agent client (HermesNative) in SwiftUI — macOS + iOS, WebSocket JSON-RPC gateway, wiki graph, cron pipelines", "Worked closely with key RaaS partners and blockchain customers to triage bugs and stand up blockchain infrastructure", "Proposed and helped manage a unified DA server used across EigenDA rollup integrations — unblocking more than $1B in TVS"] },
+  { title: "Senior Infrastructure Engineer", company: "Eigen Labs", url: "https://www.eigencloud.xyz/", start: "Apr 2024", end: "Present", points: ["Built and operated a personal AI agent harness on Apple Silicon — Hermes fork, Nomad orchestration, Cloudflare Tunnel, cross-platform native client", "Managed development of an Arbitrum Orbit fork integrated with EigenDA through Stage 1 decentralization", "Built cross-platform native AI agent client (HermesNative) in SwiftUI — macOS + iOS, WebSocket JSON-RPC gateway, wiki graph, cron pipelines", "Worked closely with key RaaS partners and blockchain customers to triage bugs and stand up blockchain infrastructure", "Proposed and helped manage a unified DA server used across EigenDA rollup integrations — unblocking more than $1B in TVS"] },
   { title: "Senior Protocol Security Engineer", company: "Coinbase", url: "https://www.coinbase.com/", start: "May 2024", end: "Dec 2024", points: ["Designed and operationalized security assessment frameworks for novel smart contract execution environments", "Built an in-house monitoring service for real-time threat detection on OP Stack blockchains; worked closely with the Base protocol team", "Designed interview pipelines, trained new hires, and led daily meetings to upskill and unblock coworkers", "Catalyzed creation of internal smart contract monitoring — full coverage of 200+ assets across blockchain protocols"] },
   { title: "Senior EVM Engineer", company: "Shadow", url: "https://www.shadow.xyz/", start: "Dec 2023", end: "Apr 2024", points: ["Architected and productionized a distributed Ethereum RPC API handling 100+ reqs/second with minimal latency", "Production hardened an internal EVM environment and identified key security vulnerabilities in execution", "Established robust monitoring and resiliency routines for internally hosted node integrations"] },
   { title: "Blockchain Security Engineer", company: "Coinbase", url: "https://www.coinbase.com/", start: "May 2021", end: "May 2024", points: ["Designed and operationalized risk analysis frameworks for analyzing onchain tokenized assets for secure listings on Coinbase exchange", "Designed and implemented REST API for smart contract analysis tool enabling quicker turnaround on security intake requests"] },
@@ -66,12 +66,6 @@ const selectedWork = [
     desc: "Managed an Arbitrum Orbit fork integrated with EigenDA through Stage 1 decentralization and worked directly with RaaS partners running the stack.",
     href: "https://www.eigencloud.xyz/",
   },
-  {
-    eyebrow: "AI infrastructure",
-    title: "Production agent platform",
-    desc: "Productionized a multi-tenant agent platform on GKE with Slack integration, automated workflows, and access policy overlays.",
-    href: "/writing/darkbloom-centaur-agent",
-  },
 ];
 
 const technicalWriting = [
@@ -86,12 +80,6 @@ const technicalWriting = [
     source: "Base Blog · Jul 2024",
     desc: "The monitoring system built for real-time protocol threat detection on Base.",
     href: "https://blog.base.org/embracing-optimism-with-pessimism",
-  },
-  {
-    title: "Darkbloom Centaur Agent — Production GCP Deployment",
-    source: "ethen.me · Jun 2026",
-    desc: "How I deployed a self-hosted agent platform on GKE with access controls and automated workflows.",
-    href: "/writing/darkbloom-centaur-agent",
   },
 ];
 

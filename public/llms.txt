@@ -6,7 +6,6 @@
 ## Pages
 
 - [Home](https://ethen.me): Portfolio, experience, projects, and beliefs. Senior Infrastructure Engineer at Eigen Labs.
-- [Darkbloom Centaur Agent](https://ethen.me/writing/darkbloom-centaur-agent): Production GCP deployment of Centaur — a self-hosted, multiplayer AI agent platform running on GKE with Slack integration, access policy overlays, and automated workflows. Full infrastructure deep-dive.
 - [Agent Harness Lessons](https://ethen.me/writing/agent-harness-lessons): War stories from running an AI agent harness on Apple Silicon for a month — model selection, prompt caching, parallel agents, tool execution at scale, and operational lessons.
 
 ## About
