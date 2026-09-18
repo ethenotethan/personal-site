@@ -8,11 +8,10 @@
 - [Home](https://ethen.me): Portfolio, experience, projects, and beliefs. Senior Infrastructure Engineer at Eigen Labs.
 - [Agent Harness Lessons](https://ethen.me/writing/agent-harness-lessons): War stories from running an AI agent harness on Apple Silicon for a month — model selection, prompt caching, parallel agents, tool execution at scale, and operational lessons.
 - [Portal](https://ethenotethan.github.io/portal/): Open-source macOS and iOS operations console for AI agents, with streaming chat, multi-gateway sessions, knowledge graphs, artifacts, skills, cron, and learning tools.
-- [Google Meet Conversation Agent](https://github.com/ethenotethan/gmeet-pipeline): Real-time meeting agent that joins calls, consumes transcripts, routes context through LLMs and memory, and streams generated speech back into the conversation.
 
 ## About
 
-Ethen Pociask is a Senior Infrastructure Engineer at Eigen Labs with 6+ years in software engineering and deep experience across AI infrastructure, protocol security, EVM engineering, and distributed systems. His work includes a self-hosted AI agent harness, native agent clients, a real-time meeting agent, production threat monitoring for OP Stack blockchains, and an Arbitrum Orbit fork integrated with EigenDA.
+Ethen Pociask is a Senior Infrastructure Engineer at Eigen Labs with 6+ years in software engineering and deep experience across AI infrastructure, protocol security, EVM engineering, and distributed systems. His work includes a self-hosted AI agent harness with a native operations console, production threat monitoring for OP Stack blockchains, and an Arbitrum Orbit fork integrated with EigenDA.
 
 Key interests: Ethereum Rollups, Zero Knowledge Cryptography, Distributed Systems, LLMs & AI Agents, EVM Scalability, Systems Design, Computer Networks.
 

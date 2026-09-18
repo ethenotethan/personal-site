@@ -56,27 +56,20 @@ const proofPoints = [
 const selectedWork = [
   {
     eyebrow: "AI agent infrastructure",
-    title: "Hermes agent harness",
-    desc: "Built and operate a self-hosted agent system on Apple Silicon with tool execution, parallel subagents, durable memory, scheduled workflows, and native clients.",
-    href: "/writing/agent-harness-lessons",
-  },
-  {
-    eyebrow: "Native AI systems",
-    title: "Portal",
-    desc: "Built an open-source macOS and iOS operations console for AI agents: streaming chat, multi-gateway sessions, knowledge graphs, artifacts, skills, cron, and learning tools.",
-    href: "https://ethenotethan.github.io/portal/",
-  },
-  {
-    eyebrow: "Real-time voice agents",
-    title: "Google Meet conversation agent",
-    desc: "Built a meeting agent that joins calls, consumes live transcripts, routes context through LLMs and memory, and streams generated speech back into the conversation.",
-    href: "https://github.com/ethenotethan/gmeet-pipeline",
+    title: "Hermes + Portal",
+    desc: "Built and operate a self-hosted agent system on Apple Silicon, plus its open-source macOS and iOS operations console — tool execution, parallel subagents, durable memory, multi-gateway sessions, knowledge graphs, artifacts, skills, cron, and learning tools.",
+    links: [
+      { label: "Read the case study →", href: "/writing/agent-harness-lessons" },
+      { label: "View Portal →", href: "https://ethenotethan.github.io/portal/" },
+    ],
   },
   {
     eyebrow: "Protocol security",
     title: "OP Stack threat monitoring",
     desc: "Built real-time monitoring used in production to secure Base, then helped expand internal coverage across 200+ onchain assets.",
-    href: "https://blog.base.org/embracing-optimism-with-pessimism",
+    links: [
+      { label: "View the work →", href: "https://blog.base.org/embracing-optimism-with-pessimism" },
+    ],
   },
 ];
 
@@ -306,11 +299,15 @@ export default function Home() {
               <p className="text-[11px] font-mono text-brand">{work.eyebrow}</p>
               <h3 className="mt-1 text-base font-semibold text-white">{work.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-zinc-400">{work.desc}</p>
-              {work.href.startsWith("/") ? (
-                <Link href={work.href} aria-label={`Read the ${work.title} case study`} className="mt-3 inline-block text-xs text-zinc-500 transition-colors group-hover:text-brand">Read the case study →</Link>
-              ) : (
-                <a href={work.href} target="_blank" rel="noopener" aria-label={`View ${work.title}`} className="mt-3 inline-block text-xs text-zinc-500 transition-colors group-hover:text-brand">View the work →</a>
-              )}
+              <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+                {work.links.map((link) =>
+                  link.href.startsWith("/") ? (
+                    <Link key={link.href} href={link.href} className="text-xs text-zinc-500 transition-colors group-hover:text-brand">{link.label}</Link>
+                  ) : (
+                    <a key={link.href} href={link.href} target="_blank" rel="noopener" className="text-xs text-zinc-500 transition-colors group-hover:text-brand">{link.label}</a>
+                  )
+                )}
+              </div>
             </motion.div>
           ))}
         </div>
