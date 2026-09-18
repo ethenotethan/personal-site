@@ -7,8 +7,10 @@
 
 ## Selected Work
 
+- **Hermes agent harness** — Built and operate a self-hosted agent system on Apple Silicon with tool execution, parallel subagents, durable memory, scheduled workflows, and native clients. Case study: https://ethen.me/writing/agent-harness-lessons
+- **Portal** — Built an open-source macOS and iOS operations console for AI agents: streaming chat, multi-gateway sessions, knowledge graphs, artifacts, skills, cron, and learning tools. Project: https://ethenotethan.github.io/portal/
+- **Google Meet conversation agent** — Built a meeting agent that joins calls, consumes live transcripts, routes context through LLMs and memory, and streams generated speech back into the conversation. Project: https://github.com/ethenotethan/gmeet-pipeline
 - **OP Stack threat monitoring** — Built real-time monitoring used in production to secure Base, then helped expand internal coverage across 200+ onchain assets.
-- **EigenDA integration** — Managed an Arbitrum Orbit fork integrated with EigenDA through Stage 1 decentralization and worked directly with RaaS partners running the stack.
 
 ## What I Build
 

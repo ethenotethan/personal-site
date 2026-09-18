@@ -55,16 +55,28 @@ const proofPoints = [
 
 const selectedWork = [
   {
+    eyebrow: "AI agent infrastructure",
+    title: "Hermes agent harness",
+    desc: "Built and operate a self-hosted agent system on Apple Silicon with tool execution, parallel subagents, durable memory, scheduled workflows, and native clients.",
+    href: "/writing/agent-harness-lessons",
+  },
+  {
+    eyebrow: "Native AI systems",
+    title: "Portal",
+    desc: "Built an open-source macOS and iOS operations console for AI agents: streaming chat, multi-gateway sessions, knowledge graphs, artifacts, skills, cron, and learning tools.",
+    href: "https://ethenotethan.github.io/portal/",
+  },
+  {
+    eyebrow: "Real-time voice agents",
+    title: "Google Meet conversation agent",
+    desc: "Built a meeting agent that joins calls, consumes live transcripts, routes context through LLMs and memory, and streams generated speech back into the conversation.",
+    href: "https://github.com/ethenotethan/gmeet-pipeline",
+  },
+  {
     eyebrow: "Protocol security",
     title: "OP Stack threat monitoring",
     desc: "Built real-time monitoring used in production to secure Base, then helped expand internal coverage across 200+ onchain assets.",
     href: "https://blog.base.org/embracing-optimism-with-pessimism",
-  },
-  {
-    eyebrow: "Rollup infrastructure",
-    title: "EigenDA integration",
-    desc: "Managed an Arbitrum Orbit fork integrated with EigenDA through Stage 1 decentralization and worked directly with RaaS partners running the stack.",
-    href: "https://www.eigencloud.xyz/",
   },
 ];
 
