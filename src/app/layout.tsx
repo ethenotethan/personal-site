@@ -1,9 +1,26 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { BackgroundLayer } from "./background";
+import { ThemeToggle } from "./theme-toggle";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const themeBootScript = `
+  (() => {
+    try {
+      const saved = localStorage.getItem("theme");
+      const theme = saved === "light" || saved === "dark"
+        ? saved
+        : (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.style.colorScheme = theme;
+    } catch {
+      document.documentElement.dataset.theme = "dark";
+      document.documentElement.style.colorScheme = "dark";
+    }
+  })();
+`;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ethen.me"),
@@ -107,11 +124,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" data-theme="dark" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
+      </head>
       <body
         className={`${inter.className} bg-zinc-950 text-zinc-200 antialiased`}
       >
         <BackgroundLayer />
+        <ThemeToggle />
         <main className="relative z-10">
           {children}
         </main>

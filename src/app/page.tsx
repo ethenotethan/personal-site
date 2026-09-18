@@ -237,7 +237,7 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mt-6 flex flex-wrap gap-3 text-sm"
         >
-          <a href="#selected-work" className="rounded-md bg-brand-dim px-4 py-2 font-medium text-white transition-colors hover:bg-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-glow">
+          <a href="#selected-work" className="on-brand rounded-md bg-brand-dim px-4 py-2 font-medium text-white transition-colors hover:bg-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-glow">
             Selected work ↓
           </a>
           <a href="#writing" className="rounded-md border border-zinc-700 px-4 py-2 text-zinc-300 transition-colors hover:border-zinc-500 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
